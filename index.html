@@ -258,11 +258,57 @@
                                 <a class="text-secondary hover:text-on-surface transition-colors cursor-pointer"
                                         href="#contact">Contact</a>
                         </div>
-                        <button aria-label="Menu" class="md:hidden text-on-surface">
-                                <span class="material-symbols-outlined text-xl">menu</span>
+                        <button id="menu-toggle-btn" aria-label="Menu" class="md:hidden text-on-surface relative z-50 flex items-center justify-center">
+                                <span class="material-symbols-outlined text-xl transition-transform duration-200" id="menu-toggle-icon">menu</span>
                         </button>
                 </div>
         </nav>
+        <!-- Mobile Menu Backdrop -->
+        <div id="mobile-menu-backdrop" class="fixed inset-0 bg-black/25 backdrop-blur-sm z-30 opacity-0 pointer-events-none transition-opacity duration-300 md:hidden"></div>
+        
+        <!-- Mobile Menu Drawer (Slide-in Panel) -->
+        <div id="mobile-menu" class="fixed top-0 right-0 bottom-0 w-[80vw] max-w-[320px] bg-background/95 backdrop-blur-lg border-l border-on-surface/10 z-40 transform translate-x-full transition-transform duration-300 md:hidden flex flex-col pt-24 px-6 gap-6 shadow-2xl">
+                <div class="flex flex-col gap-6 text-base font-medium uppercase tracking-wider font-label-sm">
+                        <a href="#experience" class="mobile-menu-link text-on-surface hover:text-primary transition-colors py-2 border-b border-on-surface/5">Experience</a>
+                        
+                        <!-- Projects Section with Dropdown -->
+                        <div class="flex flex-col border-b border-on-surface/5">
+                                <button id="mobile-projects-trigger" class="flex justify-between items-center text-on-surface hover:text-primary transition-colors py-2 uppercase tracking-wider font-label-sm text-left">
+                                        <span>Projects</span>
+                                        <span class="material-symbols-outlined transition-transform duration-300 text-xl" id="projects-chevron">expand_more</span>
+                                </button>
+                                <!-- Projects Dropdown List -->
+                                <div id="mobile-projects-dropdown" class="hidden flex-col gap-4 pl-4 py-3 max-h-[300px] overflow-y-auto">
+                                        <div class="flex flex-col gap-2">
+                                                <span class="text-[9px] text-outline tracking-wider font-semibold uppercase">Digital Campaigns</span>
+                                                <a href="project-detail.html?id=true-beacon" class="mobile-menu-link text-sm text-secondary hover:text-primary py-1">True Beacon</a>
+                                                <a href="project-detail.html?id=nksquared" class="mobile-menu-link text-sm text-secondary hover:text-primary py-1">NKSquared</a>
+                                                <a href="project-detail.html?id=royal-enfield" class="mobile-menu-link text-sm text-secondary hover:text-primary py-1">Royal Enfield</a>
+                                                <a href="project-detail.html?id=finforall" class="mobile-menu-link text-sm text-secondary hover:text-primary py-1">Finforall by Jupiter</a>
+                                                <a href="project-detail.html?id=nikhil-kamath" class="mobile-menu-link text-sm text-secondary hover:text-primary py-1">Nikhil Kamath</a>
+                                        </div>
+                                        <div class="flex flex-col gap-2 mt-2">
+                                                <span class="text-[9px] text-outline tracking-wider font-semibold uppercase">Social Development</span>
+                                                <a href="project-detail.html?id=teens-of-god" class="mobile-menu-link text-sm text-secondary hover:text-primary py-1">Teens of God NGO</a>
+                                                <a href="project-detail.html?id=girl-up-noor" class="mobile-menu-link text-sm text-secondary hover:text-primary py-1">Girl Up Noor</a>
+                                                <a href="project-detail.html?id=ummcl" class="mobile-menu-link text-sm text-secondary hover:text-primary py-1">UMMCL</a>
+                                                <a href="project-detail.html?id=dyx2-learning" class="mobile-menu-link text-sm text-secondary hover:text-primary py-1">DYX2 Learning</a>
+                                        </div>
+                                        <div class="flex flex-col gap-2 mt-2">
+                                                <span class="text-[9px] text-outline tracking-wider font-semibold uppercase">Major Projects (B.Design)</span>
+                                                <a href="project-detail.html?id=leeway" class="mobile-menu-link text-sm text-secondary hover:text-primary py-1">Leeway</a>
+                                                <a href="project-detail.html?id=wayste" class="mobile-menu-link text-sm text-secondary hover:text-primary py-1">Wayste</a>
+                                                <a href="project-detail.html?id=business-design-labs" class="mobile-menu-link text-sm text-secondary hover:text-primary py-1">Business Design Labs</a>
+                                                <a href="project-detail.html?id=deshpande-foundation" class="mobile-menu-link text-sm text-secondary hover:text-primary py-1">Deshpande Foundation</a>
+                                                <a href="project-detail.html?id=project-kisaan" class="mobile-menu-link text-sm text-secondary hover:text-primary py-1">Project Kisaan</a>
+                                                <a href="project-detail.html?id=nivaar" class="mobile-menu-link text-sm text-secondary hover:text-primary py-1">NIVAAR</a>
+                                        </div>
+                                </div>
+                        </div>
+
+                        <a href="#contact" class="mobile-menu-link text-on-surface hover:text-primary transition-colors py-2 border-b border-on-surface/5">Contact</a>
+                </div>
+        </div>
         <!-- Main Content Container -->
         <main
                 class="max-w-[1200px] mx-auto px-margin-sm md:px-margin-md lg:px-margin-lg py-32 md:py-48 flex flex-col gap-24 md:gap-40 relative z-10">
@@ -654,10 +700,10 @@
                                                         <img src="logos/teens-of-god.png" alt="Teens of God logo" class="w-full h-full object-contain p-1" />
                                                 </div>
                                                 <div class="flex flex-col flex-grow">
-                                                        <h3
-                                                                class="font-headline-md text-xl group-hover:text-primary transition-colors flex items-center justify-between gap-2">
-                                                                <span>Teens of God NGO</span><span
-                                                                        class="inline-flex items-center gap-1 text-[10px] font-label-sm uppercase tracking-widest text-blue-600 border border-blue-600/20 bg-blue-50 px-2.5 py-0.5 rounded-full group-hover:bg-blue-600 group-hover:text-white group-hover:border-blue-600 transition-all duration-300 shrink-0 font-sans whitespace-nowrap">Explore Project ↗</span></h3>
+                                                        <h3 class="font-headline-md text-xl group-hover:text-primary transition-colors">Teens of God NGO</h3>
+												<div class="flex mt-1.5">
+													<span class="inline-flex items-center gap-1 text-[10px] font-label-sm uppercase tracking-widest text-blue-600 border border-blue-600/20 bg-blue-50 px-2.5 py-0.5 rounded-full group-hover:bg-blue-600 group-hover:text-white group-hover:border-blue-600 transition-all duration-300 font-sans whitespace-nowrap">Explore Project ↗</span>
+												</div>
                                                 </div>
                                         </div>
                                         <div class="flex flex-col h-full gap-2 relative pb-6">
@@ -677,10 +723,10 @@
                                                         <span class="font-sans font-black text-sm tracking-tight text-white">GU</span>
                                                 </div>
                                                 <div class="flex flex-col flex-grow">
-                                                        <h3
-                                                                class="font-headline-md text-xl group-hover:text-primary transition-colors flex items-center justify-between gap-2">
-                                                                <span>Girl Up Noor</span><span
-                                                                        class="inline-flex items-center gap-1 text-[10px] font-label-sm uppercase tracking-widest text-blue-600 border border-blue-600/20 bg-blue-50 px-2.5 py-0.5 rounded-full group-hover:bg-blue-600 group-hover:text-white group-hover:border-blue-600 transition-all duration-300 shrink-0 font-sans whitespace-nowrap">Explore Project ↗</span></h3>
+                                                        <h3 class="font-headline-md text-xl group-hover:text-primary transition-colors">Girl Up Noor</h3>
+												<div class="flex mt-1.5">
+													<span class="inline-flex items-center gap-1 text-[10px] font-label-sm uppercase tracking-widest text-blue-600 border border-blue-600/20 bg-blue-50 px-2.5 py-0.5 rounded-full group-hover:bg-blue-600 group-hover:text-white group-hover:border-blue-600 transition-all duration-300 font-sans whitespace-nowrap">Explore Project ↗</span>
+												</div>
                                                 </div>
                                         </div>
                                         <div class="flex flex-col h-full gap-2 relative pb-6">
@@ -700,10 +746,10 @@
                                                         <span class="font-sans font-bold text-sm tracking-wider text-emerald-200">UM</span>
                                                 </div>
                                                 <div class="flex flex-col flex-grow">
-                                                        <h3
-                                                                class="font-headline-md text-xl group-hover:text-primary transition-colors flex items-center justify-between gap-2">
-                                                                <span>UMMCL</span><span
-                                                                        class="inline-flex items-center gap-1 text-[10px] font-label-sm uppercase tracking-widest text-blue-600 border border-blue-600/20 bg-blue-50 px-2.5 py-0.5 rounded-full group-hover:bg-blue-600 group-hover:text-white group-hover:border-blue-600 transition-all duration-300 shrink-0 font-sans whitespace-nowrap">Explore Project ↗</span></h3>
+                                                        <h3 class="font-headline-md text-xl group-hover:text-primary transition-colors">UMMCL</h3>
+												<div class="flex mt-1.5">
+													<span class="inline-flex items-center gap-1 text-[10px] font-label-sm uppercase tracking-widest text-blue-600 border border-blue-600/20 bg-blue-50 px-2.5 py-0.5 rounded-full group-hover:bg-blue-600 group-hover:text-white group-hover:border-blue-600 transition-all duration-300 font-sans whitespace-nowrap">Explore Project ↗</span>
+												</div>
                                                 </div>
                                         </div>
                                         <div class="flex flex-col h-full gap-2 relative pb-6">
@@ -723,10 +769,10 @@
                                                         <span class="font-sans font-extrabold text-sm tracking-widest text-indigo-300">D2</span>
                                                 </div>
                                                 <div class="flex flex-col flex-grow">
-                                                        <h3
-                                                                class="font-headline-md text-xl group-hover:text-primary transition-colors flex items-center justify-between gap-2">
-                                                                <span>DYX2 Learning</span><span
-                                                                        class="inline-flex items-center gap-1 text-[10px] font-label-sm uppercase tracking-widest text-blue-600 border border-blue-600/20 bg-blue-50 px-2.5 py-0.5 rounded-full group-hover:bg-blue-600 group-hover:text-white group-hover:border-blue-600 transition-all duration-300 shrink-0 font-sans whitespace-nowrap">Explore Project ↗</span></h3>
+                                                        <h3 class="font-headline-md text-xl group-hover:text-primary transition-colors">DYX2 Learning</h3>
+												<div class="flex mt-1.5">
+													<span class="inline-flex items-center gap-1 text-[10px] font-label-sm uppercase tracking-widest text-blue-600 border border-blue-600/20 bg-blue-50 px-2.5 py-0.5 rounded-full group-hover:bg-blue-600 group-hover:text-white group-hover:border-blue-600 transition-all duration-300 font-sans whitespace-nowrap">Explore Project ↗</span>
+												</div>
                                                 </div>
                                         </div>
                                         <div class="flex flex-col h-full gap-2 relative pb-6">
@@ -912,6 +958,70 @@
                         </div>
                 </div>
         </footer>
+        <script>
+                document.addEventListener('DOMContentLoaded', () => {
+                        const toggleBtn = document.getElementById('menu-toggle-btn');
+                        const toggleIcon = document.getElementById('menu-toggle-icon');
+                        const mobileMenu = document.getElementById('mobile-menu');
+                        const mobileMenuBackdrop = document.getElementById('mobile-menu-backdrop');
+                        const projectsTrigger = document.getElementById('mobile-projects-trigger');
+                        const projectsDropdown = document.getElementById('mobile-projects-dropdown');
+                        const projectsChevron = document.getElementById('projects-chevron');
+                        const menuLinks = document.querySelectorAll('.mobile-menu-link');
+
+                        let isOpen = false;
+
+                        function toggleMenu() {
+                                isOpen = !isOpen;
+                                if (isOpen) {
+                                        mobileMenu.classList.remove('translate-x-full');
+                                        mobileMenu.classList.add('translate-x-0');
+                                        mobileMenuBackdrop.classList.remove('opacity-0', 'pointer-events-none');
+                                        mobileMenuBackdrop.classList.add('opacity-100', 'pointer-events-auto');
+                                        toggleIcon.textContent = 'close';
+                                        document.body.style.overflow = 'hidden';
+                                } else {
+                                        mobileMenu.classList.remove('translate-x-0');
+                                        mobileMenu.classList.add('translate-x-full');
+                                        mobileMenuBackdrop.classList.remove('opacity-100', 'pointer-events-auto');
+                                        mobileMenuBackdrop.classList.add('opacity-0', 'pointer-events-none');
+                                        toggleIcon.textContent = 'menu';
+                                        document.body.style.overflow = '';
+                                }
+                        }
+
+                        toggleBtn.addEventListener('click', toggleMenu);
+                        mobileMenuBackdrop.addEventListener('click', toggleMenu);
+
+                        projectsTrigger.addEventListener('click', (e) => {
+                                e.stopPropagation();
+                                const isHidden = projectsDropdown.classList.contains('hidden');
+                                if (isHidden) {
+                                        projectsDropdown.classList.remove('hidden');
+                                        projectsDropdown.classList.add('flex');
+                                        projectsChevron.classList.add('rotate-180');
+                                } else {
+                                        projectsDropdown.classList.remove('flex');
+                                        projectsDropdown.classList.add('hidden');
+                                        projectsChevron.classList.remove('rotate-180');
+                                }
+                        });
+
+                        menuLinks.forEach(link => {
+                                link.addEventListener('click', () => {
+                                        if (link.id !== 'mobile-projects-trigger') {
+                                                isOpen = false;
+                                                mobileMenu.classList.remove('translate-x-0');
+                                                mobileMenu.classList.add('translate-x-full');
+                                                mobileMenuBackdrop.classList.remove('opacity-100', 'pointer-events-auto');
+                                                mobileMenuBackdrop.classList.add('opacity-0', 'pointer-events-none');
+                                                toggleIcon.textContent = 'menu';
+                                                document.body.style.overflow = '';
+                                        }
+                                });
+                        });
+                });
+        </script>
 </body>
 
 </html>
