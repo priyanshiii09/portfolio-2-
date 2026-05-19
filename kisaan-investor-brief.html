@@ -1,0 +1,2981 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Project KISAAN — A Proposal for Cooperative-Led Agricultural Transformation</title>
+<meta name="description" content="Project KISAAN proposes a cooperative + organic farming model to lift small farmers in Khimsepur, Farrukhabad. An investor, CSR, and government partnership brief." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..800;1,6..72,300..800&family=Schibsted+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+/* =========================================================
+   PROJECT KISAAN — Investor & Partnership Brief
+   Aesthetic: Agrarian Almanac × Policy Briefing
+   ========================================================= */
+
+:root {
+  /* Palette — wheat-cream paper, deep walnut ink, marigold + harvest green */
+  --paper:       #EFE4C8;
+  --paper-deep:  #E4D6AC;
+  --paper-edge:  #D4C496;
+
+  --ink:         #1F1A12;
+  --ink-soft:    #3A322A;
+  --ink-faint:   #7A6F5C;
+
+  --saffron:     #D97706;
+  --saffron-deep:#A85405;
+  --moss:        #3D5A3B;
+  --moss-deep:   #2A3F29;
+  --clay:        #A8513C;
+  --gold:        #C5942D;
+
+  --rule:        #C6B68C;
+  --rule-soft:   rgba(31, 26, 18, 0.13);
+
+  --serif:       "Newsreader", "Georgia", "Times New Roman", serif;
+  --sans:        "Schibsted Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  --mono:        "JetBrains Mono", "SF Mono", Consolas, monospace;
+
+  --maxw:        1240px;
+  --gutter:      clamp(20px, 4vw, 56px);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 16.5px;
+  line-height: 1.62;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+/* Wheat-grain paper texture */
+body::before {
+  content: "";
+  position: fixed; inset: 0;
+  background-image:
+    radial-gradient(rgba(31, 26, 18, 0.04) 1px, transparent 1.5px),
+    radial-gradient(rgba(217, 119, 6, 0.025) 1px, transparent 1px);
+  background-size: 4px 4px, 7px 7px;
+  background-position: 0 0, 2px 3px;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.9;
+  mix-blend-mode: multiply;
+}
+
+::selection {
+  background: var(--saffron);
+  color: var(--paper);
+}
+
+/* ---------- Scroll progress ---------- */
+.progress {
+  position: fixed; top: 0; left: 0;
+  height: 2px; width: 0;
+  background: var(--saffron);
+  z-index: 100;
+  transition: width 0.1s linear;
+}
+
+/* ---------- Top folio bar ---------- */
+.topbar {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(239, 228, 200, 0.94);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--rule-soft);
+}
+.topbar-inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 12px var(--gutter);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.brand {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 500;
+  font-variation-settings: "opsz" 32;
+  letter-spacing: 0.005em;
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+.brand-bar {
+  display: inline-block;
+  width: 18px; height: 3px;
+  background: var(--saffron);
+  margin-right: 2px;
+  transform: translateY(-3px);
+}
+.brand em {
+  font-style: italic;
+  font-weight: 400;
+  font-variation-settings: "opsz" 32;
+  color: var(--saffron-deep);
+}
+.brand-meta {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-left: 4px;
+}
+
+.nav {
+  display: flex;
+  gap: 24px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.nav a {
+  color: var(--ink-soft);
+  text-decoration: none;
+  position: relative;
+  padding: 4px 0;
+  transition: color 0.2s ease;
+}
+.nav a:hover { color: var(--saffron-deep); }
+.nav a::after {
+  content: "";
+  position: absolute; left: 0; right: 100%; bottom: 0;
+  height: 1px; background: var(--saffron);
+  transition: right 0.25s ease;
+}
+.nav a:hover::after { right: 0; }
+@media (max-width: 880px) { .nav { display: none; } }
+
+/* ---------- Layout primitives ---------- */
+.wrap {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+  position: relative;
+  z-index: 2;
+}
+
+section { position: relative; padding: clamp(72px, 10vw, 130px) 0; }
+
+.chapter-mark {
+  display: flex;
+  align-items: baseline;
+  gap: 18px;
+  margin-bottom: 36px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--rule);
+}
+.chapter-mark .roman {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(36px, 5vw, 58px);
+  line-height: 1;
+  color: var(--saffron);
+  font-variation-settings: "opsz" 60, "wght" 350;
+  letter-spacing: -0.02em;
+}
+.chapter-mark .label {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  flex: 1;
+}
+.chapter-mark .folio {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: var(--ink-faint);
+  text-transform: uppercase;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--serif);
+  font-weight: 400;
+  color: var(--ink);
+  margin: 0;
+  letter-spacing: -0.015em;
+}
+h1 {
+  font-size: clamp(56px, 10vw, 150px);
+  line-height: 0.9;
+  font-variation-settings: "opsz" 72, "wght" 400;
+}
+h2 {
+  font-size: clamp(36px, 5.6vw, 68px);
+  line-height: 1.02;
+  font-variation-settings: "opsz" 60, "wght" 380;
+  letter-spacing: -0.022em;
+}
+h3 {
+  font-size: clamp(24px, 3.2vw, 36px);
+  line-height: 1.18;
+  font-variation-settings: "opsz" 42, "wght" 450;
+}
+h4 {
+  font-size: 20px;
+  line-height: 1.3;
+  font-variation-settings: "opsz" 24, "wght" 500;
+}
+
+em, .italic {
+  font-style: italic;
+  font-variation-settings: "opsz" 72, "wght" 380;
+}
+
+p { margin: 0 0 1.1em; }
+p.lead {
+  font-size: clamp(18px, 1.7vw, 21px);
+  line-height: 1.55;
+  color: var(--ink-soft);
+  max-width: 64ch;
+}
+.muted { color: var(--ink-faint); }
+
+hr.rule {
+  height: 1px;
+  background: var(--rule);
+  border: none;
+  margin: clamp(40px, 6vw, 80px) 0;
+}
+hr.ornament {
+  border: none;
+  height: 24px;
+  margin: clamp(40px, 6vw, 70px) 0;
+  background-image: radial-gradient(circle, var(--saffron) 2px, transparent 2.5px);
+  background-size: 18px 24px;
+  background-repeat: repeat-x;
+  background-position: center;
+  position: relative;
+}
+hr.ornament::before, hr.ornament::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 38%; height: 1px;
+  background: var(--rule);
+}
+hr.ornament::before { left: 0; }
+hr.ornament::after { right: 0; }
+
+sup.fn {
+  font-family: var(--mono);
+  font-size: 0.65em;
+  color: var(--saffron-deep);
+  margin-left: 1px;
+  font-weight: 500;
+  vertical-align: super;
+  line-height: 0;
+}
+
+/* =========================================================
+   COVER / FOLIO
+   ========================================================= */
+.cover {
+  padding: clamp(40px, 6vw, 80px) 0 clamp(60px, 8vw, 110px);
+  position: relative;
+}
+.cover-frame {
+  border: 1px solid var(--rule);
+  padding: clamp(40px, 6vw, 80px) clamp(28px, 4vw, 60px);
+  position: relative;
+}
+.cover-frame::before, .cover-frame::after {
+  content: "";
+  position: absolute;
+  width: 8px; height: 8px;
+  background: var(--saffron);
+  border-radius: 50%;
+}
+.cover-frame::before { top: -5px; left: -5px; }
+.cover-frame::after  { bottom: -5px; right: -5px; }
+
+.cover-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 18px;
+  padding-bottom: 36px;
+  border-bottom: 1px solid var(--rule);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+.cover-head .right {
+  display: flex;
+  gap: 28px;
+}
+
+.cover-title {
+  margin: clamp(50px, 9vw, 110px) 0 24px;
+  position: relative;
+}
+.cover-title h1 {
+  font-style: italic;
+  font-variation-settings: "opsz" 72, "wght" 350;
+  letter-spacing: -0.035em;
+}
+.cover-title .ksubmark {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 14px;
+}
+.cover-title .seal {
+  display: inline-block;
+  width: clamp(28px, 3vw, 42px);
+  height: clamp(28px, 3vw, 42px);
+  background: var(--saffron);
+  border-radius: 50%;
+  transform: translateY(-0.2em);
+  position: relative;
+}
+.cover-title .seal::after {
+  content: "";
+  position: absolute;
+  inset: 5px;
+  border: 1.5px solid var(--paper);
+  border-radius: 50%;
+}
+
+.cover-deck {
+  font-family: var(--serif);
+  font-size: clamp(20px, 2.4vw, 30px);
+  line-height: 1.3;
+  font-variation-settings: "opsz" 36, "wght" 380;
+  max-width: 32ch;
+  color: var(--ink);
+  margin: 0 0 clamp(40px, 6vw, 60px);
+}
+.cover-deck em {
+  color: var(--saffron-deep);
+  font-style: italic;
+  font-variation-settings: "opsz" 36, "wght" 400;
+}
+
+.cover-grid {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  gap: clamp(36px, 5vw, 70px);
+  padding-top: 36px;
+  border-top: 1px solid var(--rule);
+  align-items: start;
+}
+@media (max-width: 820px) { .cover-grid { grid-template-columns: 1fr; } }
+
+.kicker {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--saffron-deep);
+  margin-bottom: 14px;
+  display: inline-block;
+}
+
+.cover-summary p {
+  font-size: 16.5px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+.cover-summary p strong { color: var(--ink); }
+
+.toc {
+  background: var(--paper-deep);
+  padding: 26px 26px 22px;
+  border: 1px solid var(--rule);
+}
+.toc h4 {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  color: var(--saffron-deep);
+  margin: 0 0 16px;
+  text-transform: uppercase;
+}
+.toc ol {
+  list-style: none;
+  padding: 0; margin: 0;
+  counter-reset: ch;
+}
+.toc li {
+  display: grid;
+  grid-template-columns: 30px 1fr auto;
+  gap: 14px;
+  padding: 9px 0;
+  border-top: 1px dotted var(--rule);
+  font-family: var(--serif);
+  font-size: 16px;
+  font-variation-settings: "opsz" 20, "wght" 430;
+  counter-increment: ch;
+  align-items: baseline;
+}
+.toc li:first-child { border-top: none; }
+.toc li a {
+  color: var(--ink);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.toc li a:hover { color: var(--saffron-deep); }
+.toc li::before {
+  content: counter(ch, upper-roman);
+  font-style: italic;
+  color: var(--saffron-deep);
+  font-size: 13px;
+  font-variation-settings: "opsz" 14, "wght" 400;
+  letter-spacing: 0.05em;
+}
+.toc li .pg {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--ink-faint);
+  letter-spacing: 0.08em;
+}
+
+.cta-block {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  margin-top: 32px;
+  flex-wrap: wrap;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 22px;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid var(--ink);
+  border-radius: 999px;
+  transition: all 0.25s ease;
+}
+.btn:hover {
+  background: var(--saffron-deep);
+  border-color: var(--saffron-deep);
+  transform: translateY(-1px);
+}
+.btn.ghost {
+  background: transparent;
+  color: var(--ink);
+}
+.btn.ghost:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+.btn.saffron {
+  background: var(--saffron);
+  border-color: var(--saffron);
+  color: var(--ink);
+}
+.btn.saffron:hover {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--paper);
+}
+.btn .arrow { transition: transform 0.25s ease; }
+.btn:hover .arrow { transform: translateX(4px); }
+
+/* =========================================================
+   CHAPTER I — THE CRISIS (stats)
+   ========================================================= */
+.crisis-head {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(40px, 6vw, 90px);
+  align-items: start;
+}
+@media (max-width: 820px) { .crisis-head { grid-template-columns: 1fr; } }
+.crisis-head h2 em { color: var(--saffron-deep); font-style: italic; }
+
+.stats {
+  margin-top: 64px;
+}
+.stat-row {
+  display: grid;
+  grid-template-columns: 290px 1fr;
+  gap: 32px;
+  padding: 38px 0;
+  border-top: 1px solid var(--rule);
+  align-items: baseline;
+}
+.stat-row:last-child { border-bottom: 1px solid var(--rule); }
+@media (max-width: 820px) {
+  .stat-row { grid-template-columns: 1fr; gap: 10px; padding: 26px 0; }
+}
+.stat-big {
+  font-family: var(--serif);
+  font-size: clamp(58px, 7.5vw, 104px);
+  line-height: 0.95;
+  font-variation-settings: "opsz" 72, "wght" 380;
+  letter-spacing: -0.035em;
+  color: var(--ink);
+}
+.stat-big em {
+  color: var(--saffron-deep);
+  font-style: italic;
+  font-variation-settings: "opsz" 72, "wght" 380;
+}
+.stat-body { padding-top: 10px; }
+.stat-body h4 {
+  font-family: var(--serif);
+  font-size: 22px;
+  line-height: 1.28;
+  font-variation-settings: "opsz" 28, "wght" 500;
+  margin-bottom: 8px;
+}
+.stat-body p {
+  font-size: 15px;
+  color: var(--ink-soft);
+  margin: 0;
+  max-width: 54ch;
+  line-height: 1.55;
+}
+.cite {
+  display: inline-block;
+  margin-top: 10px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+/* =========================================================
+   CHAPTER II — KHIMSEPUR (context)
+   ========================================================= */
+.context-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: clamp(40px, 6vw, 80px);
+  align-items: start;
+}
+@media (max-width: 820px) { .context-grid { grid-template-columns: 1fr; } }
+
+.context-card {
+  background: var(--paper-deep);
+  border: 1px solid var(--rule);
+  padding: 36px 32px;
+  position: relative;
+}
+.context-card::before {
+  content: "KHIMSEPUR · FARRUKHABAD · UTTAR PRADESH";
+  position: absolute;
+  top: -10px; left: 32px;
+  background: var(--paper);
+  padding: 0 12px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--saffron-deep);
+}
+.context-card dl { margin: 0; }
+.context-row {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 20px;
+  padding: 14px 0;
+  border-top: 1px solid var(--rule-soft);
+  font-size: 15px;
+}
+.context-row:first-child { border-top: none; padding-top: 4px; }
+.context-row dt {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  padding-top: 4px;
+}
+.context-row dd { margin: 0; color: var(--ink-soft); line-height: 1.5; }
+
+/* ICEBERG */
+.iceberg {
+  margin-top: clamp(60px, 8vw, 100px);
+  background: var(--ink);
+  color: var(--paper);
+  padding: clamp(50px, 7vw, 80px);
+  position: relative;
+}
+.iceberg .chapter-mark {
+  border-bottom-color: rgba(239, 228, 200, 0.2);
+}
+.iceberg .chapter-mark .roman { color: var(--gold); }
+.iceberg .chapter-mark .label,
+.iceberg .chapter-mark .folio { color: rgba(239, 228, 200, 0.6); }
+.iceberg h3 { color: var(--paper); }
+.iceberg p { color: rgba(239, 228, 200, 0.78); }
+
+.iceberg-layers { margin-top: 36px; }
+.layer {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 32px;
+  padding: 26px 0;
+  border-top: 1px solid rgba(239, 228, 200, 0.18);
+}
+.layer:last-child { border-bottom: 1px solid rgba(239, 228, 200, 0.18); }
+@media (max-width: 720px) {
+  .layer { grid-template-columns: 1fr; gap: 8px; padding: 18px 0; }
+}
+.layer-head {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--gold);
+  text-transform: uppercase;
+  padding-top: 4px;
+}
+.layer-head em {
+  display: block;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 21px;
+  font-variation-settings: "opsz" 28, "wght" 380;
+  color: var(--paper);
+  margin-top: 6px;
+  letter-spacing: -0.005em;
+  text-transform: none;
+}
+.layer-body ul {
+  margin: 0; padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 6px;
+}
+.layer-body li {
+  position: relative;
+  padding-left: 18px;
+  font-size: 15px;
+  line-height: 1.5;
+  color: rgba(239, 228, 200, 0.85);
+}
+.layer-body li::before {
+  content: "—";
+  position: absolute;
+  left: 0; top: 0;
+  color: var(--gold);
+}
+
+/* =========================================================
+   CHAPTER III — PERSONA
+   ========================================================= */
+.persona-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: clamp(40px, 6vw, 80px);
+  align-items: start;
+  margin-top: 50px;
+}
+@media (max-width: 820px) { .persona-grid { grid-template-columns: 1fr; } }
+
+.persona-card {
+  border: 1px solid var(--rule);
+  padding: 36px;
+  background: var(--paper);
+  position: relative;
+}
+.persona-card::before {
+  content: "PERSONA / I";
+  position: absolute;
+  top: -10px; left: 36px;
+  background: var(--paper);
+  padding: 0 10px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--saffron-deep);
+}
+.persona-name {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 44px;
+  line-height: 1;
+  font-variation-settings: "opsz" 60, "wght" 380;
+  margin: 6px 0 4px;
+  letter-spacing: -0.02em;
+}
+.persona-sub {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 26px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--rule-soft);
+}
+.persona-quote {
+  margin: 24px 0 0;
+  padding: 20px 24px;
+  background: var(--paper-deep);
+  border-left: 3px solid var(--saffron);
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 18px;
+  line-height: 1.45;
+  color: var(--ink);
+  font-variation-settings: "opsz" 28, "wght" 380;
+}
+.persona-quote::before {
+  content: "\201C";
+  color: var(--saffron-deep);
+  margin-right: 4px;
+  font-size: 1.1em;
+}
+
+.empathy-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.emp {
+  padding: 22px 22px;
+  border: 1px solid var(--rule);
+  background: var(--paper);
+}
+.emp.acc-saffron { background: rgba(217,119,6,0.07); }
+.emp.acc-moss    { background: rgba(61,90,59,0.08); }
+.emp h5 {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 22px;
+  font-variation-settings: "opsz" 28, "wght" 400;
+  color: var(--saffron-deep);
+  margin: 0 0 12px;
+  letter-spacing: -0.005em;
+}
+.emp.acc-moss h5 { color: var(--moss-deep); }
+.emp ul { margin: 0; padding: 0; list-style: none; }
+.emp li {
+  font-size: 14px;
+  padding: 5px 0;
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+
+/* =========================================================
+   CHAPTER IV — THE THREE KNOTS
+   ========================================================= */
+.knots {
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+}
+@media (max-width: 820px) { .knots { grid-template-columns: 1fr; } }
+.knot {
+  padding: 36px 30px;
+  background: var(--paper);
+  position: relative;
+}
+.knot-num {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--saffron-deep);
+  margin-bottom: 14px;
+}
+.knot h3 {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 26px;
+  line-height: 1.18;
+  font-variation-settings: "opsz" 36, "wght" 380;
+  margin-bottom: 14px;
+}
+.knot p {
+  font-size: 14.5px;
+  color: var(--ink-soft);
+  margin: 0;
+  line-height: 1.55;
+}
+
+/* =========================================================
+   CHAPTER V — A PROVEN PATH (case studies)
+   ========================================================= */
+.cases {
+  margin-top: 60px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+}
+@media (max-width: 820px) { .cases { grid-template-columns: 1fr; } }
+.case {
+  padding: 36px 32px;
+  background: var(--paper);
+}
+.case-tag {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  color: var(--saffron-deep);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.case-name {
+  font-family: var(--serif);
+  font-size: 36px;
+  line-height: 1;
+  font-variation-settings: "opsz" 48, "wght" 420;
+  letter-spacing: -0.02em;
+  margin-bottom: 14px;
+}
+.case-name em {
+  font-style: italic;
+  color: var(--saffron-deep);
+  font-variation-settings: "opsz" 48, "wght" 400;
+}
+.case-body {
+  font-size: 14.5px;
+  color: var(--ink-soft);
+  line-height: 1.6;
+  margin-bottom: 18px;
+}
+.case-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  padding-top: 18px;
+  border-top: 1px solid var(--rule-soft);
+}
+.case-stat .v {
+  font-family: var(--serif);
+  font-size: 26px;
+  line-height: 1;
+  font-variation-settings: "opsz" 32, "wght" 420;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+}
+.case-stat .v em {
+  color: var(--saffron-deep);
+  font-style: italic;
+}
+.case-stat .l {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-top: 6px;
+}
+
+/* =========================================================
+   CHAPTER VI — THE PROPOSAL
+   ========================================================= */
+.proposal-frame {
+  background: var(--paper-deep);
+  padding: clamp(70px, 9vw, 110px) 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+
+.dual {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--rule);
+  margin-top: 60px;
+  border: 1px solid var(--rule);
+}
+@media (max-width: 820px) { .dual { grid-template-columns: 1fr; } }
+.lever {
+  padding: 40px 36px;
+  background: var(--paper);
+}
+.lever-tag {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--saffron-deep);
+  margin-bottom: 10px;
+}
+.lever h3 {
+  font-family: var(--serif);
+  font-size: 30px;
+  line-height: 1.1;
+  font-variation-settings: "opsz" 42, "wght" 400;
+  margin-bottom: 14px;
+}
+.lever h3 em { font-style: italic; color: var(--saffron-deep); }
+.lever > p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  margin-bottom: 18px;
+}
+.lever ul {
+  margin: 14px 0 0; padding: 0;
+  list-style: none;
+}
+.lever li {
+  padding: 10px 0;
+  border-top: 1px dotted var(--rule);
+  font-size: 14.5px;
+  color: var(--ink-soft);
+  display: grid;
+  grid-template-columns: 18px 1fr;
+  gap: 12px;
+  line-height: 1.5;
+}
+.lever li::before {
+  content: "→";
+  color: var(--saffron-deep);
+  font-family: var(--serif);
+  font-size: 14px;
+}
+
+.golden-circle {
+  margin-top: 60px;
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 50px;
+  align-items: start;
+  padding-top: 40px;
+  border-top: 1px solid var(--rule);
+}
+@media (max-width: 820px) { .golden-circle { grid-template-columns: 1fr; gap: 26px; } }
+.golden-circle-tag {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  color: var(--saffron-deep);
+  text-transform: uppercase;
+}
+.golden-circle h3 {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(28px, 3.6vw, 44px);
+  line-height: 1.15;
+  margin: 8px 0 0;
+  font-variation-settings: "opsz" 56, "wght" 380;
+  letter-spacing: -0.02em;
+  max-width: 14ch;
+}
+.golden-circle blockquote {
+  margin: 0;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(20px, 2.2vw, 27px);
+  line-height: 1.4;
+  font-variation-settings: "opsz" 36, "wght" 380;
+  color: var(--ink);
+  max-width: 38ch;
+  position: relative;
+}
+.golden-circle blockquote::before {
+  content: "\201C";
+  font-size: 1.5em;
+  position: absolute;
+  left: -0.55em;
+  top: -0.1em;
+  color: var(--saffron);
+}
+
+/* =========================================================
+   CHAPTER VII — HOW IT WORKS
+   ========================================================= */
+.setup-grid {
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+}
+@media (max-width: 820px) { .setup-grid { grid-template-columns: 1fr; } }
+.setup {
+  padding: 30px 28px;
+  background: var(--paper);
+}
+.setup-num {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 30px;
+  color: var(--saffron-deep);
+  font-variation-settings: "opsz" 36, "wght" 380;
+  line-height: 1;
+  margin-bottom: 12px;
+}
+.setup h4 {
+  font-family: var(--serif);
+  font-size: 19px;
+  margin-bottom: 12px;
+  font-variation-settings: "opsz" 24, "wght" 500;
+  line-height: 1.3;
+}
+.setup ul { margin: 0; padding: 0; list-style: none; }
+.setup li {
+  font-size: 13.5px;
+  color: var(--ink-soft);
+  padding: 5px 0;
+  line-height: 1.5;
+}
+
+.domains {
+  margin-top: 70px;
+}
+.domains-head {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: end;
+  margin-bottom: 32px;
+}
+@media (max-width: 820px) { .domains-head { grid-template-columns: 1fr; } }
+.domain-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+}
+@media (max-width: 980px) { .domain-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 540px) { .domain-grid { grid-template-columns: 1fr; } }
+.domain {
+  background: var(--paper);
+  padding: 26px 22px;
+}
+.domain-num {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  color: var(--saffron-deep);
+  margin-bottom: 10px;
+}
+.domain h4 {
+  font-family: var(--serif);
+  font-size: 19px;
+  line-height: 1.2;
+  font-variation-settings: "opsz" 24, "wght" 500;
+  margin-bottom: 10px;
+}
+.domain p {
+  font-size: 13.5px;
+  color: var(--ink-soft);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Info booth + board */
+.booth-grid {
+  margin-top: 70px;
+  display: grid;
+  grid-template-columns: 1fr 1.05fr;
+  gap: clamp(36px, 5vw, 70px);
+  align-items: start;
+}
+@media (max-width: 820px) { .booth-grid { grid-template-columns: 1fr; } }
+.booth-body p {
+  font-size: 15px;
+  color: var(--ink-soft);
+  line-height: 1.6;
+}
+.booth-body h4 {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-variation-settings: "opsz" 28, "wght" 500;
+  margin-bottom: 14px;
+}
+.booth-body ul { margin: 14px 0 0; padding: 0; list-style: none; }
+.booth-body li {
+  padding: 8px 0;
+  border-top: 1px dotted var(--rule);
+  font-size: 14.5px;
+  color: var(--ink-soft);
+  display: grid;
+  grid-template-columns: 18px 1fr;
+  gap: 12px;
+  line-height: 1.5;
+}
+.booth-body li::before {
+  content: "→";
+  color: var(--saffron-deep);
+  font-family: var(--serif);
+}
+
+.info-board {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 32px 30px;
+  border-radius: 4px;
+  font-family: var(--mono);
+}
+.info-board-head {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 28px;
+  text-align: center;
+  font-variation-settings: "opsz" 36, "wght" 380;
+  letter-spacing: 0;
+  color: var(--paper);
+  border-bottom: 1px solid rgba(239,228,200,0.2);
+  padding-bottom: 12px;
+  margin-bottom: 8px;
+}
+.info-board-date {
+  text-align: center;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--saffron);
+  margin-bottom: 22px;
+}
+.info-board-grid {
+  display: grid;
+  grid-template-columns: 1fr 1px 1.2fr;
+  gap: 22px;
+}
+.info-board-sep {
+  background: rgba(239,228,200,0.18);
+}
+.info-board-col h6 {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  color: var(--saffron);
+  margin: 0 0 8px;
+  text-transform: uppercase;
+}
+.info-board-col p {
+  margin: 0 0 14px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: rgba(239,228,200,0.9);
+}
+.info-board-price {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 6px 0;
+  font-size: 13px;
+  color: rgba(239,228,200,0.9);
+}
+.info-board-price .v {
+  font-weight: 500;
+  color: var(--paper);
+}
+.info-board-price .up { color: #6FBF6F; }
+.info-board-price .dn { color: #E07570; }
+.info-board-foot {
+  margin-top: 22px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(239,228,200,0.18);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--saffron);
+}
+.info-board-foot .helpline {
+  background: var(--saffron);
+  color: var(--ink);
+  padding: 6px 12px;
+  font-weight: 500;
+}
+
+/* =========================================================
+   CHAPTER VIII — STORYBOARD
+   ========================================================= */
+.story-grid {
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+@media (max-width: 820px) { .story-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 540px) { .story-grid { grid-template-columns: 1fr; } }
+.panel {
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  padding: 22px;
+  min-height: 200px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 16px;
+}
+.panel-num {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--saffron-deep);
+}
+.panel-quote {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 17px;
+  line-height: 1.35;
+  font-variation-settings: "opsz" 24, "wght" 380;
+  color: var(--ink);
+  margin: 0;
+}
+.panel-quote::before { content: "\201C"; color: var(--saffron); margin-right: 2px; }
+.panel-quote::after { content: "\201D"; color: var(--saffron); margin-left: 2px; }
+.panel-caption {
+  font-size: 13px;
+  color: var(--ink-faint);
+  margin: 0;
+  line-height: 1.4;
+  font-style: normal;
+}
+.panel.pivot {
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
+}
+.panel.pivot .panel-num { color: var(--gold); }
+.panel.pivot .panel-quote { color: var(--paper); }
+.panel.pivot .panel-quote::before,
+.panel.pivot .panel-quote::after { color: var(--gold); }
+.panel.pivot .panel-caption { color: rgba(239, 228, 200, 0.6); }
+
+/* =========================================================
+   CHAPTER IX — IMPACT (four dimensions)
+   ========================================================= */
+.impact-grid {
+  margin-top: 56px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+}
+@media (max-width: 980px) { .impact-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 540px) { .impact-grid { grid-template-columns: 1fr; } }
+.impact {
+  background: var(--paper);
+  padding: 30px 24px;
+}
+.impact-tag {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--saffron-deep);
+  margin-bottom: 10px;
+}
+.impact h4 {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 26px;
+  line-height: 1.1;
+  margin: 0 0 18px;
+  font-variation-settings: "opsz" 32, "wght" 400;
+  letter-spacing: -0.005em;
+}
+.impact ul { margin: 0; padding: 0; list-style: none; }
+.impact li {
+  padding: 9px 0;
+  border-top: 1px dotted var(--rule);
+  font-size: 13.5px;
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+.impact li:first-child { border-top: none; padding-top: 0; }
+
+/* =========================================================
+   CHAPTER X — OPPORTUNITY
+   ========================================================= */
+.opp-grid {
+  margin-top: 56px;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: clamp(40px, 5vw, 70px);
+  align-items: start;
+}
+@media (max-width: 820px) { .opp-grid { grid-template-columns: 1fr; } }
+.tam {
+  border: 1px solid var(--rule);
+}
+.tam-row {
+  display: grid;
+  grid-template-columns: 90px 1fr 140px;
+  padding: 22px 26px;
+  align-items: center;
+  border-bottom: 1px solid var(--rule);
+  background: var(--paper);
+}
+.tam-row:last-child { border-bottom: none; }
+.tam-row.deep { background: var(--paper-deep); }
+.tam-row .tag {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  color: var(--saffron-deep);
+}
+.tam-row .label {
+  font-family: var(--serif);
+  font-size: 16px;
+  line-height: 1.3;
+  font-variation-settings: "opsz" 24, "wght" 480;
+}
+.tam-row .num {
+  font-family: var(--serif);
+  font-size: 28px;
+  text-align: right;
+  font-variation-settings: "opsz" 36, "wght" 420;
+  letter-spacing: -0.01em;
+}
+.tam-row.deep .num { color: var(--saffron-deep); font-style: italic; }
+
+.tailwinds h4 {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-variation-settings: "opsz" 28, "wght" 500;
+  margin-bottom: 22px;
+}
+.tw {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: 16px;
+  padding: 16px 0;
+  border-top: 1px solid var(--rule);
+}
+.tw:last-child { border-bottom: 1px solid var(--rule); }
+.tw .icon {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--saffron-deep);
+  padding-top: 2px;
+}
+.tw .t {
+  font-weight: 500;
+  font-size: 15px;
+  margin-bottom: 4px;
+}
+.tw .d {
+  font-size: 13.5px;
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+
+/* =========================================================
+   CHAPTER XI — RISKS
+   ========================================================= */
+.risks {
+  margin-top: 56px;
+  display: grid;
+  gap: 0;
+  border: 1px solid var(--rule);
+}
+.risk {
+  display: grid;
+  grid-template-columns: 260px 1fr 1fr;
+  gap: 28px;
+  padding: 24px 28px;
+  border-top: 1px solid var(--rule);
+  background: var(--paper);
+}
+.risk:first-child { border-top: none; }
+@media (max-width: 820px) {
+  .risk { grid-template-columns: 1fr; gap: 8px; padding: 22px; }
+}
+.risk-tag {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--saffron-deep);
+}
+.risk-name {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 22px;
+  line-height: 1.2;
+  font-variation-settings: "opsz" 28, "wght" 400;
+  margin-top: 4px;
+}
+.risk-body {
+  font-size: 14.5px;
+  color: var(--ink-soft);
+  line-height: 1.55;
+}
+.risk-mit {
+  font-size: 14px;
+  color: var(--ink);
+  line-height: 1.55;
+  padding-left: 18px;
+  border-left: 2px solid var(--moss);
+}
+.risk-mit .mh {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--moss-deep);
+  display: block;
+  margin-bottom: 6px;
+}
+
+/* =========================================================
+   CHAPTER XII — ROADMAP
+   ========================================================= */
+.roadmap { margin-top: 56px; }
+.phase {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 40px;
+  padding: 40px 0;
+  border-top: 1px solid var(--rule);
+}
+.phase:last-child { border-bottom: 1px solid var(--rule); }
+@media (max-width: 720px) {
+  .phase { grid-template-columns: 1fr; gap: 14px; padding: 28px 0; }
+}
+.phase-tag {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--saffron-deep);
+}
+.phase-name {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 30px;
+  line-height: 1.1;
+  margin: 8px 0 6px;
+  font-variation-settings: "opsz" 42, "wght" 400;
+  letter-spacing: -0.015em;
+}
+.phase-when {
+  font-size: 13px;
+  color: var(--ink-faint);
+}
+.phase-body p {
+  font-size: 15px;
+  color: var(--ink-soft);
+  line-height: 1.6;
+  max-width: 60ch;
+}
+.phase-pills {
+  margin-top: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.pill {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 6px 12px;
+  background: var(--paper-deep);
+  color: var(--ink-soft);
+  border-radius: 999px;
+}
+
+/* =========================================================
+   CHAPTER XIII — TEAM & THE ASK
+   ========================================================= */
+.team-section {
+  background: var(--paper-deep);
+  padding: clamp(80px, 10vw, 130px) 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+.team-grid {
+  margin-top: 56px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+}
+@media (max-width: 720px) { .team-grid { grid-template-columns: 1fr; } }
+.member {
+  background: var(--paper);
+  padding: 30px;
+  border: 1px solid var(--rule);
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  gap: 22px;
+  align-items: start;
+}
+.member-mark {
+  width: 54px; height: 54px;
+  border-radius: 50%;
+  background: var(--ink);
+  color: var(--paper);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 22px;
+  font-variation-settings: "opsz" 32, "wght" 400;
+}
+.member h4 {
+  font-family: var(--serif);
+  font-size: 26px;
+  font-variation-settings: "opsz" 36, "wght" 420;
+  letter-spacing: -0.005em;
+}
+.member .role {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-top: 4px;
+}
+.member p {
+  margin: 12px 0 0;
+  font-size: 14px;
+  color: var(--ink-soft);
+  line-height: 1.55;
+}
+
+.ask {
+  background: var(--ink);
+  color: var(--paper);
+  padding: clamp(100px, 13vw, 170px) 0;
+}
+.ask .chapter-mark { border-bottom-color: rgba(239, 228, 200, 0.2); }
+.ask .chapter-mark .roman { color: var(--gold); }
+.ask .chapter-mark .label,
+.ask .chapter-mark .folio { color: rgba(239, 228, 200, 0.6); }
+.ask h2 { color: var(--paper); max-width: 22ch; }
+.ask h2 em {
+  color: var(--gold);
+  font-style: italic;
+}
+.ask p.lead { color: rgba(239, 228, 200, 0.78); }
+
+.ask-grid {
+  margin-top: 60px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+@media (max-width: 820px) { .ask-grid { grid-template-columns: 1fr; } }
+.ask-card {
+  padding: 32px;
+  border: 1px solid rgba(239, 228, 200, 0.18);
+  background: rgba(239, 228, 200, 0.03);
+  transition: all 0.25s ease;
+}
+.ask-card:hover {
+  background: rgba(197, 148, 45, 0.07);
+  border-color: var(--gold);
+  transform: translateY(-2px);
+}
+.ask-card .tag {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.ask-card h4 {
+  font-family: var(--serif);
+  font-size: 24px;
+  color: var(--paper);
+  font-variation-settings: "opsz" 32, "wght" 420;
+  margin-bottom: 12px;
+}
+.ask-card p {
+  font-size: 14px;
+  color: rgba(239, 228, 200, 0.72);
+  margin: 0;
+  line-height: 1.55;
+}
+
+.ask-cta {
+  margin-top: 60px;
+  padding-top: 36px;
+  border-top: 1px solid rgba(239, 228, 200, 0.18);
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+.ask-cta .l {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(239, 228, 200, 0.5);
+  margin-bottom: 6px;
+}
+.ask-cta .v {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(20px, 2.2vw, 26px);
+  color: var(--paper);
+  font-variation-settings: "opsz" 30, "wght" 420;
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+footer {
+  padding: 60px var(--gutter) 36px;
+  background: var(--paper);
+  font-size: 13px;
+  color: var(--ink-faint);
+}
+.footer-inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 40px;
+}
+@media (max-width: 720px) { .footer-inner { grid-template-columns: 1fr; } }
+.footer-inner h5 {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--saffron-deep);
+  margin: 0 0 14px;
+}
+footer ul { margin: 0; padding: 0; list-style: none; }
+footer li { padding: 4px 0; }
+footer a { color: var(--ink-soft); text-decoration: none; }
+footer a:hover { color: var(--saffron-deep); }
+
+.refs {
+  margin-top: 60px;
+  padding-top: 40px;
+  border-top: 1px solid var(--rule);
+  font-size: 13px;
+  color: var(--ink-faint);
+}
+.refs h5 {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--saffron-deep);
+  margin: 0 0 18px;
+}
+.refs ol {
+  padding-left: 18px;
+  margin: 0;
+  line-height: 1.55;
+  columns: 2;
+  column-gap: 40px;
+}
+@media (max-width: 720px) { .refs ol { columns: 1; } }
+.refs li { padding: 6px 0; break-inside: avoid; }
+.refs a { color: var(--ink-soft); text-decoration: underline; text-decoration-color: var(--rule); }
+.refs a:hover { color: var(--saffron-deep); text-decoration-color: var(--saffron-deep); }
+
+.footer-bottom {
+  max-width: var(--maxw);
+  margin: 40px auto 0;
+  padding-top: 20px;
+  border-top: 1px solid var(--rule);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 14px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+/* ---------- Reveal on scroll ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+.reveal.in {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<!-- ============ TOP BAR ============ -->
+<nav class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <span class="brand-bar"></span>
+      Project <em>Kisaan</em>
+      <span class="brand-meta">Investor Brief · Vol. I</span>
+    </div>
+    <div class="nav">
+      <a href="#crisis">Crisis</a>
+      <a href="#context">Khimsepur</a>
+      <a href="#proposal">Proposal</a>
+      <a href="#impact">Impact</a>
+      <a href="#opportunity">Market</a>
+      <a href="#ask">The Ask</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ COVER / FOLIO ============ -->
+<section class="cover">
+  <div class="wrap">
+    <div class="cover-frame">
+
+      <div class="cover-head">
+        <div>An Investor &amp; Partnership Brief</div>
+        <div class="right">
+          <span>Sector · Agriculture &amp; Rural Livelihoods</span>
+          <span>Read · ≈ 14 minutes</span>
+        </div>
+      </div>
+
+      <div class="cover-title">
+        <div class="ksubmark">
+          <h1>Kisaan</h1>
+          <span class="seal"></span>
+        </div>
+      </div>
+
+      <p class="cover-deck">
+        A proposal to lift small farmers out of the <em>middleman trap</em> &mdash; through cooperative ownership, organic practice, and a wall-mounted information board in every village.
+      </p>
+
+      <div class="cover-grid">
+
+        <div class="cover-summary">
+          <div class="kicker">The 90-Second Brief</div>
+          <p>India has <strong>146 million operational farm holdings</strong>. 86% of them are smaller than two hectares.<sup class="fn">1</sup> Their owners feed the country &mdash; and lose nearly two-thirds of every consumer rupee to middlemen.</p>
+          <p>For the Indian dairy farmer, that ratio is the opposite. <strong>Amul returns 75&ndash;85% of consumer price to its 3.6 million producers.</strong><sup class="fn">2</sup> The difference is not crop &mdash; it is structure. It is the cooperative.</p>
+          <p>Project KISAAN proposes to replicate that structure for the grain farmer in Khimsepur, Farrukhabad &mdash; layered with organic methods supported by the Government of India's <strong>Paramparagat Krishi Vikas Yojana</strong>.<sup class="fn">3</sup> One village. One hundred farms. A proof point we can take national.</p>
+
+          <div class="cta-block">
+            <a href="#ask" class="btn saffron">Partner with us <span class="arrow">→</span></a>
+            <a href="#crisis" class="btn ghost">Read the brief</a>
+          </div>
+        </div>
+
+        <aside class="toc" aria-label="Table of contents">
+          <h4>Inside this Brief</h4>
+          <ol>
+            <li><a href="#crisis">The Quiet Crisis</a><span class="pg">p. 02</span></li>
+            <li><a href="#context">A Village Called Khimsepur</a><span class="pg">p. 03</span></li>
+            <li><a href="#persona">The Farmer at the Centre</a><span class="pg">p. 04</span></li>
+            <li><a href="#knots">Three Knots to Untie</a><span class="pg">p. 05</span></li>
+            <li><a href="#path">A Proven Path</a><span class="pg">p. 06</span></li>
+            <li><a href="#proposal">The Proposal</a><span class="pg">p. 07</span></li>
+            <li><a href="#how">How It Works</a><span class="pg">p. 08</span></li>
+            <li><a href="#story">A Day in the Cooperative</a><span class="pg">p. 09</span></li>
+            <li><a href="#impact">Impact, Four Ways</a><span class="pg">p. 10</span></li>
+            <li><a href="#opportunity">Market &amp; Policy</a><span class="pg">p. 11</span></li>
+            <li><a href="#risks">Risks &amp; Mitigations</a><span class="pg">p. 12</span></li>
+            <li><a href="#roadmap">The Roadmap</a><span class="pg">p. 13</span></li>
+            <li><a href="#ask">The Ask</a><span class="pg">p. 14</span></li>
+          </ol>
+        </aside>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ CHAPTER I — THE QUIET CRISIS ============ -->
+<section id="crisis">
+  <div class="wrap reveal">
+    <div class="chapter-mark">
+      <span class="roman">I</span>
+      <span class="label">Chapter One — The Quiet Crisis</span>
+      <span class="folio">FOL. 02</span>
+    </div>
+
+    <div class="crisis-head">
+      <h2>India still <em>eats</em> by the hand of its smallest farmers.</h2>
+      <div>
+        <p class="lead">
+          Two facts hold up Indian agriculture, and they pull in opposite directions. The first: smallholders feed the country. The second: smallholders cannot afford to be the people doing it.
+        </p>
+        <p class="muted" style="font-size:14px;">
+          Every figure on the following pages is drawn from the Agricultural Census, the NSO Situation Assessment Survey, the National Crime Records Bureau, the UN Food and Agriculture Organization, and peer-reviewed Indian agricultural economics.
+        </p>
+      </div>
+    </div>
+
+    <div class="stats">
+
+      <div class="stat-row">
+        <div class="stat-big"><em>86.2%</em></div>
+        <div class="stat-body">
+          <h4>Of all Indian farmers are small or marginal &mdash; owning less than two hectares of land.</h4>
+          <p>Together, they own just <strong>47.3%</strong> of cropland. Average holding size has shrunk from 2.28 ha in 1970 to <strong>1.08 ha today</strong>, and for marginal farmers it is only 0.38 ha.<sup class="fn">1</sup></p>
+          <span class="cite">SOURCE · Agriculture Census 2015-16 · NSO 77th Round</span>
+        </div>
+      </div>
+
+      <div class="stat-row">
+        <div class="stat-big"><em>30%</em></div>
+        <div class="stat-body">
+          <h4>The share of consumer price that reaches the small fruit, vegetable, and grain farmer.</h4>
+          <p>The dairy farmer, by contrast, receives <strong>75&ndash;85%</strong>, thanks to seven decades of cooperative milk procurement. The crop is different. The structure is different. The result is different.<sup class="fn">2</sup></p>
+          <span class="cite">SOURCE · NDDB · ICRIER (Gulati &amp; Das) · GCMMF Annual Report FY25</span>
+        </div>
+      </div>
+
+      <div class="stat-row">
+        <div class="stat-big"><em>10,786</em></div>
+        <div class="stat-body">
+          <h4>Indians in the farming sector died by suicide in 2023 alone.</h4>
+          <p>That is one farmer or farm labourer every <strong>49 minutes</strong>. NCRB data records more than 3.9 lakh such deaths between 1995 and 2023 &mdash; an average of 13,600 per year.<sup class="fn">4</sup></p>
+          <span class="cite">SOURCE · NCRB Accidental Deaths &amp; Suicides 2023</span>
+        </div>
+      </div>
+
+      <div class="stat-row">
+        <div class="stat-big"><em>1%</em></div>
+        <div class="stat-body">
+          <h4>Of marginal Indian farmers own a tractor. Only 14% have access to formal credit.</h4>
+          <p>The rest rent equipment at margins that erase profit, and borrow from informal lenders at rates that erase the future. Capital, mechanisation, and information remain priced out of the small-farm economy.<sup class="fn">5</sup></p>
+          <span class="cite">SOURCE · Agricultural Machinery Manufacturers Association · NABARD</span>
+        </div>
+      </div>
+
+      <div class="stat-row">
+        <div class="stat-big"><em>18%</em></div>
+        <div class="stat-body">
+          <h4>Of India's GDP comes from agriculture. 46% of the workforce depends on it.</h4>
+          <p>This is not a niche problem. When the smallholder's economics break, the country's largest employer breaks. Every solvent farmer is a public good. Every insolvent one is a public liability.<sup class="fn">6</sup></p>
+          <span class="cite">SOURCE · MoSPI · NSSO Labour Force Survey 2022</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ CHAPTER II — KHIMSEPUR ============ -->
+<section id="context">
+  <div class="wrap reveal">
+    <div class="chapter-mark">
+      <span class="roman">II</span>
+      <span class="label">Chapter Two — A Village Called Khimsepur</span>
+      <span class="folio">FOL. 03</span>
+    </div>
+
+    <h2 style="max-width:24ch;">An <em>ordinary</em> village. Which is exactly the point.</h2>
+
+    <p class="lead" style="margin-top:24px;">
+      We began our research in a single village &mdash; Khimsepur, in the Farrukhabad district of Uttar Pradesh &mdash; precisely because nothing about it is exceptional. It is one of thousands of similar villages whose pattern of distress is so common that it has stopped being noticed. If a model works here, it will work in nine villages out of ten in the Indo-Gangetic plain.
+    </p>
+
+    <div class="context-grid" style="margin-top:50px;">
+      <div class="context-card">
+        <dl>
+          <div class="context-row"><dt>Location</dt><dd>Khimsepur, Farrukhabad district, Uttar Pradesh</dd></div>
+          <div class="context-row"><dt>Primary occupation</dt><dd>Agriculture &mdash; over 100 farms across the village</dd></div>
+          <div class="context-row"><dt>Average holding</dt><dd>2&ndash;2.5 hectares per farm (below national mean)</dd></div>
+          <div class="context-row"><dt>Crops</dt><dd>Wheat (6&ndash;7 mo), corn (2&ndash;3 mo), potatoes (3 mo)</dd></div>
+          <div class="context-row"><dt>Mechanisation</dt><dd>Tractors and harvesters owned by a few; rented by most at steep prices</dd></div>
+          <div class="context-row"><dt>Education</dt><dd>Older generation largely uneducated; majority of youth has finished schooling</dd></div>
+          <div class="context-row"><dt>Storage</dt><dd>Traditional drums (<em>bakharis</em>), occasionally hay-insulated</dd></div>
+          <div class="context-row"><dt>Sale</dt><dd>Local mandis at minimum support price; some retained for home use</dd></div>
+          <div class="context-row"><dt>Government support</dt><dd>PM-Kisan ₹6,000/yr; low-interest crop loans</dd></div>
+          <div class="context-row"><dt>Digital literacy</dt><dd>Reasonably comfortable with internet on phones</dd></div>
+        </dl>
+      </div>
+
+      <div>
+        <div class="kicker">Why Khimsepur</div>
+        <h3 style="max-width:18ch; margin-bottom:18px;">An average that has nowhere else to fall.</h3>
+        <p style="font-size:15px; color:var(--ink-soft); line-height:1.6;">
+          The youth in Khimsepur is educated &mdash; but underemployed. The fields are productive &mdash; but unprofitable. The technology is available &mdash; but unowned. The schemes exist &mdash; but unclaimed. The village holds, in miniature, every contradiction of Indian agricultural policy of the last fifty years.
+        </p>
+        <p style="font-size:15px; color:var(--ink-soft); line-height:1.6;">
+          It is also a village where change is plausible. The youth are connected. The infrastructure is in place. The state schemes &mdash; PKVY, PMKSY, PM-Kisan &mdash; are operational. The only missing piece is a credible institutional vehicle. That is what we propose to build.
+        </p>
+      </div>
+    </div>
+
+    <!-- ICEBERG -->
+    <div class="iceberg">
+      <div class="chapter-mark" style="margin-bottom:24px;">
+        <span class="roman" style="font-size:28px;">II.b</span>
+        <span class="label">An Iceberg Reading of Farmer Distress</span>
+        <span class="folio">METHOD · SYSTEMS THINKING</span>
+      </div>
+
+      <p style="max-width:60ch; color:rgba(239,228,200,0.85); font-size:16px; margin:0 0 8px;">
+        Field interviews surface the visible. The Iceberg Model surfaces what they sit on. Without addressing the deepest layer &mdash; the mental models &mdash; any economic intervention will simply re-bake the same problem under a new name.
+      </p>
+
+      <div class="iceberg-layers">
+        <div class="layer">
+          <div class="layer-head">LAYER 01 · ABOVE WATER<em>Events</em></div>
+          <div class="layer-body">
+            <ul>
+              <li>Low income among small farmers</li>
+              <li>Recurring agrarian distress and indebtedness</li>
+            </ul>
+          </div>
+        </div>
+        <div class="layer">
+          <div class="layer-head">LAYER 02 · BELOW WATERLINE<em>Patterns &amp; Trends</em></div>
+          <div class="layer-body">
+            <ul>
+              <li>Persistent poor production-to-cost ratio</li>
+              <li>Marketable surplus shrinks faster than input costs rise</li>
+              <li>Mandi prices systematically lower than consumer-end prices</li>
+            </ul>
+          </div>
+        </div>
+        <div class="layer">
+          <div class="layer-head">LAYER 03 · STRUCTURE<em>Underlying Systems</em></div>
+          <div class="layer-body">
+            <ul>
+              <li>Middlemen and APMC agents capturing most of the value</li>
+              <li>Fragmented and shrinking land holdings (1.08 ha avg)</li>
+              <li>Absent rural infrastructure: storage, cold chain, processing</li>
+              <li>Dependence on informal credit and seasonal moneylenders</li>
+            </ul>
+          </div>
+        </div>
+        <div class="layer">
+          <div class="layer-head">LAYER 04 · DEEPEST<em>Mental Models</em></div>
+          <div class="layer-body">
+            <ul>
+              <li>"Capitalism makes the rich richer and the poor poorer" — a sense of resignation</li>
+              <li>Pride in independent landownership makes cooperation feel like surrender</li>
+              <li>Discomfort with structural change &mdash; "this is how it has always been"</li>
+              <li>Distrust of government schemes after decades of leaky implementation</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <p style="margin:36px 0 0; font-style:italic; color:rgba(239,228,200,0.7); font-family:var(--serif); font-size:18px; max-width:50ch; font-variation-settings: 'opsz' 28, 'wght' 380;">
+        Project KISAAN is engineered to act on all four layers &mdash; not just the topmost.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CHAPTER III — PERSONA ============ -->
+<section id="persona">
+  <div class="wrap reveal">
+    <div class="chapter-mark">
+      <span class="roman">III</span>
+      <span class="label">Chapter Three — The Farmer at the Centre</span>
+      <span class="folio">FOL. 04</span>
+    </div>
+
+    <h2 style="max-width:22ch;">Meet <em>Rakesh Tewari</em>. He is the design centre of this proposal.</h2>
+    <p class="lead" style="margin-top:24px;">
+      Rakesh is a composite portrait drawn from primary interviews with farmers across Khimsepur and three neighbouring villages. He represents the modal small farmer of north-Indian wheat country &mdash; the human being whose math has stopped working.
+    </p>
+
+    <div class="persona-grid">
+      <article class="persona-card">
+        <div class="persona-name">Rakesh Tewari, 43</div>
+        <div class="persona-sub">Farmer · Farrukhabad District · Uttar Pradesh</div>
+
+        <p style="font-size:15px; color:var(--ink-soft); margin:0 0 18px; line-height:1.6;">
+          Farms <strong>3 acres</strong> of cultivable land, growing wheat and corn alongside his wife and two school-educated sons. Stores part of the harvest at home in <em>bakharis</em>; sells the remainder at the APMC mandi at minimum support price. Owns no tractor. Rents one each season at rates he privately considers extortionate.
+        </p>
+
+        <div class="persona-quote">
+          I sell my produce to these big companies at minimum price. They hoard them, and sell them back at sky-high prices when the demand rises. The work is mine. The profit is theirs.
+        </div>
+      </article>
+
+      <div class="empathy-grid">
+        <div class="emp acc-saffron">
+          <h5>Says</h5>
+          <ul>
+            <li>"The work I put in is worth far more than the money I make."</li>
+            <li>"Big companies hoard my produce and resell at high prices."</li>
+            <li>"My children have no real job opportunities here."</li>
+            <li>"My earnings are not enough to support the family."</li>
+          </ul>
+        </div>
+        <div class="emp acc-moss">
+          <h5>Thinks</h5>
+          <ul>
+            <li>"I will never make it out of this poverty."</li>
+            <li>"Is farming even worth the effort?"</li>
+            <li>"I deserve better — and so does my family."</li>
+            <li>"I am being exploited, but I don't know what else to do."</li>
+          </ul>
+        </div>
+        <div class="emp acc-moss">
+          <h5>Does</h5>
+          <ul>
+            <li>Sells to the only buyer in reach, at the buyer's price.</li>
+            <li>Encourages his sons onto the farm — there is no alternative.</li>
+            <li>Eats part of his own harvest to keep household costs low.</li>
+            <li>Petitions the government when the rare official passes through.</li>
+          </ul>
+        </div>
+        <div class="emp acc-saffron">
+          <h5>Feels</h5>
+          <ul>
+            <li>Despair · Anxious · Exploited</li>
+            <li>Stressed · Tired · Unsure what to do next</li>
+            <li>Helpless · Afraid for the future of his sons</li>
+            <li>Inadequate &mdash; despite working harder than anyone he knows</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CHAPTER IV — THREE KNOTS ============ -->
+<section id="knots">
+  <div class="wrap reveal">
+    <div class="chapter-mark">
+      <span class="roman">IV</span>
+      <span class="label">Chapter Four — Three Knots to Untie</span>
+      <span class="folio">FOL. 05</span>
+    </div>
+
+    <h2 style="max-width:22ch;">The crisis is one. But it has <em>three</em> distinct knots.</h2>
+    <p class="lead" style="margin-top:24px;">
+      A successful intervention must untie all three at once. Solving any single knot leaves the system as exploitative as we found it. Project KISAAN is designed against all three simultaneously.
+    </p>
+
+    <div class="knots">
+      <div class="knot">
+        <div class="knot-num">KNOT 01 · LAND</div>
+        <h3>Small &amp; fragmented holdings.</h3>
+        <p>An individual farmer with 1&ndash;2 hectares cannot achieve economies of scale &mdash; on inputs, on equipment, on logistics, on bargaining. The only mathematical way out is to <em>aggregate without dispossessing</em>. Aggregate the buying power, not the deed.</p>
+      </div>
+      <div class="knot">
+        <div class="knot-num">KNOT 02 · INFORMATION</div>
+        <h3>Unreliable, asymmetric information.</h3>
+        <p>The farmer does not know yesterday's mandi price, this week's weather window, next month's scheme deadline, or the chemistry of the soil under his feet. Every information asymmetry becomes someone else's profit margin.</p>
+      </div>
+      <div class="knot">
+        <div class="knot-num">KNOT 03 · MARKET</div>
+        <h3>An unbroken chain of middlemen.</h3>
+        <p>Between the farmer's plough and the consumer's plate sit five to seven intermediaries. Each takes a margin. Each of those margins, in dairy, was eliminated &mdash; or formalised &mdash; by Amul. The blueprint exists. It just needs porting to grain.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CHAPTER V — A PROVEN PATH ============ -->
+<section id="path">
+  <div class="wrap reveal">
+    <div class="chapter-mark">
+      <span class="roman">V</span>
+      <span class="label">Chapter Five — A Proven Path</span>
+      <span class="folio">FOL. 06</span>
+    </div>
+
+    <h2 style="max-width:24ch;">We are not inventing a model. We are <em>porting</em> one.</h2>
+    <p class="lead" style="margin-top:24px;">
+      The cooperative is not theory in India. It is the single largest engine of rural prosperity the country has ever built. Four case studies make the case &mdash; one historical, one contemporary, two digital.
+    </p>
+
+    <div class="cases">
+      <div class="case">
+        <div class="case-tag">CASE 01 · THE HISTORICAL PROOF</div>
+        <div class="case-name"><em>Amul.</em> 1946 &rarr; today.</div>
+        <p class="case-body">
+          Founded in Anand, Gujarat, in 1946 by farmers tired of being underpaid by Polson Dairy. Today, the Gujarat Cooperative Milk Marketing Federation (GCMMF) is the world's strongest dairy brand. Three tiers: village societies, district unions, state federation. Democratic governance. Professional management. Production and marketing separated by design.
+        </p>
+        <div class="case-stats">
+          <div class="case-stat">
+            <div class="v">₹<em>80,000</em> Cr</div>
+            <div class="l">Group brand turnover FY24</div>
+          </div>
+          <div class="case-stat">
+            <div class="v"><em>3.6</em> M</div>
+            <div class="l">Farmer-owners</div>
+          </div>
+          <div class="case-stat">
+            <div class="v"><em>75&ndash;85%</em></div>
+            <div class="l">Of consumer price returned to farmer</div>
+          </div>
+          <div class="case-stat">
+            <div class="v"><em>#1</em></div>
+            <div class="l">Strongest dairy brand globally (Brand Finance)</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="case">
+        <div class="case-tag">CASE 02 · THE CONTEMPORARY PROOF</div>
+        <div class="case-name"><em>Sahyadri Farms.</em> 2004 &rarr; today.</div>
+        <p class="case-body">
+          Founded by Vilas Shinde in Nashik, Maharashtra, with ten grape farmers. Now India's largest fruit and vegetable Farmer Producer Company. Adheres to Good Agricultural Practices. Exports to Europe and the Middle East. Domestic and export channels combined.
+        </p>
+        <div class="case-stats">
+          <div class="case-stat">
+            <div class="v">₹<em>1,549</em> Cr</div>
+            <div class="l">FY24 turnover (up from ₹13 Cr in FY12)</div>
+          </div>
+          <div class="case-stat">
+            <div class="v"><em>26,500</em></div>
+            <div class="l">Registered farmer members</div>
+          </div>
+          <div class="case-stat">
+            <div class="v"><em>31,000</em> ac</div>
+            <div class="l">Total area under cultivation</div>
+          </div>
+          <div class="case-stat">
+            <div class="v"><em>35%</em></div>
+            <div class="l">Revenue from exports</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="case">
+        <div class="case-tag">CASE 03 · THE DIGITAL CHANNEL</div>
+        <div class="case-name"><em>Big Basket</em> &middot; farm-to-fork supply chain.</div>
+        <p class="case-body">
+          Half of Big Basket's farmer-suppliers are smallholders with under two hectares of land. Transparent pricing, direct bank transfers within three days. Field agronomist support. <strong>83% of supplying farmers report Big Basket gives them the best price</strong> they have ever received &mdash; on average 10&ndash;14% above the local mandi.<sup class="fn">7</sup>
+        </p>
+        <div class="case-stats">
+          <div class="case-stat">
+            <div class="v"><em>51%</em></div>
+            <div class="l">Suppliers are smallholders</div>
+          </div>
+          <div class="case-stat">
+            <div class="v"><em>98%</em></div>
+            <div class="l">Want to keep supplying</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="case">
+        <div class="case-tag">CASE 04 · ON-DEMAND HARVESTING</div>
+        <div class="case-name"><em>Crofarm</em> &middot; B2C agritech.</div>
+        <p class="case-body">
+          A B2C aggregator that pre-secures demand and only harvests against confirmed orders. Transparent digital pricing. Direct deposits to farmer accounts. Twelve-hour farm-to-fork delivery cycle. A model that suits perishable horticulture and could be adapted for graded grain.
+        </p>
+        <div class="case-stats">
+          <div class="case-stat">
+            <div class="v"><em>12</em> hrs</div>
+            <div class="l">Farm to consumer</div>
+          </div>
+          <div class="case-stat">
+            <div class="v"><em>Direct</em></div>
+            <div class="l">Payments &mdash; no agent margin</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="ornament" />
+
+    <p style="font-family:var(--serif); font-style:italic; font-size:clamp(20px, 2.4vw, 30px); line-height:1.35; font-variation-settings:'opsz' 36,'wght' 380; color:var(--ink); max-width:34ch; margin:0 auto; text-align:center;">
+      The model is not the question. The question is &mdash; <em>where do we apply it next?</em>
+    </p>
+  </div>
+</section>
+
+<!-- ============ CHAPTER VI — THE PROPOSAL ============ -->
+<section id="proposal" class="proposal-frame">
+  <div class="wrap reveal">
+    <div class="chapter-mark">
+      <span class="roman">VI</span>
+      <span class="label">Chapter Six — The Proposal</span>
+      <span class="folio">FOL. 07</span>
+    </div>
+
+    <h2 style="max-width:22ch;">Two levers, pulled <em>together</em>.</h2>
+    <p class="lead" style="margin-top:24px;">
+      KISAAN proposes a single intervention with two interlocking components. Neither works alone. Together, they reinforce each other: the cooperative gives the farmer institutional weight; organic methods give the cooperative a defensible price premium and a long-term market.
+    </p>
+
+    <div class="dual">
+
+      <div class="lever">
+        <div class="lever-tag">LEVER 01 · STRUCTURAL</div>
+        <h3>A <em>Khimsepur</em> Farmers' Cooperative.</h3>
+        <p>
+          Modelled on the Amul three-tier structure, scaled to a single village. Voluntary membership, one-member-one-vote governance, equitable profit-sharing, formal registration under the UP Co-operative Societies Act, 1965. The cooperative becomes the unit through which farmers buy inputs, share equipment, access credit, and sell produce.
+        </p>
+        <ul>
+          <li>Pools purchasing power for seeds, manure, and tractor time</li>
+          <li>Acquires formal credit at institutional interest rates</li>
+          <li>Negotiates directly with off-takers, removing middlemen</li>
+          <li>Holds, as a reserve, a percentage agreed by general body</li>
+          <li>Becomes the legal counterparty the government and banks can sign with</li>
+        </ul>
+      </div>
+
+      <div class="lever">
+        <div class="lever-tag">LEVER 02 · ECONOMIC &amp; ECOLOGICAL</div>
+        <h3><em>Organic</em> methods, supported by PKVY.</h3>
+        <p>
+          Transition from chemical to organic over three years &mdash; using the financial support, training, and certification machinery built into the Government of India's Paramparagat Krishi Vikas Yojana. Cluster-based, with the cooperative as the cluster. Output earns a premium of 10&ndash;15% in domestic and export markets.<sup class="fn">3</sup>
+        </p>
+        <ul>
+          <li>₹31,500 per hectare over three years, paid via DBT</li>
+          <li>Eligibility for Participatory Guarantee System (PGS) certification</li>
+          <li>Access to the Jaivik Kheti digital marketplace</li>
+          <li>Soil regeneration, reduced input costs after Year 2</li>
+          <li>Eligibility for India Organic and NPOP export certification</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="golden-circle">
+      <div>
+        <div class="golden-circle-tag">THE WHY · GOLDEN CIRCLE</div>
+        <h3>At the centre is not the crop. It is the <em>person</em>.</h3>
+      </div>
+      <blockquote>
+        Farmers are the backbone of the country and responsible for its food security. The indifference and disparagement they are treated with has led to disconcerting circumstances. They deserve due respect, and a better standard of living.
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CHAPTER VII — HOW IT WORKS ============ -->
+<section id="how">
+  <div class="wrap reveal">
+    <div class="chapter-mark">
+      <span class="roman">VII</span>
+      <span class="label">Chapter Seven — How It Works</span>
+      <span class="folio">FOL. 08</span>
+    </div>
+
+    <h2 style="max-width:24ch;">A constitution. Five domains. One <em>information board</em>.</h2>
+    <p class="lead" style="margin-top:24px;">
+      The cooperative is not a slogan. It is a registered legal entity with a written constitution, elected office-holders, regular general body meetings, and an audited reserve. Below is the operational anatomy.
+    </p>
+
+    <h3 style="margin-top:60px; font-style:italic;">Setup &amp; Governance</h3>
+    <div class="setup-grid">
+
+      <div class="setup">
+        <div class="setup-num">i.</div>
+        <h4>Membership &amp; Voting</h4>
+        <ul>
+          <li>Open to all farmers &amp; workers in the village</li>
+          <li>One person, one vote &mdash; no proxies</li>
+          <li>Prescribed maximum shareholding per member</li>
+          <li>Decisions on trade, inputs, head election by ⅔ majority</li>
+          <li>Regular general body meetings at member-set intervals</li>
+        </ul>
+      </div>
+
+      <div class="setup">
+        <div class="setup-num">ii.</div>
+        <h4>Registration</h4>
+        <ul>
+          <li>Co-operative Societies Act, 1912 / UP Co-op Act, 1965</li>
+          <li>Minimum 10 adult signatures to incorporate</li>
+          <li>Bye-laws submitted along with formation papers</li>
+          <li>Eligible from day one for PMKSY benefits</li>
+          <li>Eligible for PKVY cluster certification &amp; subsidy</li>
+        </ul>
+      </div>
+
+      <div class="setup">
+        <div class="setup-num">iii.</div>
+        <h4>Finance</h4>
+        <ul>
+          <li>Revenue distributed equitably among members</li>
+          <li>A set percentage retained as general reserve</li>
+          <li>A second percentage allocated for community welfare</li>
+          <li>Audited annually; books open to all members</li>
+          <li>Access to KCC and crop insurance as a registered entity</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="domains">
+      <div class="domains-head">
+        <h3 style="font-style:italic;">Five Elected Domains</h3>
+        <p style="margin:0; max-width:54ch; font-size:15px; color:var(--ink-soft);">
+          Beyond a general head and a meeting reporter, the cooperative elects domain leads &mdash; each accountable to the general body, each serving a one-year term renewable by ⅔ majority. New domains may be added as the cooperative scales.
+        </p>
+      </div>
+
+      <div class="domain-grid">
+        <div class="domain">
+          <div class="domain-num">DOMAIN 01</div>
+          <h4>Information &amp; Training</h4>
+          <p>Relays policy updates, agricultural advisories, weather. Organises seminars, demonstrations, and skill workshops.</p>
+        </div>
+        <div class="domain">
+          <div class="domain-num">DOMAIN 02</div>
+          <h4>Finance</h4>
+          <p>Maintains books, sets seasonal budgets, manages reserve and welfare funds, prepares audit-ready accounts.</p>
+        </div>
+        <div class="domain">
+          <div class="domain-num">DOMAIN 03</div>
+          <h4>Input Procurement</h4>
+          <p>Procures certified seeds, manure, bio-fertilisers, and equipment at bulk rates. Maintains supplier roster.</p>
+        </div>
+        <div class="domain">
+          <div class="domain-num">DOMAIN 04</div>
+          <h4>Trade</h4>
+          <p>Identifies fair-price off-takers &mdash; FPOs, retail chains, e-commerce platforms, exporters. Negotiates contracts.</p>
+        </div>
+        <div class="domain">
+          <div class="domain-num">DOMAIN 05</div>
+          <h4>Conflict Resolution</h4>
+          <p>First-line mediator for member disputes. Maintains procedural fairness. Reports unresolved cases to general body.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="booth-grid">
+      <div class="booth-body">
+        <div class="kicker">A Physical Anchor</div>
+        <h4>The Information Booth</h4>
+        <p>
+          A small cyber-corner at the cooperative office &mdash; a few computers, a chalk-and-paper information board, and a fixed phone line. Built deliberately as a <em>place</em> not an app, because the older generation of farmers does not transact through screens. Trust comes from a doorway, a chair, and a familiar face behind a desk.
+        </p>
+        <ul>
+          <li>Hosts the digital library of meeting minutes, policy updates, training records</li>
+          <li>Channel for lodging complaints, raising issues, applying for membership</li>
+          <li>Serves as the cooperative's day-to-day physical meeting spot</li>
+          <li>Has a single dial-in helpline &mdash; staffed by the elected booth manager</li>
+          <li>The information board is updated daily at sunrise</li>
+        </ul>
+      </div>
+
+      <!-- Information Board prototype -->
+      <div>
+        <div class="info-board">
+          <div class="info-board-head">Information Board</div>
+          <div class="info-board-date">सोमवार · 24 अगस्त, 2026</div>
+
+          <div class="info-board-grid">
+            <div class="info-board-col">
+              <h6>Weather Today</h6>
+              <p>32°C · Partly cloudy<br/>Humidity 64% · Wind ENE 8 km/h<br/>Irrigation: <em>not required</em></p>
+              <h6 style="margin-top:14px;">Next Meeting</h6>
+              <p>Wednesday · 27 Aug, 4:00 PM<br/>Agenda: PKVY Year-2 transition</p>
+              <h6 style="margin-top:14px;">General Reserve</h6>
+              <p>₹ 2,30,000</p>
+            </div>
+
+            <div class="info-board-sep"></div>
+
+            <div class="info-board-col">
+              <h6>Mandi Prices · Today</h6>
+              <div class="info-board-price"><span>Wheat</span><span><span class="up">▲</span> <span class="v">₹ 47/kg</span></span></div>
+              <div class="info-board-price"><span>Potato</span><span><span class="dn">▼</span> <span class="v">₹ 15/kg</span></span></div>
+              <div class="info-board-price"><span>Corn</span><span><span class="up">▲</span> <span class="v">₹ 22/kg</span></span></div>
+
+              <h6 style="margin-top:18px;">Minutes · Previous Meeting</h6>
+              <p>— Organic farming explained session scheduled<br/>— Elections discussed; nominations open<br/>— Tractor maintenance: rotation finalised</p>
+            </div>
+          </div>
+
+          <div class="info-board-foot">
+            <span>For further queries</span>
+            <span class="helpline">Dial 1234</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CHAPTER VIII — STORYBOARD ============ -->
+<section id="story">
+  <div class="wrap reveal">
+    <div class="chapter-mark">
+      <span class="roman">VIII</span>
+      <span class="label">Chapter Eight — A Day in the Cooperative</span>
+      <span class="folio">FOL. 09</span>
+    </div>
+
+    <h2 style="max-width:24ch;">From <em>extraction</em> to ownership, in ten panels.</h2>
+    <p class="lead" style="margin-top:24px;">
+      A narrative storyboard of a single Khimsepur farmer's transition &mdash; from buying seeds at retail prices and selling at minimum support price, to becoming a voting member of his own cooperative.
+    </p>
+
+    <div class="story-grid">
+
+      <div class="panel">
+        <div class="panel-num">PANEL 01 · BEFORE</div>
+        <p class="panel-quote">The retail price of seeds and fertilisers is sky-high. My profit is gone before I even sow.</p>
+        <p class="panel-caption">Buying inputs at retail. Margin lost on day one.</p>
+      </div>
+
+      <div class="panel">
+        <div class="panel-num">PANEL 02 · BEFORE</div>
+        <p class="panel-quote">This is the best I can do. I need to make a living too.</p>
+        <p class="panel-caption">The middleman, polite but firm. The farmer, with no alternative buyer in reach.</p>
+      </div>
+
+      <div class="panel">
+        <div class="panel-num">PANEL 03 · BEFORE</div>
+        <p class="panel-quote">I feel sick. I think it might be the chemicals in the fertilisers.</p>
+        <p class="panel-caption">Decades of synthetic input use. Health costs rising. Soil degrading.</p>
+      </div>
+
+      <div class="panel pivot">
+        <div class="panel-num">PANEL 04 · THE PIVOT</div>
+        <p class="panel-quote">Brother — we'll have each other's backs from now on.</p>
+        <p class="panel-caption">Ten farmers sign the bye-laws. The cooperative is born.</p>
+      </div>
+
+      <div class="panel">
+        <div class="panel-num">PANEL 05 · ELECTION</div>
+        <p class="panel-quote">Mohan has been elected as head for this year.</p>
+        <p class="panel-caption">One person, one vote. Domain leads chosen by show of hands.</p>
+      </div>
+
+      <div class="panel">
+        <div class="panel-num">PANEL 06 · CREDIT</div>
+        <p class="panel-quote">My loan has been approved at 7% under Pradhan Mantri Fasal Bima Yojana.</p>
+        <p class="panel-caption">A registered entity unlocks institutional credit at fair rates.</p>
+      </div>
+
+      <div class="panel">
+        <div class="panel-num">PANEL 07 · INPUTS</div>
+        <p class="panel-quote">Bought the tractor at wholesale price. We divide cost and use by rota.</p>
+        <p class="panel-caption">Pooled procurement. Equipment ownership at the cooperative level.</p>
+      </div>
+
+      <div class="panel">
+        <div class="panel-num">PANEL 08 · TRAINING</div>
+        <p class="panel-quote">Healthy soil, healthy plant. The agronomist showed us how.</p>
+        <p class="panel-caption">PKVY training. Bio-fertiliser preparation. Composting demos.</p>
+      </div>
+
+      <div class="panel">
+        <div class="panel-num">PANEL 09 · INFORMATION</div>
+        <p class="panel-quote">Heavy rainfall today — I can postpone irrigation. Saves me water and money.</p>
+        <p class="panel-caption">The information board, read at sunrise. Decision support, free.</p>
+      </div>
+
+      <div class="panel">
+        <div class="panel-num">PANEL 10 · MARKET</div>
+        <p class="panel-quote">Connected with companies for trade at fair prices.</p>
+        <p class="panel-caption">Direct off-take to FPOs and retail. The middleman, no longer the only door.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ CHAPTER IX — IMPACT ============ -->
+<section id="impact">
+  <div class="wrap reveal">
+    <div class="chapter-mark">
+      <span class="roman">IX</span>
+      <span class="label">Chapter Nine — Impact, Four Ways</span>
+      <span class="folio">FOL. 10</span>
+    </div>
+
+    <h2 style="max-width:24ch;">A single intervention. Returns across <em>four</em> dimensions.</h2>
+    <p class="lead" style="margin-top:24px;">
+      Impact is not a slogan; it is an audit. Below, the legal, economic, social, and environmental returns that a pilot cooperative will deliver &mdash; each independently measurable.
+    </p>
+
+    <div class="impact-grid">
+
+      <div class="impact">
+        <div class="impact-tag">DIMENSION 01</div>
+        <h4>Legal</h4>
+        <ul>
+          <li>Cooperative gains formal legal personhood</li>
+          <li>Eligibility for PMKSY subsidies &amp; training</li>
+          <li>Eligibility for India Organic Certification</li>
+          <li>Standing to petition government &amp; bank counterparties</li>
+          <li>Formal access to dispute-resolution mechanisms</li>
+        </ul>
+      </div>
+
+      <div class="impact">
+        <div class="impact-tag">DIMENSION 02</div>
+        <h4>Economic</h4>
+        <ul>
+          <li>Higher net revenue from premium organic pricing (10–15%)</li>
+          <li>Lower input costs from bulk procurement</li>
+          <li>Access to institutional credit at fair interest rates</li>
+          <li>Protection against falling into informal debt traps</li>
+          <li>New revenue streams via FPO and export channels</li>
+          <li>Employment generation for the educated village youth</li>
+        </ul>
+      </div>
+
+      <div class="impact">
+        <div class="impact-tag">DIMENSION 03</div>
+        <h4>Social</h4>
+        <ul>
+          <li>Reduced household exposure to agro-chemicals</li>
+          <li>Renewed community bonds &amp; cooperative trust</li>
+          <li>Greater dignity, sense of agency, mental wellbeing</li>
+          <li>Youth involved in work that matches their education</li>
+          <li>Better food on farmer tables, not just consumer tables</li>
+          <li>Voice — collective bargaining with state and market</li>
+        </ul>
+      </div>
+
+      <div class="impact">
+        <div class="impact-tag">DIMENSION 04</div>
+        <h4>Environmental</h4>
+        <ul>
+          <li>Phased exit from chemical pesticides &amp; fertilisers</li>
+          <li>Restoration of soil health &amp; topsoil retention</li>
+          <li>Reduced groundwater stress through better timing</li>
+          <li>Lower embodied energy per kilogram of grain</li>
+          <li>A village that contributes to climate adaptation, not against it</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ CHAPTER X — OPPORTUNITY ============ -->
+<section id="opportunity">
+  <div class="wrap reveal">
+    <div class="chapter-mark">
+      <span class="roman">X</span>
+      <span class="label">Chapter Ten — Market &amp; Policy</span>
+      <span class="folio">FOL. 11</span>
+    </div>
+
+    <h2 style="max-width:22ch;">A market that is large, growing, and <em>state-supported</em>.</h2>
+    <p class="lead" style="margin-top:24px;">
+      The Indian organic food market is not a future bet &mdash; it is one of the country's fastest-growing food categories, with explicit policy tailwinds. KISAAN is positioned squarely inside that wind.
+    </p>
+
+    <div class="opp-grid">
+
+      <div class="tam">
+        <div class="tam-row">
+          <span class="tag">TAM</span>
+          <span class="label">India organic food market (2025)</span>
+          <span class="num">$2.3 B</span>
+        </div>
+        <div class="tam-row">
+          <span class="tag">TAM-30</span>
+          <span class="label">Projected by 2033 at 19.3% CAGR</span>
+          <span class="num">$11.3 B</span>
+        </div>
+        <div class="tam-row">
+          <span class="tag">SAM</span>
+          <span class="label">UP-based organic grain &amp; cereal segment</span>
+          <span class="num">~$280 M</span>
+        </div>
+        <div class="tam-row deep">
+          <span class="tag">SOM</span>
+          <span class="label">Khimsepur cluster + 4 adjacent villages, Year 1–3</span>
+          <span class="num">~₹5 Cr</span>
+        </div>
+        <div style="padding:18px 26px; background:var(--paper); font-size:13px; color:var(--ink-faint); line-height:1.6;">
+          India is currently <strong>#1 globally</strong> in number of organic producers and <strong>#2</strong> in organic agricultural land. Cereals and millets contribute 24% of national organic export value.<sup class="fn">8</sup>
+        </div>
+      </div>
+
+      <div class="tailwinds">
+        <h4>Policy &amp; Structural Tailwinds</h4>
+
+        <div class="tw">
+          <span class="icon">01</span>
+          <div>
+            <div class="t">Paramparagat Krishi Vikas Yojana (PKVY)</div>
+            <div class="d">₹31,500/ha over three years for organic transition. Cluster-based. The cooperative <em>is</em> the cluster.<sup class="fn">3</sup></div>
+          </div>
+        </div>
+        <div class="tw">
+          <span class="icon">02</span>
+          <div>
+            <div class="t">National FPO Policy (2024 Draft)</div>
+            <div class="d">Target of 50,000 new FPOs covering 2.5 crore farmers in five years &mdash; modelled explicitly on the Amul template.<sup class="fn">9</sup></div>
+          </div>
+        </div>
+        <div class="tw">
+          <span class="icon">03</span>
+          <div>
+            <div class="t">PMKSY Subsidies &amp; Training</div>
+            <div class="d">Equipment and irrigation subsidies plus skill training, available to registered cooperatives from incorporation onward.</div>
+          </div>
+        </div>
+        <div class="tw">
+          <span class="icon">04</span>
+          <div>
+            <div class="t">Schedule VII CSR Mandate</div>
+            <div class="d">"Promoting agroforestry &amp; rural livelihoods" is an eligible CSR head under the Companies Act 2013 &mdash; opening corporate funding pools.</div>
+          </div>
+        </div>
+        <div class="tw">
+          <span class="icon">05</span>
+          <div>
+            <div class="t">Jaivik Kheti Portal</div>
+            <div class="d">A government-run digital marketplace that connects PGS-certified organic farmers directly with urban buyers.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ CHAPTER XI — RISKS ============ -->
+<section id="risks">
+  <div class="wrap reveal">
+    <div class="chapter-mark">
+      <span class="roman">XI</span>
+      <span class="label">Chapter Eleven — Risks &amp; Mitigations</span>
+      <span class="folio">FOL. 12</span>
+    </div>
+
+    <h2 style="max-width:24ch;">No project this honest can be <em>risk-free</em>. Here is what could break it &mdash; and how we will hold the line.</h2>
+
+    <div class="risks">
+
+      <div class="risk">
+        <div>
+          <div class="risk-tag">RISK 01</div>
+          <div class="risk-name">The Mentality.</div>
+        </div>
+        <div class="risk-body">
+          Decades of dependence on traders and pride in independent landholding mean cooperation feels foreign. Even with a credible model on the table, farmers may decline to join &mdash; a soft "no" that becomes a hard problem.
+        </div>
+        <div class="risk-mit">
+          <span class="mh">Mitigation</span>
+          We start with the youth (educated, less resistant), the locally-respected, and the families that have already lost members to migration. Membership grows by example, not exhortation.
+        </div>
+      </div>
+
+      <div class="risk">
+        <div>
+          <div class="risk-tag">RISK 02</div>
+          <div class="risk-name">Quantity over Quality.</div>
+        </div>
+        <div class="risk-body">
+          The post-Green-Revolution farmer is trained to maximise yield by any means. The organic transition lowers yield by 15–25% in the first two years before recovering. Members may panic and revert.
+        </div>
+        <div class="risk-mit">
+          <span class="mh">Mitigation</span>
+          PKVY's ₹31,500/ha bridges the transition years. Premium pricing on certified output offsets volume loss. Group certification reduces individual cost. We publish the math openly at every general body meeting.
+        </div>
+      </div>
+
+      <div class="risk">
+        <div>
+          <div class="risk-tag">RISK 03</div>
+          <div class="risk-name">Contract Farming Trust.</div>
+        </div>
+        <div class="risk-body">
+          Large off-takers offer assured revenue but historically exploit power asymmetry. Lack of contract transparency is a real risk &mdash; farmers have been burned before, and remember it.
+        </div>
+        <div class="risk-mit">
+          <span class="mh">Mitigation</span>
+          The cooperative, not the individual farmer, signs. Contract templates reviewed by NGO partners and pro-bono legal counsel. Any contract clause translated and read aloud at general body before signature.
+        </div>
+      </div>
+
+      <div class="risk">
+        <div>
+          <div class="risk-tag">RISK 04</div>
+          <div class="risk-name">Government Procedural Friction.</div>
+        </div>
+        <div class="risk-body">
+          Scheme enrolment, certification, subsidy disbursement &mdash; each step has real-world delay and informal cost. Members lose interest if the promised support takes eighteen months.
+        </div>
+        <div class="risk-mit">
+          <span class="mh">Mitigation</span>
+          A dedicated field officer for the cooperative's first three years &mdash; whose only job is to chase paperwork. We treat bureaucracy as a budget line, not an afterthought.
+        </div>
+      </div>
+
+      <div class="risk">
+        <div>
+          <div class="risk-tag">RISK 05</div>
+          <div class="risk-name">Internal Corruption.</div>
+        </div>
+        <div class="risk-body">
+          Any institution that handles money can be skimmed. A cooperative without robust controls becomes a private fiefdom of its elected head &mdash; the very problem it was created to solve.
+        </div>
+        <div class="risk-mit">
+          <span class="mh">Mitigation</span>
+          Public ledger, annual external audit, two-signatory disbursement, mandatory rotation of office every two terms, and a written grievance channel that bypasses the head.
+        </div>
+      </div>
+
+      <div class="risk">
+        <div>
+          <div class="risk-tag">RISK 06</div>
+          <div class="risk-name">Loan Repayment Failure.</div>
+        </div>
+        <div class="risk-body">
+          Crop failure, monsoon variability, or a market dip in Year 1 could leave the cooperative unable to service institutional loans &mdash; collapsing the very credit relationship that gives it leverage.
+        </div>
+        <div class="risk-mit">
+          <span class="mh">Mitigation</span>
+          PMFBY crop insurance enrolment for all members from Day 1. A reserve fund built before the first harvest. Diversified cropping pattern. A reserve revolving credit line negotiated with the partner bank.
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ CHAPTER XII — ROADMAP ============ -->
+<section id="roadmap">
+  <div class="wrap reveal">
+    <div class="chapter-mark">
+      <span class="roman">XII</span>
+      <span class="label">Chapter Twelve — The Roadmap</span>
+      <span class="folio">FOL. 13</span>
+    </div>
+
+    <h2 style="max-width:24ch;">One village. Then ten. Then a hundred. A <em>deliberate</em> arc.</h2>
+
+    <div class="roadmap">
+
+      <div class="phase">
+        <div>
+          <div class="phase-tag">PHASE I · PILOT</div>
+          <div class="phase-name">Prove the Khimsepur Model.</div>
+          <div class="phase-when">Months 1–18 · Khimsepur village, Farrukhabad</div>
+        </div>
+        <div class="phase-body">
+          <p>Onboard 30–50 founding farmer-members. Incorporate under the UP Co-operative Societies Act. Enrol in PKVY. Build the information booth. Hire a field officer. Sign first off-take contract by month 12. Publish a transparent Year-1 impact report.</p>
+          <div class="phase-pills">
+            <span class="pill">30–50 members</span>
+            <span class="pill">1 cooperative</span>
+            <span class="pill">PKVY enrolment</span>
+            <span class="pill">Year-end audit</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="phase">
+        <div>
+          <div class="phase-tag">PHASE II · EXPAND</div>
+          <div class="phase-name">A Cluster, Not a Village.</div>
+          <div class="phase-when">Year 2–3 · Farrukhabad &amp; adjacent districts</div>
+        </div>
+        <div class="phase-body">
+          <p>Replicate to four neighbouring villages. Aggregate into a district-level federation. Negotiate state-level off-take contracts. Begin organic export trials. Codify a written operating playbook for replication. Pursue NABARD &amp; SFAC funding.</p>
+          <div class="phase-pills">
+            <span class="pill">5 villages</span>
+            <span class="pill">~500 farmers</span>
+            <span class="pill">District federation</span>
+            <span class="pill">First exports</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="phase">
+        <div>
+          <div class="phase-tag">PHASE III · INSTITUTIONALISE</div>
+          <div class="phase-name">A State-Wide Cooperative.</div>
+          <div class="phase-when">Year 4–7 · Uttar Pradesh-wide</div>
+        </div>
+        <div class="phase-body">
+          <p>Build the three-tier Amul structure: village societies, district unions, state federation. Become the procurement partner of choice for UP grain. Publish peer-reviewed impact data. Position for inclusion in the National FPO Policy's 50,000-FPO target.</p>
+          <div class="phase-pills">
+            <span class="pill">50+ villages</span>
+            <span class="pill">5,000+ farmers</span>
+            <span class="pill">State federation</span>
+            <span class="pill">National policy seat</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ TEAM ============ -->
+<section class="team-section">
+  <div class="wrap reveal">
+    <div class="chapter-mark">
+      <span class="roman">XIII</span>
+      <span class="label">Chapter Thirteen — The Team</span>
+      <span class="folio">FOL. 14</span>
+    </div>
+
+    <h2 style="max-width:24ch;">Two designers. One <em>obsession</em>: a fairer field.</h2>
+    <p class="lead" style="margin-top:24px;">
+      Project KISAAN was conceived by Mansi Sharma and Pranjal Bhadauria as part of a service-design programme focused on rural livelihoods. We bring a combined skill-set in primary research, systems thinking, prototyping, and communication design.
+    </p>
+
+    <div class="team-grid">
+      <div class="member">
+        <div class="member-mark">M</div>
+        <div>
+          <h4>Mansi Sharma</h4>
+          <div class="role">Service Design · Systems</div>
+          <p>Led iceberg analysis, secondary research synthesis, and the design of the cooperative governance structure. Background in industrial design and policy frameworks.</p>
+        </div>
+      </div>
+      <div class="member">
+        <div class="member-mark">P</div>
+        <div>
+          <h4>Pranjal Bhadauria</h4>
+          <div class="role">Field Research · Communication</div>
+          <p>Led primary interviews in Khimsepur, persona &amp; empathy mapping, and storyboard prototyping. Background in field-based research methods and editorial design.</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:50px; padding-top:30px; border-top:1px solid var(--rule); font-size:14px; color:var(--ink-soft); max-width:60ch; line-height:1.6;">
+      <strong style="color:var(--ink);">Acknowledgements.</strong> Gratitude to the farmers of Khimsepur for hours of their attention, to the field officer who walked the village with us, and to the cooperative practitioners who shared what they had learned the hard way. The model is theirs more than it is ours.
+    </div>
+  </div>
+</section>
+
+<!-- ============ ASK ============ -->
+<section id="ask" class="ask">
+  <div class="wrap reveal">
+    <div class="chapter-mark">
+      <span class="roman">XIV</span>
+      <span class="label">The Ask</span>
+      <span class="folio">FOL. 15</span>
+    </div>
+
+    <h2>What we need &mdash; and what we will <em>return</em>.</h2>
+    <p class="lead" style="margin-top:30px;">
+      We are seeking partnerships across three categories to translate field-validated research into an operating cooperative within twelve months. Every rupee, every introduction, every regulatory door opened counts. We report transparently on each.
+    </p>
+
+    <div class="ask-grid">
+      <div class="ask-card">
+        <div class="tag">CATEGORY A · CAPITAL</div>
+        <h4>Pilot Funding</h4>
+        <p>Seed capital from impact investors, family offices, and patient-capital funds. Supports incorporation, field-officer hiring, information-booth setup, and pre-harvest working capital. In return: transparent reporting, board observer rights, and a defensible thesis in India's silver-growing agritech category.</p>
+      </div>
+      <div class="ask-card">
+        <div class="tag">CATEGORY B · CSR &amp; GRANTS</div>
+        <h4>Corporate &amp; Foundation Partners</h4>
+        <p>Multi-year CSR allocations under Schedule VII of the Companies Act, 2013. Funds member-training programmes, organic-transition support, and community infrastructure (information board, meeting space). In return: co-branded reach, audited impact reporting, and rich field-story material for ESG and sustainability disclosures.</p>
+      </div>
+      <div class="ask-card">
+        <div class="tag">CATEGORY C · STATE &amp; CIVIL SOCIETY</div>
+        <h4>Government &amp; NGO Allies</h4>
+        <p>MoUs with the UP Department of Agriculture, the NABARD-SFAC FPO ecosystem, and on-ground NGO networks in the Doab region. Co-deliver enrolment, training, and certification. In return: a credible private partner that publishes outcome data openly, with no proprietary claim on government IP.</p>
+      </div>
+    </div>
+
+    <div class="ask-cta">
+      <div>
+        <div class="l">Contact</div>
+        <div class="v">team.kisaan@designforimpact.in</div>
+      </div>
+      <div>
+        <a href="mailto:team.kisaan@designforimpact.in" class="btn saffron">Request a conversation <span class="arrow">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <h5>Brief</h5>
+      <ul>
+        <li><a href="#crisis">I · The Crisis</a></li>
+        <li><a href="#context">II · Khimsepur</a></li>
+        <li><a href="#proposal">VI · The Proposal</a></li>
+        <li><a href="#impact">IX · Impact</a></li>
+        <li><a href="#ask">The Ask</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Acknowledgements</h5>
+      <p style="font-size:13px; line-height:1.55; margin:0;">
+        With gratitude to the farming community of Khimsepur, to the elected sarpanch, to the cooperative practitioners whose experiences we have leaned on, and to the NGO networks who helped us walk the fields.
+      </p>
+    </div>
+    <div>
+      <h5>References &amp; Methods</h5>
+      <p style="font-size:13px; line-height:1.55; margin:0;">
+        All statistics in this brief are drawn from peer-reviewed agricultural economics, the Government of India, the UN FAO, and primary field research conducted between February and April. Listed below.
+      </p>
+    </div>
+  </div>
+
+  <div class="wrap" style="padding:0;">
+    <div class="refs">
+      <h5>References</h5>
+      <ol>
+        <li><strong>Agriculture Census 2015-16, Ministry of Agriculture &amp; Farmers Welfare, Government of India.</strong> Small and marginal holdings (&lt;2 ha) account for 86.2% of farmers and 47.3% of crop area. Average holding has fallen from 2.28 ha (1970-71) to 1.08 ha (2015-16).</li>
+        <li><strong>Gujarat Cooperative Milk Marketing Federation (GCMMF) Annual Report FY25 &amp; FY24.</strong> Group brand turnover ₹80,000 crore; farmer return 75–85% of consumer price; 3.6 million producer-members. Ranked world's strongest dairy brand by Brand Finance UK (2024).</li>
+        <li><strong>Press Information Bureau, Government of India (2025).</strong> <em>Paramparagat Krishi Vikas Yojana: Nurturing Organic Farming in India.</em> ₹31,500/ha financial assistance over three years; cluster-based approach; Participatory Guarantee System (PGS) certification.</li>
+        <li><strong>National Crime Records Bureau (NCRB).</strong> <em>Accidental Deaths and Suicides in India 2023</em>, released September 2025. 10,786 farmers and agricultural workers died by suicide; 3.9 lakh deaths between 1995 and 2023.</li>
+        <li><strong>Agricultural Machinery Manufacturers Association of India &amp; NABARD.</strong> Tractor penetration: 38% large farmers, 18% medium, 1% marginal. Formal credit access: 14% marginal, 27% small.</li>
+        <li><strong>MoSPI / NSSO Labour Force Survey 2022.</strong> Agriculture accounts for ~18% of GDP and ~46% of the workforce in India as of 2025.</li>
+        <li><strong>CDC Group / Big Basket Impact Study (2019).</strong> <em>How does an online supermarket in India impact farmers.</em> 83% of supplying farmers report Big Basket gives them the best price for their produce; prices 10–14% above local mandi average.</li>
+        <li><strong>IBEF &amp; IMARC Group Reports (2025–26).</strong> India organic food market: $2.3B (2025) → $11.3B by 2033 at 19.3% CAGR. India ranks #1 globally in organic producers, #2 in organic agricultural land.</li>
+        <li><strong>Ministry of Agriculture &amp; Farmers Welfare, Draft National FPO Policy (2024).</strong> Target: 50,000 new FPOs covering 2.5 crore farmers in five years, modelled on the Amul cooperative structure.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div>© Project KISAAN · Mansi Sharma &amp; Pranjal Bhadauria · A Service Design Proposal</div>
+    <div>Investor Brief · Vol. I · May 2026</div>
+  </div>
+</footer>
+
+<script>
+  // Scroll progress bar
+  const progress = document.getElementById('progress');
+  function updateProgress() {
+    const h = document.documentElement;
+    const scrolled = h.scrollTop / (h.scrollHeight - h.clientHeight);
+    progress.style.width = (scrolled * 100) + '%';
+  }
+  window.addEventListener('scroll', updateProgress, { passive: true });
+  updateProgress();
+
+  // Reveal on scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.06, rootMargin: '0px 0px -60px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
