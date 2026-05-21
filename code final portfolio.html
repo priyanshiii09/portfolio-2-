@@ -284,46 +284,6 @@
                         visibility: visible;
                         transform: translateX(0);
                 }
-
-                /* Mega Menu Styles */
-                .skill-row {
-                        display: flex;
-                        align-items: center;
-                        gap: 12px;
-                        padding: 9px 1.5rem;
-                        cursor: pointer;
-                        transition: background 0.12s;
-                }
-                .skill-row:hover {
-                        background: #f4f3f2;
-                }
-                .skill-row.active {
-                        background: #e5e2e1;
-                }
-                .proj-card {
-                        display: block;
-                        background: #ffffff;
-                        border: 0.5px solid #e2dfde;
-                        border-radius: 6px;
-                        padding: 13px 15px;
-                        text-decoration: none;
-                        transition: border-color 0.15s, background 0.15s, box-shadow 0.15s;
-                        cursor: pointer;
-                }
-                .proj-card:hover {
-                        background: #fcfbfb;
-                        box-shadow: 0 4px 12px rgba(0,0,0,0.03);
-                }
-                .pill-btn {
-                        font-size: 11px;
-                        background: transparent;
-                        border-radius: 20px;
-                        padding: 5px 14px;
-                        cursor: pointer;
-                        letter-spacing: 0.04em;
-                        font-family: inherit;
-                        transition: background 0.15s;
-                }
         </style>
 </head>
 
@@ -331,200 +291,194 @@
         class="grain-bg bg-surface-container-lowest text-on-surface font-body-md antialiased selection:bg-primary-container selection:text-on-primary-container relative">
 
         <!-- TopAppBar Floating -->
-        <!-- TopAppBar Floating Redesigned -->
-        <div id="overlay" style="display:none;position:fixed;inset:0;top:56px;background:rgba(26,28,28,0.3);z-index:68;cursor:pointer;"></div>
-        <nav style="position:fixed;top:0;left:0;right:0;z-index:70;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:56px;border-bottom:0.5px solid #e2dfde;background:rgba(255,255,255,0.9);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);user-select:none;">
-          <div style="font-family:Georgia,'Times New Roman',serif;font-size:20px;letter-spacing:0.02em;font-weight:400;color:#1a1c1c;">PB.</div>
-          <div style="display:flex;align-items:center;gap:2rem;">
-            <div class="hidden md:flex items-center gap-8 font-label-sm uppercase text-xs">
-              <a href="#experience" style="font-size:13px;color:#5f5e5e;text-decoration:none;letter-spacing:0.02em;transition:color 0.15s;" onmouseover="this.style.color='#1a1c1c'" onmouseout="this.style.color='#5f5e5e'">Experience</a>
-              <button id="workBtn" onclick="toggleMenu()" style="font-size:13px;color:#1a1c1c;background:none;border:none;cursor:pointer;letter-spacing:0.02em;display:flex;align-items:center;gap:5px;padding:0;font-family:inherit;text-transform:uppercase;font-weight:500;">
-                Work <span id="chevron" style="font-size:10px;display:inline-block;transition:transform 0.25s;color:#705d00;">▾</span>
-              </button>
-              <a href="#contact" style="font-size:13px;color:#5f5e5e;text-decoration:none;letter-spacing:0.02em;transition:color 0.15s;" onmouseover="this.style.color='#1a1c1c'" onmouseout="this.style.color='#5f5e5e'">Contact</a>
-            </div>
-            <!-- Mobile Menu Toggle Button -->
-            <button id="menu-toggle-btn" aria-label="Menu"
-                    class="md:hidden text-[#1a1c1c] relative z-50 flex items-center justify-center bg-none border-none cursor-pointer">
-                <span class="material-symbols-outlined text-xl transition-transform duration-200"
-                        id="menu-toggle-icon">menu</span>
-            </button>
-          </div>
-        </nav>
+        <nav
+                class="glass-nav fixed w-[95%] md:w-[80%] max-w-[800px] left-1/2 transform -translate-x-1/2 top-6 rounded-full border border-on-surface/10 z-50 shadow-sm">
+                <div class="flex justify-between items-center px-6 md:px-8 h-14">
+                        <div class="font-headline-md text-xl md:text-2xl font-bold tracking-tighter text-on-surface">
+                                PB.
+                        </div>
+                        <div class="hidden md:flex items-center gap-6 font-label-sm uppercase text-xs h-full">
+                                <div class="relative group-hover-visible h-full flex items-center">
+                                        <button
+                                                class="text-secondary hover:text-on-surface transition-colors cursor-pointer flex items-center gap-0.5 focus:outline-none uppercase font-label-sm text-xs">
+                                                <span>Experience</span>
+                                                <span
+                                                        class="material-symbols-outlined text-[16px] transition-transform duration-200">expand_more</span>
+                                        </button>
+                                        <!-- Main Dropdown -->
+                                        <div
+                                                class="nav-dropdown-menu absolute left-0 top-[100%] bg-surface-container-lowest/95 backdrop-blur-md border border-on-surface/10 rounded-xl shadow-xl py-3 min-w-[280px] z-50 flex flex-col">
+                                                <!-- Category 1 -->
+                                                <div
+                                                        class="relative group-hover-visible-sub px-4 py-2.5 hover:bg-primary/5 cursor-pointer flex items-center justify-between transition-colors">
+                                                        <span
+                                                                class="text-[11px] font-medium text-on-surface/90 normal-case">Professional
+                                                                Experience</span>
+                                                        <span
+                                                                class="material-symbols-outlined text-[16px] text-secondary">chevron_right</span>
+                                                        <!-- Submenu -->
+                                                        <div
+                                                                class="nav-submenu absolute left-[calc(100%-8px)] top-0 bg-surface-container-lowest/95 backdrop-blur-md border border-on-surface/10 rounded-xl shadow-xl py-3 min-w-[220px] z-50 flex flex-col">
+                                                                <a href="project-detail.html?id=true-beacon"
+                                                                        class="px-4 py-2 text-xs text-secondary hover:text-primary hover:bg-primary/5 transition-all normal-case">True
+                                                                        Beacon</a>
+                                                                <a href="project-detail.html?id=nksquared"
+                                                                        class="px-4 py-2 text-xs text-secondary hover:text-primary hover:bg-primary/5 transition-all normal-case">NKSquared</a>
+                                                                <a href="project-detail.html?id=royal-enfield"
+                                                                        class="px-4 py-2 text-xs text-secondary hover:text-primary hover:bg-primary/5 transition-all normal-case">Royal
+                                                                        Enfield</a>
+                                                                <a href="project-detail.html?id=finforall"
+                                                                        class="px-4 py-2 text-xs text-secondary hover:text-primary hover:bg-primary/5 transition-all normal-case">Finforall
+                                                                        by Jupiter</a>
+                                                                <a href="project-detail.html?id=nikhil-kamath"
+                                                                        class="px-4 py-2 text-xs text-secondary hover:text-primary hover:bg-primary/5 transition-all normal-case">Nikhil
+                                                                        Kamath</a>
+                                                        </div>
+                                                </div>
+                                                <!-- Category 2 -->
+                                                <div
+                                                        class="relative group-hover-visible-sub px-4 py-2.5 hover:bg-primary/5 cursor-pointer flex items-center justify-between transition-colors">
+                                                        <span
+                                                                class="text-[11px] font-medium text-on-surface/90 normal-case">Ongoing
+                                                                Projects</span>
+                                                        <span
+                                                                class="material-symbols-outlined text-[16px] text-secondary">chevron_right</span>
+                                                        <!-- Submenu -->
+                                                        <div
+                                                                class="nav-submenu absolute left-[calc(100%-8px)] top-0 bg-surface-container-lowest/95 backdrop-blur-md border border-on-surface/10 rounded-xl shadow-xl py-3 min-w-[220px] z-50 flex flex-col">
+                                                                <a href="#freelance"
+                                                                        class="px-4 py-2 text-xs text-secondary hover:text-primary hover:bg-primary/5 transition-all normal-case">TORO
+                                                                        Investments</a>
+                                                                <a href="#freelance"
+                                                                        class="px-4 py-2 text-xs text-secondary hover:text-primary hover:bg-primary/5 transition-all normal-case">Savvy
+                                                                        Infrastructure</a>
+                                                                <a href="#freelance"
+                                                                        class="px-4 py-2 text-xs text-secondary hover:text-primary hover:bg-primary/5 transition-all normal-case">ArthAlpha</a>
+                                                        </div>
+                                                </div>
+                                                <!-- Category 3 -->
+                                                <div
+                                                        class="relative group-hover-visible-sub px-4 py-2.5 hover:bg-primary/5 cursor-pointer flex items-center justify-between transition-colors">
+                                                        <span
+                                                                class="text-[11px] font-medium text-on-surface/90 normal-case">Social
+                                                                Impact</span>
+                                                        <span
+                                                                class="material-symbols-outlined text-[16px] text-secondary">chevron_right</span>
+                                                        <!-- Submenu -->
+                                                        <div
+                                                                class="nav-submenu absolute left-[calc(100%-8px)] top-0 bg-surface-container-lowest/95 backdrop-blur-md border border-on-surface/10 rounded-xl shadow-xl py-3 min-w-[220px] z-50 flex flex-col">
+                                                                <a href="project-detail.html?id=teens-of-god"
+                                                                        class="px-4 py-2 text-xs text-secondary hover:text-primary hover:bg-primary/5 transition-all normal-case">Teens
+                                                                        of God NGO</a>
+                                                                <a href="project-detail.html?id=girl-up-noor"
+                                                                        class="px-4 py-2 text-xs text-secondary hover:text-primary hover:bg-primary/5 transition-all normal-case">Girl
+                                                                        Up Noor</a>
+                                                                <a href="project-detail.html?id=ummcl"
+                                                                        class="px-4 py-2 text-xs text-secondary hover:text-primary hover:bg-primary/5 transition-all normal-case">UMMCL</a>
+                                                                <a href="project-detail.html?id=dyx2-learning"
+                                                                        class="px-4 py-2 text-xs text-secondary hover:text-primary hover:bg-primary/5 transition-all normal-case">DYX2
+                                                                        Learning</a>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                </div>
 
-        <div id="megaMenu" style="display:none;position:fixed;top:56px;left:0;right:0;z-index:69;background:#ffffff;border-bottom:0.5px solid #e2dfde;user-select:none;">
-          <div style="display:flex;max-width:100%;">
-            <div style="width:252px;flex-shrink:0;border-right:0.5px solid #eeeeee;padding:1.25rem 0 1.5rem;">
-              <div style="font-family:'Courier New',monospace;font-size:9px;letter-spacing:0.2em;color:#7e775f;text-transform:uppercase;padding:0 1.5rem 0.75rem;">Browse by skill</div>
-              <div id="skillList"></div>
-            </div>
-            <div style="flex:1;padding:1.25rem 2rem 1rem;min-width:0;">
-              <div id="projectsPanel"></div>
-              <div style="display:flex;align-items:center;justify-content:space-between;margin-top:1rem;padding-top:0.875rem;border-top:0.5px solid #eeeeee;">
-                <div style="font-family:'Courier New',monospace;font-size:9px;letter-spacing:0.1em;color:#8c8880;text-transform:uppercase;">18 projects · 5 disciplines</div>
-                <a href="#projects" onclick="closeMenu()" style="font-size:12px;color:#705d00;text-decoration:none;letter-spacing:0.03em;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">View all work ↗</a>
-              </div>
-            </div>
-          </div>
-        </div>
+                                <a class="text-secondary hover:text-on-surface transition-colors cursor-pointer"
+                                        href="#projects">Projects</a>
+
+                                <a class="text-secondary hover:text-on-surface transition-colors cursor-pointer"
+                                        href="#contact">Contact</a>
+                        </div>
+                        <button id="menu-toggle-btn" aria-label="Menu"
+                                class="md:hidden text-on-surface relative z-50 flex items-center justify-center">
+                                <span class="material-symbols-outlined text-xl transition-transform duration-200"
+                                        id="menu-toggle-icon">menu</span>
+                        </button>
+                </div>
+        </nav>
         <!-- Mobile Menu Backdrop -->
         <div id="mobile-menu-backdrop"
-                class="fixed inset-0 bg-black/25 backdrop-blur-sm z-55 opacity-0 pointer-events-none transition-opacity duration-300 md:hidden">
+                class="fixed inset-0 bg-black/25 backdrop-blur-sm z-30 opacity-0 pointer-events-none transition-opacity duration-300 md:hidden">
         </div>
 
         <!-- Mobile Menu Drawer (Slide-in Panel) -->
         <div id="mobile-menu"
-                class="fixed top-0 right-0 bottom-0 w-[80vw] max-w-[320px] bg-[#ffffff]/95 backdrop-blur-lg border-l border-[#e2dfde] text-[#1a1c1c] z-60 transform translate-x-full transition-transform duration-300 md:hidden flex flex-col pt-24 px-6 gap-6 shadow-2xl">
+                class="fixed top-0 right-0 bottom-0 w-[80vw] max-w-[320px] bg-surface-container-lowest/95 backdrop-blur-lg border-l border-on-surface/10 z-40 transform translate-x-full transition-transform duration-300 md:hidden flex flex-col pt-24 px-6 gap-6 shadow-2xl">
                 <div class="flex flex-col gap-6 text-base font-medium uppercase tracking-wider font-label-sm">
                         <!-- Experience Section with Dropdown -->
-                        <div class="flex flex-col border-b border-[#eeeeee]">
+                        <div class="flex flex-col border-b border-on-surface/5">
                                 <button id="mobile-experience-trigger"
-                                        class="flex justify-between items-center text-[#1a1c1c] hover:text-[#705d00] transition-colors py-2 uppercase tracking-wider font-label-sm text-left">
+                                        class="flex justify-between items-center text-on-surface hover:text-primary transition-colors py-2 uppercase tracking-wider font-label-sm text-left">
                                         <span>Experience</span>
                                         <span class="material-symbols-outlined transition-transform duration-300 text-xl"
-                                                id="experience-chevron" style="color:#705d00;">expand_more</span>
+                                                id="experience-chevron">expand_more</span>
                                 </button>
                                 <!-- Experience Dropdown List -->
                                 <div id="mobile-experience-dropdown"
                                         class="hidden flex-col gap-4 pl-4 py-3 max-h-[300px] overflow-y-auto">
                                         <div class="flex flex-col gap-2">
                                                 <span
-                                                        class="text-[9px] text-[#7e775f] tracking-wider font-semibold uppercase font-mono">Professional
+                                                        class="text-[9px] text-outline tracking-wider font-semibold uppercase">Professional
                                                         Experience</span>
                                                 <a href="project-detail.html?id=true-beacon"
-                                                        class="mobile-menu-link text-sm text-[#5f5e5e] hover:text-[#1a1c1c] py-1">True
+                                                        class="mobile-menu-link text-sm text-secondary hover:text-primary py-1">True
                                                         Beacon</a>
                                                 <a href="project-detail.html?id=nksquared"
-                                                        class="mobile-menu-link text-sm text-[#5f5e5e] hover:text-[#1a1c1c] py-1">NKSquared</a>
+                                                        class="mobile-menu-link text-sm text-secondary hover:text-primary py-1">NKSquared</a>
                                                 <a href="project-detail.html?id=royal-enfield"
-                                                        class="mobile-menu-link text-sm text-[#5f5e5e] hover:text-[#1a1c1c] py-1">Royal
+                                                        class="mobile-menu-link text-sm text-secondary hover:text-primary py-1">Royal
                                                         Enfield</a>
                                                 <a href="project-detail.html?id=finforall"
-                                                        class="mobile-menu-link text-sm text-[#5f5e5e] hover:text-[#1a1c1c] py-1">Finforall
+                                                        class="mobile-menu-link text-sm text-secondary hover:text-primary py-1">Finforall
                                                         by Jupiter</a>
                                                 <a href="project-detail.html?id=nikhil-kamath"
-                                                        class="mobile-menu-link text-sm text-[#5f5e5e] hover:text-[#1a1c1c] py-1">Nikhil
+                                                        class="mobile-menu-link text-sm text-secondary hover:text-primary py-1">Nikhil
                                                         Kamath</a>
                                         </div>
                                         <div class="flex flex-col gap-2 mt-2">
                                                 <span
-                                                        class="text-[9px] text-[#7e775f] tracking-wider font-semibold uppercase font-mono">Ongoing
+                                                        class="text-[9px] text-outline tracking-wider font-semibold uppercase">Ongoing
                                                         Projects</span>
                                                 <a href="#freelance"
-                                                        class="mobile-menu-link text-sm text-[#5f5e5e] hover:text-[#1a1c1c] py-1">TORO
+                                                        class="mobile-menu-link text-sm text-secondary hover:text-primary py-1">TORO
                                                         Investments</a>
                                                 <a href="#freelance"
-                                                        class="mobile-menu-link text-sm text-[#5f5e5e] hover:text-[#1a1c1c] py-1">Savvy
+                                                        class="mobile-menu-link text-sm text-secondary hover:text-primary py-1">Savvy
                                                         Infrastructure</a>
                                                 <a href="#freelance"
-                                                        class="mobile-menu-link text-sm text-[#5f5e5e] hover:text-[#1a1c1c] py-1">ArthAlpha</a>
+                                                        class="mobile-menu-link text-sm text-secondary hover:text-primary py-1">ArthAlpha</a>
                                         </div>
                                         <div class="flex flex-col gap-2 mt-2">
                                                 <span
-                                                        class="text-[9px] text-[#7e775f] tracking-wider font-semibold uppercase font-mono">Social
+                                                        class="text-[9px] text-outline tracking-wider font-semibold uppercase">Social
                                                         Impact</span>
                                                 <a href="project-detail.html?id=teens-of-god"
-                                                        class="mobile-menu-link text-sm text-[#5f5e5e] hover:text-[#1a1c1c] py-1">Teens
+                                                        class="mobile-menu-link text-sm text-secondary hover:text-primary py-1">Teens
                                                         of God NGO</a>
                                                 <a href="project-detail.html?id=girl-up-noor"
-                                                        class="mobile-menu-link text-sm text-[#5f5e5e] hover:text-[#1a1c1c] py-1">Girl
+                                                        class="mobile-menu-link text-sm text-secondary hover:text-primary py-1">Girl
                                                         Up Noor</a>
                                                 <a href="project-detail.html?id=ummcl"
-                                                        class="mobile-menu-link text-sm text-[#5f5e5e] hover:text-[#1a1c1c] py-1">UMMCL</a>
+                                                        class="mobile-menu-link text-sm text-secondary hover:text-primary py-1">UMMCL</a>
                                                 <a href="project-detail.html?id=dyx2-learning"
-                                                        class="mobile-menu-link text-sm text-[#5f5e5e] hover:text-[#1a1c1c] py-1">DYX2
+                                                        class="mobile-menu-link text-sm text-secondary hover:text-primary py-1">DYX2
                                                         Learning</a>
                                         </div>
                                 </div>
                         </div>
 
-                        <!-- Work Section with Dropdown -->
-                        <div class="flex flex-col border-b border-[#eeeeee]">
-                                <button id="mobile-work-trigger"
-                                        class="flex justify-between items-center text-[#1a1c1c] hover:text-[#705d00] transition-colors py-2 uppercase tracking-wider font-label-sm text-left">
-                                        <span>Work</span>
-                                        <span class="material-symbols-outlined transition-transform duration-300 text-xl"
-                                                id="work-chevron" style="color:#705d00;">expand_more</span>
-                                </button>
-                                <!-- Work Dropdown List (the 5 skills and their projects) -->
-                                <div id="mobile-work-dropdown"
-                                        class="hidden flex-col gap-4 pl-4 py-3 max-h-[300px] overflow-y-auto">
-                                        <div class="flex flex-col gap-2">
-                                                <span
-                                                        class="text-[9px] text-[#e06b3a] tracking-wider font-semibold uppercase font-mono">Brand & Marketing</span>
-                                                <a href="project-detail.html?id=true-beacon"
-                                                        class="mobile-menu-link text-sm text-[#5f5e5e] hover:text-[#1a1c1c] py-1">True Beacon</a>
-                                                <a href="project-detail.html?id=royal-enfield"
-                                                        class="mobile-menu-link text-sm text-[#5f5e5e] hover:text-[#1a1c1c] py-1">Royal Enfield</a>
-                                                <a href="project-detail.html?id=nikhil-kamath"
-                                                        class="mobile-menu-link text-sm text-[#5f5e5e] hover:text-[#1a1c1c] py-1">Nikhil Kamath</a>
-                                                <a href="project-detail.html?id=nksquared"
-                                                        class="mobile-menu-link text-sm text-[#5f5e5e] hover:text-[#1a1c1c] py-1">NKSquared</a>
-                                        </div>
-                                        <div class="flex flex-col gap-2 mt-2">
-                                                <span
-                                                        class="text-[9px] text-[#d4a73a] tracking-wider font-semibold uppercase font-mono">Financial Communication</span>
-                                                <a href="project-detail.html?id=true-beacon"
-                                                        class="mobile-menu-link text-sm text-[#5f5e5e] hover:text-[#1a1c1c] py-1">True Beacon (TB Observatory)</a>
-                                                <a href="#freelance"
-                                                        class="mobile-menu-link text-sm text-[#5f5e5e] hover:text-[#1a1c1c] py-1">TORO Investments</a>
-                                                <a href="#freelance"
-                                                        class="mobile-menu-link text-sm text-[#5f5e5e] hover:text-[#1a1c1c] py-1">Savvy Infrastructure</a>
-                                                <a href="#freelance"
-                                                        class="mobile-menu-link text-sm text-[#5f5e5e] hover:text-[#1a1c1c] py-1">ArthAlpha</a>
-                                                <a href="project-detail.html?id=finforall"
-                                                        class="mobile-menu-link text-sm text-[#5f5e5e] hover:text-[#1a1c1c] py-1">Finforall by Jupiter</a>
-                                        </div>
-                                        <div class="flex flex-col gap-2 mt-2">
-                                                <span
-                                                        class="text-[9px] text-[#8a7fd8] tracking-wider font-semibold uppercase font-mono">UI/UX & Product</span>
-                                                <a href="project-detail.html?id=nksquared"
-                                                        class="mobile-menu-link text-sm text-[#5f5e5e] hover:text-[#1a1c1c] py-1">NKSquared</a>
-                                                <a href="project-detail.html?id=finforall"
-                                                        class="mobile-menu-link text-sm text-[#5f5e5e] hover:text-[#1a1c1c] py-1">Finforall by Jupiter</a>
-                                                <a href="project-detail.html?id=dyx2-learning"
-                                                        class="mobile-menu-link text-sm text-[#5f5e5e] hover:text-[#1a1c1c] py-1">DYX2 Learning</a>
-                                                <a href="project-detail.html?id=nivaar"
-                                                        class="mobile-menu-link text-sm text-[#5f5e5e] hover:text-[#1a1c1c] py-1">NIVAAR</a>
-                                                <a href="project-detail.html?id=leeway"
-                                                        class="mobile-menu-link text-sm text-[#5f5e5e] hover:text-[#1a1c1c] py-1">Leeway</a>
-                                        </div>
-                                        <div class="flex flex-col gap-2 mt-2">
-                                                <span
-                                                        class="text-[9px] text-[#3aad8e] tracking-wider font-semibold uppercase font-mono">Business & Service Design</span>
-                                                <a href="project-detail.html?id=business-design-labs"
-                                                        class="mobile-menu-link text-sm text-[#5f5e5e] hover:text-[#1a1c1c] py-1">Business Design Labs</a>
-                                                <a href="project-detail.html?id=deshpande-foundation"
-                                                        class="mobile-menu-link text-sm text-[#5f5e5e] hover:text-[#1a1c1c] py-1">Deshpande Foundation</a>
-                                                <a href="project-detail.html?id=wayste"
-                                                        class="mobile-menu-link text-sm text-[#5f5e5e] hover:text-[#1a1c1c] py-1">Wayste</a>
-                                                <a href="project-detail.html?id=ummcl"
-                                                        class="mobile-menu-link text-sm text-[#5f5e5e] hover:text-[#1a1c1c] py-1">UMMCL</a>
-                                        </div>
-                                        <div class="flex flex-col gap-2 mt-2">
-                                                <span
-                                                        class="text-[9px] text-[#5dbe6e] tracking-wider font-semibold uppercase font-mono">Social Impact</span>
-                                                <a href="project-detail.html?id=teens-of-god"
-                                                        class="mobile-menu-link text-sm text-[#5f5e5e] hover:text-[#1a1c1c] py-1">Teens of God NGO</a>
-                                                <a href="project-detail.html?id=girl-up-noor"
-                                                        class="mobile-menu-link text-sm text-[#5f5e5e] hover:text-[#1a1c1c] py-1">Girl Up Noor</a>
-                                                <a href="project-detail.html?id=project-kisaan"
-                                                        class="mobile-menu-link text-sm text-[#5f5e5e] hover:text-[#1a1c1c] py-1">Project Kisaan</a>
-                                                <a href="project-detail.html?id=ummcl"
-                                                        class="mobile-menu-link text-sm text-[#5f5e5e] hover:text-[#1a1c1c] py-1">UMMCL</a>
-                                        </div>
-                                </div>
-                        </div>
+                        <a href="#projects"
+                                class="mobile-menu-link text-on-surface hover:text-primary transition-colors py-2 border-b border-on-surface/5">Projects</a>
 
                         <a href="#contact"
-                                class="mobile-menu-link text-[#5f5e5e] hover:text-[#1a1c1c] transition-colors py-2 border-b border-[#eeeeee]">Contact</a>
+                                class="mobile-menu-link text-on-surface hover:text-primary transition-colors py-2 border-b border-on-surface/5">Contact</a>
                 </div>
         </div>
         <!-- Main Content Container -->
         <main
                 class="max-w-[1200px] mx-auto px-margin-sm md:px-margin-md lg:px-margin-lg py-32 md:py-48 flex flex-col gap-24 md:gap-40 relative z-10">
                 <!-- Hero Section -->
-                <section id="heroSection" class="flex flex-col gap-10 md:gap-12 max-w-5xl mt-12 transition-opacity duration-300">
+                <section class="flex flex-col gap-10 md:gap-12 max-w-5xl mt-12">
                         <div class="font-label-sm text-outline tracking-[0.2em] uppercase flex items-center gap-3">
                                 <span class="w-8 h-[1px] bg-outline"></span>
                                 <span> ABOUT </span>
@@ -547,10 +501,6 @@
                                                 <p class="font-body-md text-on-surface-variant leading-relaxed text-base flex-grow">
                                                         I am an <span class="marker-highlight text-on-surface px-1 font-medium">end-to-end marketing, brand, and design strategist</span>, who thrives where analytical rigor meets creative intuition. Over the past 3+ years, I’ve operated at the intersection of business consulting and high-fidelity creative execution—taking dense, complex concepts and turning them into intuitive, market-ready realities. My playground spans everything from business model design and brand positioning to full Go-To-Market (GTM) execution and marketing transformation.
                                                 </p>
-                                         </div>
-                                         <div class="mt-2 flex flex-col gap-3">
-                                                <div style="font-family:'Courier New',monospace;font-size:9.5px;letter-spacing:0.15em;color:#4e4c48;text-transform:uppercase;">Explore by skill →</div>
-                                                <div id="skillPills" class="flex flex-wrap gap-2"></div>
                                          </div>
                                 </div>
                         </div>
@@ -1384,143 +1334,7 @@
                 </div>
         </footer>
         <script>
-                // Mega menu data and logic
-                const skills = [
-                  { id:'brand', label:'Brand & Marketing', desc:'GTM strategy, brand positioning, digital campaigns', color:'#e06b3a',
-                    projects:[
-                      {name:'True Beacon',tag:'Creative Lead',year:'2024–26',detail:'Brand systems, GTM execution, TB Observatory launch',url:'project-detail.html?id=true-beacon'},
-                      {name:'Royal Enfield',tag:'Brand & Design',year:'2021–22',detail:'Product launch newsletters + marketing collateral',url:'project-detail.html?id=royal-enfield'},
-                      {name:'Nikhil Kamath',tag:'Design Lead',year:'2022–23',detail:'WTF is? podcast branding, community growth to 30k+',url:'project-detail.html?id=nikhil-kamath'},
-                      {name:'NKSquared',tag:'Business Design',year:'2023',detail:'Community platform UX + service design MVP',url:'project-detail.html?id=nksquared'},
-                    ]
-                  },
-                  { id:'financial', label:'Financial Communication', desc:'Investor decks, data visualisation, wealth narratives', color:'#d4a73a',
-                    projects:[
-                      {name:'True Beacon',tag:'TB Observatory',year:'2024–26',detail:'Asset management visual systems + audience growth',url:'project-detail.html?id=true-beacon'},
-                      {name:'TORO Investments',tag:'Pitch Design',year:'2024',detail:'Benchmarking research, pitch decks, investor narratives',url:'#freelance'},
-                      {name:'Savvy Infrastructure',tag:'Investor Design',year:'2024',detail:'Real estate data viz, brand guidelines, website',url:'#freelance'},
-                      {name:'ArthAlpha',tag:'Raised ₹100 Cr',year:'2023–24',detail:'Visual narrative for Brahmastra product launch',url:'project-detail.html?id=arthalpha'},
-                      {name:'Finforall by Jupiter',tag:'UI & Graphics',year:'2020',detail:'Wealth management module UI design',url:'project-detail.html?id=finforall'},
-                    ]
-                  },
-                  { id:'uxui', label:'UI/UX & Product', desc:'User research, interface design, product thinking', color:'#8a7fd8',
-                    projects:[
-                      {name:'NKSquared',tag:'UX Research',year:'2023',detail:'Community platform MVP — user research + IA',url:'project-detail.html?id=nksquared'},
-                      {name:'Finforall by Jupiter',tag:'UI Design',year:'2020',detail:'Financial & personal wealth management interfaces',url:'project-detail.html?id=finforall'},
-                      {name:'DYX2 Learning',tag:'Info Architecture',year:'2020–21',detail:'Specialized education platform IA + UX',url:'project-detail.html?id=dyx2-learning'},
-                      {name:'NIVAAR',tag:'Healthcare UX',year:'B.Design',detail:'Personalized healthcare service — end-to-end design',url:'project-detail.html?id=nivaar'},
-                      {name:'Leeway',tag:'Marketplace Design',year:'B.Design',detail:'Space-sharing marketplace platform design',url:'project-detail.html?id=leeway'},
-                    ]
-                  },
-                  { id:'service', label:'Business & Service Design', desc:'Ecosystems, business models, service blueprints', color:'#3aad8e',
-                    projects:[
-                      {name:'Business Design Labs',tag:'Ecosystem Design',year:'B.Design',detail:'Srishti Manipal entrepreneurship lab ecosystem',url:'project-detail.html?id=business-design-labs'},
-                      {name:'Deshpande Foundation',tag:'Services Analysis',year:'B.Design',detail:'Production & logistics efficiency proposals',url:'project-detail.html?id=deshpande-foundation'},
-                      {name:'Wayste',tag:'Platform Design',year:'B.Design',detail:'Waste management reward system design',url:'project-detail.html?id=wayste'},
-                      {name:'UMMCL',tag:'Supply Chain',year:'2021–22',detail:'Sustainable agriculture & rural livelihoods',url:'project-detail.html?id=ummcl'},
-                    ]
-                  },
-                  { id:'impact', label:'Social Impact', desc:'Community design, advocacy, grassroots programmes', color:'#5dbe6e',
-                    projects:[
-                      {name:'Teens of God NGO',tag:'Graphic Design',year:'2020',detail:'Community development + design leadership',url:'project-detail.html?id=teens-of-god'},
-                      {name:'Girl Up Noor',tag:'Digital Advocacy',year:'2020–21',detail:'UN Foundation content management & advocacy',url:'project-detail.html?id=girl-up-noor'},
-                      {name:'Project Kisaan',tag:'Agri Empowerment',year:'B.Design',detail:'Farmer empowerment through design thinking',url:'project-detail.html?id=project-kisaan'},
-                      {name:'UMMCL',tag:'Rural Livelihoods',year:'2021–22',detail:'Supply chain + social development initiative',url:'project-detail.html?id=ummcl'},
-                    ]
-                  }
-                ];
-
-                let activeSkillIndex = 0;
-                let isMegaMenuOpen = false;
-
-                function renderSkillList() {
-                  const skillListEl = document.getElementById('skillList');
-                  if (!skillListEl) return;
-                  skillListEl.innerHTML = skills.map((s,i) => `
-                    <div class="skill-row ${i===activeSkillIndex?'active':''}" data-i="${i}" onclick="setSkill(${i})" onmouseover="setSkill(${i})">
-                      <span style="width:7px;height:7px;border-radius:50%;background:${s.color};flex-shrink:0;"></span>
-                      <div style="flex:1;">
-                        <div style="font-size:12.5px;color:${i===activeSkillIndex?'#1a1c1c':'#5f5e5e'};transition:color 0.12s;">${s.label}</div>
-                        <div style="font-family:'Courier New',monospace;font-size:9px;color:#8c8880;margin-top:2px;letter-spacing:0.04em;">${s.projects.length} projects</div>
-                      </div>
-                      <span style="font-size:11px;color:${i===activeSkillIndex?s.color:'#c8c6c5'};transition:color 0.12s;">›</span>
-                    </div>
-                  `).join('');
-                }
-
-                function renderProjects() {
-                  const projectsPanelEl = document.getElementById('projectsPanel');
-                  if (!projectsPanelEl) return;
-                  const s = skills[activeSkillIndex];
-                  projectsPanelEl.innerHTML = `
-                    <div style="margin-bottom:0.875rem;display:flex;align-items:baseline;gap:12px;">
-                      <div style="font-family:'Courier New',monospace;font-size:9px;letter-spacing:0.18em;color:${s.color};text-transform:uppercase;">${s.label}</div>
-                      <div style="font-size:11.5px;color:#5f5e5e;">${s.desc}</div>
-                    </div>
-                    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(185px,1fr));gap:7px;">
-                      ${s.projects.map(p=>`
-                        <a href="${p.url}" class="proj-card" onclick="closeMenu()" onmouseover="this.style.borderColor='${s.color}50'" onmouseout="this.style.borderColor='#e2dfde'">
-                          <div style="font-size:12.5px;color:#1a1c1c;font-weight:500;margin-bottom:3px;">${p.name}</div>
-                          <div style="font-size:10.5px;color:${s.color};margin-bottom:5px;letter-spacing:0.02em;">${p.tag}</div>
-                          <div style="font-size:11px;color:#5f5e5e;line-height:1.45;">${p.detail}</div>
-                          <div style="font-family:'Courier New',monospace;font-size:9px;color:#8c8880;margin-top:7px;letter-spacing:0.04em;">${p.year}</div>
-                        </a>
-                      `).join('')}
-                    </div>
-                  `;
-                }
-
-                function renderPills() {
-                  const skillPillsEl = document.getElementById('skillPills');
-                  if (!skillPillsEl) return;
-                  skillPillsEl.innerHTML = skills.map((s,i)=>`
-                    <button class="pill-btn" onclick="openToSkill(${i})"
-                      style="color:${s.color};border:0.5px solid ${s.color}45;"
-                      onmouseover="this.style.background='${s.color}18'"
-                      onmouseout="this.style.background='transparent'"
-                    >${s.label} <span style="opacity:0.6;font-size:10px;">${s.projects.length}</span></button>
-                  `).join('');
-                }
-
-                function setSkill(i) { activeSkillIndex=i; renderSkillList(); renderProjects(); }
-                function openMenu() {
-                  isMegaMenuOpen=true;
-                  document.getElementById('megaMenu').style.display='block';
-                  document.getElementById('overlay').style.display='block';
-                  document.getElementById('chevron').style.transform='rotate(180deg)';
-                  
-                  const heroSec = document.getElementById('heroSection');
-                  if (heroSec) {
-                    heroSec.style.opacity='0.25';
-                  }
-                  renderSkillList(); renderProjects();
-                }
-                function closeMenu() {
-                  isMegaMenuOpen=false;
-                  document.getElementById('megaMenu').style.display='none';
-                  document.getElementById('overlay').style.display='none';
-                  document.getElementById('chevron').style.transform='rotate(0deg)';
-                  
-                  const heroSec = document.getElementById('heroSection');
-                  if (heroSec) {
-                    heroSec.style.opacity='1';
-                  }
-                }
-                function toggleMenu() { isMegaMenuOpen ? closeMenu() : openMenu(); }
-                function openToSkill(i) { activeSkillIndex=i; openMenu(); }
-
                 document.addEventListener('DOMContentLoaded', () => {
-                        // Initial render of skills, projects, pills
-                        renderSkillList();
-                        renderProjects();
-                        renderPills();
-
-                        const overlayEl = document.getElementById('overlay');
-                        if (overlayEl) {
-                                overlayEl.onclick = closeMenu;
-                        }
-
-                        // Mobile Menu Logic
                         const toggleBtn = document.getElementById('menu-toggle-btn');
                         const toggleIcon = document.getElementById('menu-toggle-icon');
                         const mobileMenu = document.getElementById('mobile-menu');
@@ -1528,14 +1342,11 @@
                         const experienceTrigger = document.getElementById('mobile-experience-trigger');
                         const experienceDropdown = document.getElementById('mobile-experience-dropdown');
                         const experienceChevron = document.getElementById('experience-chevron');
-                        const workTrigger = document.getElementById('mobile-work-trigger');
-                        const workDropdown = document.getElementById('mobile-work-dropdown');
-                        const workChevron = document.getElementById('work-chevron');
                         const menuLinks = document.querySelectorAll('.mobile-menu-link');
 
                         let isOpen = false;
 
-                        function toggleMobileMenu() {
+                        function toggleMenu() {
                                 isOpen = !isOpen;
                                 if (isOpen) {
                                         mobileMenu.classList.remove('translate-x-full');
@@ -1554,44 +1365,26 @@
                                 }
                         }
 
-                        if (toggleBtn) toggleBtn.addEventListener('click', toggleMobileMenu);
-                        if (mobileMenuBackdrop) mobileMenuBackdrop.addEventListener('click', toggleMobileMenu);
+                        toggleBtn.addEventListener('click', toggleMenu);
+                        mobileMenuBackdrop.addEventListener('click', toggleMenu);
 
-                        if (experienceTrigger) {
-                                experienceTrigger.addEventListener('click', (e) => {
-                                        e.stopPropagation();
-                                        const isHidden = experienceDropdown.classList.contains('hidden');
-                                        if (isHidden) {
-                                                experienceDropdown.classList.remove('hidden');
-                                                experienceDropdown.classList.add('flex');
-                                                experienceChevron.classList.add('rotate-180');
-                                        } else {
-                                                experienceDropdown.classList.remove('flex');
-                                                experienceDropdown.classList.add('hidden');
-                                                experienceChevron.classList.remove('rotate-180');
-                                        }
-                                });
-                        }
-
-                        if (workTrigger) {
-                                workTrigger.addEventListener('click', (e) => {
-                                        e.stopPropagation();
-                                        const isHidden = workDropdown.classList.contains('hidden');
-                                        if (isHidden) {
-                                                workDropdown.classList.remove('hidden');
-                                                workDropdown.classList.add('flex');
-                                                workChevron.classList.add('rotate-180');
-                                        } else {
-                                                workDropdown.classList.remove('flex');
-                                                workDropdown.classList.add('hidden');
-                                                workChevron.classList.remove('rotate-180');
-                                        }
-                                });
-                        }
+                        experienceTrigger.addEventListener('click', (e) => {
+                                e.stopPropagation();
+                                const isHidden = experienceDropdown.classList.contains('hidden');
+                                if (isHidden) {
+                                        experienceDropdown.classList.remove('hidden');
+                                        experienceDropdown.classList.add('flex');
+                                        experienceChevron.classList.add('rotate-180');
+                                } else {
+                                        experienceDropdown.classList.remove('flex');
+                                        experienceDropdown.classList.add('hidden');
+                                        experienceChevron.classList.remove('rotate-180');
+                                }
+                        });
 
                         menuLinks.forEach(link => {
                                 link.addEventListener('click', () => {
-                                        if (link.id !== 'mobile-experience-trigger' && link.id !== 'mobile-work-trigger') {
+                                        if (link.id !== 'mobile-experience-trigger') {
                                                 isOpen = false;
                                                 mobileMenu.classList.remove('translate-x-0');
                                                 mobileMenu.classList.add('translate-x-full');
