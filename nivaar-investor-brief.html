@@ -1,0 +1,2375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>NIVAAR — A Proposal for Personalised Elder Healthcare in India</title>
+<meta name="description" content="NIVAAR is a service that brings personalised physiotherapy and nutrition into the homes of India's elderly. An investor and partnership brief." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,0..100;1,9..144,300..900,0..100&family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+/* =========================================================
+   NIVAAR — Investor & Partnership Brief
+   Aesthetic: Editorial Impact Report
+   ========================================================= */
+
+:root {
+  --ink:        #1A2A2E;
+  --ink-soft:   #2E3F43;
+  --ink-faint:  #6B7A7D;
+
+  --cream:      #F2EBDC;
+  --cream-deep: #E8DFC9;
+  --cream-edge: #DCD2BB;
+
+  --paper:      #F8F2E3;
+
+  --terracotta: #B8482B;
+  --terracotta-deep: #8E3320;
+  --moss:       #4F6B47;
+  --gold:       #C49229;
+
+  --rule:       #D0C6AE;
+  --rule-soft:  rgba(26, 42, 46, 0.12);
+
+  --serif:      "Fraunces", "Georgia", serif;
+  --sans:       "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  --mono:       "JetBrains Mono", "SF Mono", "Consolas", monospace;
+
+  --maxw:       1240px;
+  --gutter:     clamp(20px, 4vw, 56px);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 16.5px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "ss01", "ss02", "cv11";
+  overflow-x: hidden;
+}
+
+/* Paper grain texture overlay */
+body::before {
+  content: "";
+  position: fixed; inset: 0;
+  background-image:
+    radial-gradient(rgba(26, 42, 46, 0.025) 1px, transparent 1px),
+    radial-gradient(rgba(184, 72, 43, 0.018) 1px, transparent 1px);
+  background-size: 3px 3px, 5px 5px;
+  background-position: 0 0, 1px 2px;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.85;
+  mix-blend-mode: multiply;
+}
+
+::selection {
+  background: var(--terracotta);
+  color: var(--paper);
+}
+
+/* ---------- Scroll progress ---------- */
+.progress {
+  position: fixed; top: 0; left: 0;
+  height: 2px; width: 0;
+  background: var(--terracotta);
+  z-index: 100;
+  transition: width 0.1s linear;
+}
+
+/* ---------- Top bar ---------- */
+.topbar {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(242, 235, 220, 0.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--rule-soft);
+}
+.topbar-inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 14px var(--gutter);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.brand {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 22px;
+  font-variation-settings: "opsz" 30, "SOFT" 30;
+  letter-spacing: 0.04em;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+.brand-mark {
+  display: inline-block;
+  width: 8px; height: 8px;
+  background: var(--terracotta);
+  border-radius: 50%;
+  transform: translateY(-2px);
+}
+.brand-meta {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.nav {
+  display: flex;
+  gap: 26px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.nav a {
+  color: var(--ink-soft);
+  text-decoration: none;
+  position: relative;
+  padding: 4px 0;
+  transition: color 0.2s ease;
+}
+.nav a:hover { color: var(--terracotta); }
+.nav a::after {
+  content: "";
+  position: absolute; left: 0; right: 100%; bottom: 0;
+  height: 1px; background: var(--terracotta);
+  transition: right 0.25s ease;
+}
+.nav a:hover::after { right: 0; }
+@media (max-width: 820px) { .nav { display: none; } }
+
+/* ---------- Layout primitives ---------- */
+.wrap {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+  position: relative;
+  z-index: 2;
+}
+
+section { position: relative; padding: clamp(72px, 10vw, 130px) 0; }
+
+.section-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+.section-label .num {
+  color: var(--terracotta);
+  font-weight: 500;
+}
+.section-label::before {
+  content: "";
+  width: 30px; height: 1px;
+  background: var(--terracotta);
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--serif);
+  font-weight: 400;
+  color: var(--ink);
+  margin: 0;
+  letter-spacing: -0.015em;
+}
+h1 {
+  font-size: clamp(56px, 11vw, 168px);
+  line-height: 0.9;
+  font-variation-settings: "opsz" 144, "SOFT" 50;
+}
+h2 {
+  font-size: clamp(38px, 6vw, 72px);
+  line-height: 1.02;
+  font-variation-settings: "opsz" 72, "SOFT" 40;
+  letter-spacing: -0.02em;
+}
+h3 {
+  font-size: clamp(24px, 3.2vw, 36px);
+  line-height: 1.15;
+  font-variation-settings: "opsz" 40, "SOFT" 30;
+}
+h4 {
+  font-size: 20px;
+  line-height: 1.3;
+  font-variation-settings: "opsz" 20, "SOFT" 30;
+  font-weight: 500;
+}
+
+em, .italic {
+  font-style: italic;
+  font-variation-settings: "opsz" 144, "SOFT" 100;
+}
+
+p { margin: 0 0 1.1em; }
+p.lead {
+  font-size: clamp(18px, 1.8vw, 22px);
+  line-height: 1.55;
+  color: var(--ink-soft);
+  max-width: 62ch;
+}
+.muted { color: var(--ink-faint); }
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+  margin-bottom: 14px;
+  display: inline-block;
+}
+
+.rule {
+  height: 1px;
+  background: var(--rule);
+  border: none;
+  margin: clamp(40px, 6vw, 80px) 0;
+}
+
+/* ---------- HERO ---------- */
+.hero {
+  padding-top: clamp(50px, 8vw, 90px);
+  padding-bottom: clamp(50px, 8vw, 90px);
+  position: relative;
+  overflow: hidden;
+}
+.hero-meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 24px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  padding-bottom: clamp(30px, 6vw, 60px);
+  border-bottom: 1px solid var(--rule);
+}
+.hero-meta div span {
+  display: block;
+  color: var(--ink);
+  margin-top: 6px;
+  font-family: var(--sans);
+  font-size: 13px;
+  letter-spacing: 0.01em;
+  text-transform: none;
+}
+
+.hero-wordmark {
+  margin: clamp(60px, 11vw, 130px) 0 24px;
+  position: relative;
+}
+.hero-wordmark h1 {
+  font-style: italic;
+  font-variation-settings: "opsz" 144, "SOFT" 100, "wght" 350;
+}
+.hero-wordmark .accent-dot {
+  display: inline-block;
+  width: clamp(14px, 1.8vw, 22px);
+  height: clamp(14px, 1.8vw, 22px);
+  background: var(--terracotta);
+  border-radius: 50%;
+  transform: translateY(-0.4em);
+  margin-left: 0.05em;
+}
+
+.hero-tagline {
+  font-family: var(--serif);
+  font-size: clamp(22px, 2.6vw, 34px);
+  line-height: 1.25;
+  font-variation-settings: "opsz" 36, "SOFT" 50, "wght" 400;
+  max-width: 26ch;
+  color: var(--ink);
+  margin: 0 0 clamp(40px, 6vw, 70px);
+}
+.hero-tagline em {
+  color: var(--terracotta);
+  font-style: italic;
+  font-variation-settings: "opsz" 36, "SOFT" 100;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: clamp(40px, 6vw, 90px);
+  padding-top: 40px;
+  border-top: 1px solid var(--rule);
+  align-items: end;
+}
+@media (max-width: 820px) {
+  .hero-grid { grid-template-columns: 1fr; }
+}
+
+.tldr {
+  font-size: 16px;
+  line-height: 1.6;
+}
+.tldr h4 {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+.tldr ul {
+  margin: 0; padding: 0; list-style: none;
+}
+.tldr li {
+  padding: 14px 0;
+  border-bottom: 1px solid var(--rule-soft);
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: 16px;
+}
+.tldr li:last-child { border-bottom: none; }
+.tldr li::before {
+  content: counter(t, decimal-leading-zero);
+  counter-increment: t;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--terracotta);
+  padding-top: 4px;
+}
+.tldr ul { counter-reset: t; }
+
+.cta-block {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  margin-top: 36px;
+  flex-wrap: wrap;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 22px;
+  background: var(--ink);
+  color: var(--cream);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 999px;
+  border: 1px solid var(--ink);
+  transition: all 0.25s ease;
+}
+.btn:hover {
+  background: var(--terracotta);
+  border-color: var(--terracotta);
+  transform: translateY(-1px);
+}
+.btn.ghost {
+  background: transparent;
+  color: var(--ink);
+}
+.btn.ghost:hover {
+  background: var(--ink);
+  color: var(--cream);
+}
+.btn .arrow { transition: transform 0.25s ease; }
+.btn:hover .arrow { transform: translateX(4px); }
+
+/* ---------- Section: The Quiet Crisis ---------- */
+.crisis-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(40px, 6vw, 90px);
+  align-items: start;
+}
+@media (max-width: 820px) {
+  .crisis-grid { grid-template-columns: 1fr; }
+}
+
+.stat-stack { margin-top: 60px; }
+.stat-row {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 32px;
+  padding: 36px 0;
+  border-top: 1px solid var(--rule);
+  align-items: baseline;
+}
+.stat-row:last-child { border-bottom: 1px solid var(--rule); }
+@media (max-width: 820px) {
+  .stat-row { grid-template-columns: 1fr; gap: 10px; padding: 26px 0; }
+}
+.stat-big {
+  font-family: var(--serif);
+  font-size: clamp(56px, 7vw, 96px);
+  line-height: 0.95;
+  font-variation-settings: "opsz" 144, "SOFT" 60, "wght" 350;
+  color: var(--ink);
+  letter-spacing: -0.03em;
+}
+.stat-big em {
+  color: var(--terracotta);
+  font-variation-settings: "opsz" 144, "SOFT" 100, "wght" 350;
+}
+.stat-body {
+  padding-top: 12px;
+}
+.stat-body h4 {
+  font-family: var(--serif);
+  font-size: 22px;
+  line-height: 1.25;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+.stat-body p {
+  font-size: 15px;
+  color: var(--ink-soft);
+  max-width: 50ch;
+  margin: 0;
+}
+.cite {
+  display: inline-block;
+  margin-top: 10px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+/* ---------- The Three Gaps ---------- */
+.gaps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--rule);
+  margin-top: 60px;
+  border: 1px solid var(--rule);
+}
+@media (max-width: 820px) { .gaps { grid-template-columns: 1fr; } }
+.gap {
+  background: var(--cream);
+  padding: 36px 30px;
+  position: relative;
+}
+.gap-num {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: var(--terracotta);
+  margin-bottom: 12px;
+}
+.gap h4 {
+  font-family: var(--serif);
+  font-size: 24px;
+  line-height: 1.2;
+  margin-bottom: 14px;
+  font-weight: 500;
+}
+.gap p {
+  font-size: 14px;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+/* ---------- Persona / Anand Rao ---------- */
+.persona-section {
+  background: var(--cream-deep);
+  padding: clamp(80px, 10vw, 140px) 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+.persona-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: clamp(40px, 6vw, 80px);
+  align-items: start;
+}
+@media (max-width: 820px) {
+  .persona-grid { grid-template-columns: 1fr; }
+}
+
+.persona-portrait {
+  background: var(--cream);
+  border: 1px solid var(--rule);
+  padding: 36px;
+  position: relative;
+}
+.persona-portrait::before {
+  content: "PERSONA / 01";
+  position: absolute;
+  top: -10px; left: 36px;
+  background: var(--cream-deep);
+  padding: 0 12px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--terracotta);
+}
+.persona-name {
+  font-family: var(--serif);
+  font-size: 44px;
+  line-height: 1;
+  font-variation-settings: "opsz" 72, "SOFT" 50;
+  margin: 8px 0 4px;
+  letter-spacing: -0.02em;
+}
+.persona-sub {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 28px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--rule-soft);
+}
+.persona-row {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 18px;
+  padding: 12px 0;
+  font-size: 14.5px;
+}
+.persona-row dt {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  padding-top: 4px;
+}
+.persona-row dd { margin: 0; color: var(--ink-soft); line-height: 1.5; }
+
+.persona-quote {
+  margin-top: 24px;
+  padding: 18px 24px;
+  background: var(--paper);
+  border-left: 2px solid var(--terracotta);
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 17px;
+  line-height: 1.5;
+  color: var(--ink);
+  font-variation-settings: "opsz" 30, "SOFT" 100;
+}
+
+.day-in-life h3 { margin-bottom: 26px; }
+.day {
+  position: relative;
+  padding-left: 28px;
+  border-left: 1px solid var(--rule);
+}
+.day-step {
+  position: relative;
+  padding: 16px 0;
+}
+.day-step::before {
+  content: "";
+  position: absolute;
+  left: -33px; top: 26px;
+  width: 9px; height: 9px;
+  background: var(--cream-deep);
+  border: 1px solid var(--terracotta);
+  border-radius: 50%;
+}
+.day-step .t {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+  margin-bottom: 4px;
+}
+.day-step p {
+  font-size: 15px;
+  color: var(--ink-soft);
+  margin: 0;
+  line-height: 1.55;
+}
+.day-step.friction p { color: var(--ink); font-weight: 500; }
+.day-step.friction::before {
+  background: var(--terracotta);
+  border-color: var(--terracotta);
+}
+
+/* ---------- Methodology ---------- */
+.method-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  margin-top: 56px;
+}
+@media (max-width: 900px) { .method-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 540px) { .method-grid { grid-template-columns: 1fr; } }
+.method-item {
+  border-top: 1px solid var(--ink);
+  padding-top: 16px;
+}
+.method-num {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--terracotta);
+  margin-bottom: 10px;
+}
+.method-item h4 {
+  font-family: var(--serif);
+  font-size: 22px;
+  margin-bottom: 10px;
+  line-height: 1.2;
+}
+.method-item p {
+  font-size: 14px;
+  color: var(--ink-soft);
+  margin: 0;
+  line-height: 1.55;
+}
+
+/* ---------- The Insight ---------- */
+.insight {
+  background: var(--ink);
+  color: var(--cream);
+  padding: clamp(80px, 10vw, 140px) 0;
+}
+.insight .section-label { color: rgba(242,235,220,0.6); }
+.insight .section-label .num { color: var(--gold); }
+.insight .section-label::before { background: var(--gold); }
+.insight h2 { color: var(--cream); }
+.insight h2 em {
+  color: var(--gold);
+  font-style: italic;
+  font-variation-settings: "opsz" 72, "SOFT" 100;
+}
+.insight p { color: rgba(242,235,220,0.8); }
+
+.principles {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-top: 60px;
+}
+@media (max-width: 820px) { .principles { grid-template-columns: repeat(2, 1fr); } }
+.principle {
+  border-top: 1px solid rgba(242,235,220,0.25);
+  padding-top: 18px;
+}
+.principle-num {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+.principle h4 {
+  font-family: var(--serif);
+  font-size: 24px;
+  color: var(--cream);
+  font-variation-settings: "opsz" 30, "SOFT" 50;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+.principle p {
+  font-size: 14px;
+  color: rgba(242,235,220,0.7);
+  margin: 0;
+  line-height: 1.55;
+}
+
+/* ---------- The Solution ---------- */
+.solution-hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(40px, 6vw, 80px);
+  align-items: end;
+}
+@media (max-width: 820px) { .solution-hero { grid-template-columns: 1fr; } }
+.solution-mark {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(96px, 16vw, 220px);
+  line-height: 0.85;
+  font-variation-settings: "opsz" 144, "SOFT" 100, "wght" 350;
+  letter-spacing: -0.04em;
+  color: var(--ink);
+}
+.solution-mark .accent-dot {
+  display: inline-block;
+  width: clamp(20px, 2.4vw, 30px);
+  height: clamp(20px, 2.4vw, 30px);
+  background: var(--terracotta);
+  border-radius: 50%;
+  vertical-align: top;
+  margin-top: 0.55em;
+}
+
+.value-prop {
+  font-family: var(--serif);
+  font-size: clamp(22px, 2.4vw, 30px);
+  line-height: 1.3;
+  font-variation-settings: "opsz" 30, "SOFT" 40, "wght" 400;
+  max-width: 28ch;
+  margin-top: 20px;
+}
+.value-prop em {
+  color: var(--terracotta);
+  font-style: italic;
+  font-variation-settings: "opsz" 30, "SOFT" 100;
+}
+
+/* ---------- How it works ---------- */
+.steps {
+  margin-top: 60px;
+  border-top: 1px solid var(--ink);
+}
+.step {
+  display: grid;
+  grid-template-columns: 70px 280px 1fr;
+  gap: 32px;
+  padding: 36px 0;
+  border-bottom: 1px solid var(--rule);
+  align-items: start;
+}
+@media (max-width: 820px) {
+  .step { grid-template-columns: 50px 1fr; }
+  .step .step-body { grid-column: 1 / -1; padding-top: 6px; }
+}
+.step-num {
+  font-family: var(--mono);
+  font-size: 13px;
+  letter-spacing: 0.16em;
+  color: var(--terracotta);
+  padding-top: 6px;
+}
+.step-title {
+  font-family: var(--serif);
+  font-size: 28px;
+  line-height: 1.15;
+  font-variation-settings: "opsz" 30, "SOFT" 40;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+.step-body p {
+  font-size: 15.5px;
+  color: var(--ink-soft);
+  margin: 0;
+  max-width: 56ch;
+}
+.step-tag {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 4px 10px;
+  background: var(--cream-deep);
+  border-radius: 999px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+}
+
+/* ---------- Theory of Change ---------- */
+.toc-section {
+  background: var(--paper);
+  padding: clamp(80px, 10vw, 140px) 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+.toc-flow {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+  margin-top: 60px;
+  position: relative;
+}
+@media (max-width: 980px) { .toc-flow { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 540px) { .toc-flow { grid-template-columns: 1fr; } }
+.toc-col {
+  background: var(--cream);
+  padding: 24px 22px;
+  border: 1px solid var(--rule);
+  position: relative;
+  min-height: 220px;
+}
+.toc-col + .toc-col::before {
+  content: "→";
+  position: absolute;
+  left: -14px; top: 32px;
+  color: var(--terracotta);
+  font-family: var(--serif);
+  font-size: 22px;
+  background: var(--paper);
+  width: 28px; text-align: center;
+  z-index: 2;
+}
+@media (max-width: 980px) {
+  .toc-col + .toc-col::before { display: none; }
+}
+.toc-col h5 {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+  margin: 0 0 14px;
+  font-weight: 500;
+}
+.toc-col ul {
+  padding: 0; margin: 0; list-style: none;
+}
+.toc-col li {
+  font-size: 13.5px;
+  color: var(--ink-soft);
+  padding: 8px 0;
+  border-top: 1px solid var(--rule-soft);
+  line-height: 1.5;
+}
+.toc-col li:first-child { border-top: none; }
+
+/* ---------- Expert ---------- */
+.expert {
+  margin-top: 80px;
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 40px;
+  align-items: start;
+  padding-top: 50px;
+  border-top: 1px solid var(--rule);
+}
+@media (max-width: 720px) { .expert { grid-template-columns: 1fr; gap: 20px; } }
+.expert-tag {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+}
+.expert-name {
+  font-family: var(--serif);
+  font-size: 18px;
+  margin-top: 8px;
+  font-weight: 500;
+}
+.expert-role {
+  font-size: 13px;
+  color: var(--ink-faint);
+  margin-top: 4px;
+}
+.expert-quote {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(22px, 2.4vw, 30px);
+  line-height: 1.35;
+  font-variation-settings: "opsz" 36, "SOFT" 100, "wght" 380;
+  color: var(--ink);
+  margin: 0;
+  max-width: 36ch;
+  position: relative;
+}
+.expert-quote::before {
+  content: "\201C";
+  font-size: 1.6em;
+  color: var(--terracotta);
+  position: absolute;
+  left: -0.55em;
+  top: -0.05em;
+  font-style: normal;
+}
+
+/* ---------- Opportunity / Market ---------- */
+.opp-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: clamp(40px, 6vw, 80px);
+  margin-top: 60px;
+  align-items: start;
+}
+@media (max-width: 820px) { .opp-grid { grid-template-columns: 1fr; } }
+
+.tam {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border: 1px solid var(--rule);
+}
+.tam-row {
+  display: grid;
+  grid-template-columns: 80px 1fr 130px;
+  padding: 24px 28px;
+  align-items: center;
+  border-bottom: 1px solid var(--rule);
+  background: var(--cream);
+}
+.tam-row:last-child { border-bottom: none; }
+.tam-row .tag {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--terracotta);
+}
+.tam-row .label {
+  font-family: var(--serif);
+  font-size: 17px;
+  line-height: 1.3;
+  font-variation-settings: "opsz" 24, "SOFT" 30;
+  font-weight: 500;
+}
+.tam-row .num {
+  font-family: var(--serif);
+  font-size: 28px;
+  text-align: right;
+  font-variation-settings: "opsz" 36, "SOFT" 60, "wght" 400;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+.tam-row.deep {
+  background: var(--cream-deep);
+}
+.tam-row.deep .num { color: var(--terracotta); }
+
+.tailwinds {
+  padding-top: 12px;
+}
+.tailwinds h4 {
+  font-family: var(--serif);
+  font-size: 22px;
+  margin-bottom: 24px;
+  font-weight: 500;
+}
+.tailwind {
+  padding: 16px 0;
+  border-top: 1px solid var(--rule);
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: 16px;
+  align-items: start;
+}
+.tailwind:last-child { border-bottom: 1px solid var(--rule); }
+.tailwind .icon {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--terracotta);
+  padding-top: 2px;
+}
+.tailwind .title {
+  font-weight: 500;
+  font-size: 15px;
+  margin-bottom: 4px;
+}
+.tailwind .desc {
+  font-size: 13.5px;
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+
+/* ---------- Business Model ---------- */
+.bm-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-top: 60px;
+}
+@media (max-width: 820px) { .bm-grid { grid-template-columns: 1fr; } }
+.bm-card {
+  padding: 32px;
+  background: var(--cream);
+  border: 1px solid var(--rule);
+}
+.bm-card h4 {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+  margin-bottom: 18px;
+  font-weight: 500;
+}
+.bm-card ul {
+  padding: 0; margin: 0; list-style: none;
+}
+.bm-card li {
+  padding: 12px 0;
+  border-top: 1px solid var(--rule-soft);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 16px;
+  font-size: 14.5px;
+  align-items: baseline;
+}
+.bm-card li:first-child { border-top: none; }
+.bm-card li .pct {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--terracotta);
+  letter-spacing: 0.1em;
+}
+.bm-card li .lbl { color: var(--ink-soft); }
+
+.unit {
+  margin-top: 60px;
+  padding: 36px;
+  background: var(--cream-deep);
+  border: 1px solid var(--rule);
+}
+.unit h4 {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+  margin-bottom: 24px;
+}
+.unit-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+@media (max-width: 820px) { .unit-grid { grid-template-columns: repeat(2, 1fr); } }
+.unit-item .v {
+  font-family: var(--serif);
+  font-size: 36px;
+  line-height: 1;
+  font-variation-settings: "opsz" 72, "SOFT" 50;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+}
+.unit-item .v em {
+  color: var(--terracotta);
+  font-variation-settings: "opsz" 72, "SOFT" 100;
+}
+.unit-item .l {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-top: 10px;
+}
+.disclaim {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-top: 24px;
+}
+
+/* ---------- KPIs ---------- */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--rule);
+  margin-top: 60px;
+  border: 1px solid var(--rule);
+}
+@media (max-width: 820px) { .kpi-grid { grid-template-columns: 1fr; } }
+.kpi {
+  padding: 30px 28px;
+  background: var(--cream);
+}
+.kpi-tag {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+}
+.kpi h4 {
+  font-family: var(--serif);
+  font-size: 20px;
+  margin: 10px 0 14px;
+  font-weight: 500;
+  line-height: 1.25;
+}
+.kpi p {
+  font-size: 13.5px;
+  color: var(--ink-soft);
+  margin: 0;
+  line-height: 1.55;
+}
+
+/* ---------- Roadmap ---------- */
+.roadmap {
+  margin-top: 60px;
+  position: relative;
+}
+.phase {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 40px;
+  padding: 40px 0;
+  border-top: 1px solid var(--rule);
+  position: relative;
+}
+.phase:last-child { border-bottom: 1px solid var(--rule); }
+@media (max-width: 720px) {
+  .phase { grid-template-columns: 1fr; gap: 16px; padding: 28px 0; }
+}
+.phase-tag {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--terracotta);
+}
+.phase-name {
+  font-family: var(--serif);
+  font-size: 28px;
+  line-height: 1.15;
+  margin: 8px 0 6px;
+  font-variation-settings: "opsz" 36, "SOFT" 50;
+  font-weight: 500;
+}
+.phase-when {
+  font-size: 13px;
+  color: var(--ink-faint);
+}
+.phase-body {
+  font-size: 15px;
+  color: var(--ink-soft);
+  line-height: 1.6;
+  max-width: 60ch;
+}
+.phase-pills {
+  margin-top: 18px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.pill {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 6px 12px;
+  background: var(--cream-deep);
+  color: var(--ink-soft);
+  border-radius: 999px;
+}
+
+/* ---------- Stakeholders ---------- */
+.stake-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--rule);
+  margin-top: 60px;
+  border: 1px solid var(--rule);
+}
+@media (max-width: 820px) { .stake-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 540px) { .stake-grid { grid-template-columns: 1fr; } }
+.stake {
+  padding: 26px 24px;
+  background: var(--cream);
+  min-height: 160px;
+}
+.stake-tag {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+  margin-bottom: 12px;
+}
+.stake h4 {
+  font-family: var(--serif);
+  font-size: 18px;
+  margin-bottom: 8px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+.stake p {
+  font-size: 13.5px;
+  color: var(--ink-soft);
+  margin: 0;
+  line-height: 1.55;
+}
+
+/* ---------- Team ---------- */
+.team-section {
+  background: var(--cream-deep);
+  padding: clamp(80px, 10vw, 140px) 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+  margin-top: 60px;
+}
+@media (max-width: 820px) { .team-grid { grid-template-columns: repeat(2, 1fr); } }
+.member {
+  padding: 24px;
+  background: var(--cream);
+  border: 1px solid var(--rule);
+}
+.member-mark {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: var(--ink);
+  color: var(--cream);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--serif);
+  font-size: 18px;
+  font-variation-settings: "opsz" 30, "SOFT" 100;
+  font-style: italic;
+  margin-bottom: 20px;
+}
+.member h4 {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 500;
+  font-variation-settings: "opsz" 30, "SOFT" 40;
+}
+.member p {
+  font-size: 13px;
+  color: var(--ink-faint);
+  margin: 4px 0 0;
+}
+
+/* ---------- The Ask ---------- */
+.ask {
+  background: var(--ink);
+  color: var(--cream);
+  padding: clamp(100px, 14vw, 180px) 0;
+}
+.ask .section-label { color: rgba(242,235,220,0.6); }
+.ask .section-label .num { color: var(--gold); }
+.ask .section-label::before { background: var(--gold); }
+.ask h2 { color: var(--cream); max-width: 18ch; }
+.ask h2 em {
+  color: var(--gold);
+  font-style: italic;
+  font-variation-settings: "opsz" 72, "SOFT" 100;
+}
+.ask p.lead { color: rgba(242,235,220,0.75); }
+
+.ask-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 70px;
+}
+@media (max-width: 820px) { .ask-grid { grid-template-columns: 1fr; } }
+.ask-card {
+  padding: 32px;
+  border: 1px solid rgba(242,235,220,0.18);
+  background: rgba(242,235,220,0.03);
+  transition: all 0.25s ease;
+}
+.ask-card:hover {
+  background: rgba(196,146,41,0.08);
+  border-color: var(--gold);
+  transform: translateY(-2px);
+}
+.ask-card .tag {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.ask-card h4 {
+  font-family: var(--serif);
+  font-size: 24px;
+  color: var(--cream);
+  margin-bottom: 12px;
+  font-weight: 500;
+  font-variation-settings: "opsz" 30, "SOFT" 40;
+}
+.ask-card p {
+  font-size: 14px;
+  color: rgba(242,235,220,0.7);
+  margin: 0;
+  line-height: 1.55;
+}
+
+.ask-cta {
+  margin-top: 70px;
+  padding-top: 40px;
+  border-top: 1px solid rgba(242,235,220,0.18);
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+.ask-cta .l {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(242,235,220,0.5);
+  margin-bottom: 6px;
+}
+.ask-cta .v {
+  font-family: var(--serif);
+  font-size: clamp(18px, 2vw, 24px);
+  color: var(--cream);
+}
+.btn-gold {
+  background: var(--gold);
+  color: var(--ink);
+  border-color: var(--gold);
+}
+.btn-gold:hover {
+  background: var(--cream);
+  border-color: var(--cream);
+  color: var(--ink);
+}
+
+/* ---------- Footer ---------- */
+footer {
+  padding: 60px var(--gutter) 36px;
+  background: var(--cream);
+  font-size: 13px;
+  color: var(--ink-faint);
+}
+.footer-inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 40px;
+}
+@media (max-width: 720px) { .footer-inner { grid-template-columns: 1fr; } }
+.footer-inner h5 {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+  margin: 0 0 14px;
+}
+footer ul { margin: 0; padding: 0; list-style: none; }
+footer li { padding: 4px 0; }
+footer a { color: var(--ink-soft); text-decoration: none; }
+footer a:hover { color: var(--terracotta); }
+.footer-bottom {
+  max-width: var(--maxw);
+  margin: 40px auto 0;
+  padding-top: 20px;
+  border-top: 1px solid var(--rule);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 14px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+/* ---------- Reveal animation ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+.reveal.in {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+}
+
+/* ---------- Footnote / citations ---------- */
+sup.fn {
+  font-family: var(--mono);
+  font-size: 0.65em;
+  color: var(--terracotta);
+  margin-left: 2px;
+  font-weight: 500;
+  vertical-align: super;
+  line-height: 0;
+}
+
+.refs {
+  margin-top: 70px;
+  padding-top: 40px;
+  border-top: 1px solid var(--rule);
+  font-size: 13px;
+  color: var(--ink-faint);
+}
+.refs h5 {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+  margin: 0 0 18px;
+}
+.refs ol {
+  padding-left: 18px;
+  margin: 0;
+  line-height: 1.55;
+  columns: 2;
+  column-gap: 40px;
+}
+@media (max-width: 720px) { .refs ol { columns: 1; } }
+.refs li { padding: 6px 0; break-inside: avoid; }
+.refs a { color: var(--ink-soft); text-decoration: underline; text-decoration-color: var(--rule); }
+.refs a:hover { color: var(--terracotta); text-decoration-color: var(--terracotta); }
+
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<!-- ============ TOP BAR ============ -->
+<nav class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <span class="brand-mark"></span>
+      NIVAAR<span class="brand-meta">Investor Brief · Vol. 01</span>
+    </div>
+    <div class="nav">
+      <a href="#crisis">Problem</a>
+      <a href="#solution">Solution</a>
+      <a href="#impact">Impact</a>
+      <a href="#opportunity">Opportunity</a>
+      <a href="#ask">The Ask</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="wrap">
+
+    <div class="hero-meta">
+      <div>An Investor & Partnership Brief
+        <span>For impact investors, CSR partners, and government allies</span>
+      </div>
+      <div>Sector
+        <span>Eldercare · Preventive Health · India</span>
+      </div>
+      <div>Reading time
+        <span>≈ 12 minutes</span>
+      </div>
+    </div>
+
+    <div class="hero-wordmark">
+      <h1>Nivaar<span class="accent-dot"></span></h1>
+    </div>
+
+    <p class="hero-tagline">
+      Personalised <em>physiotherapy</em> and <em>nutrition</em>, delivered to the doorsteps of India's elderly &mdash; before pain becomes disability, and disability becomes dependence.
+    </p>
+
+    <div class="hero-grid">
+      <div>
+        <p class="lead">
+          India is on the brink of becoming an old country. By 2050, one in every five Indians will be aged 60 or above &mdash; nearly <strong>347 million people</strong><sup class="fn">1</sup>. Almost half of them already live with knee osteoarthritis<sup class="fn">2</sup>, three-quarters with Vitamin D deficiency<sup class="fn">3</sup>, and yet fewer than 5% of our primary health centres offer geriatric services<sup class="fn">4</sup>.
+        </p>
+        <p class="lead">
+          NIVAAR is a community-rooted service that closes this gap &mdash; bringing trained physiotherapists and nutritionists into elders' homes, building motivation through community, and turning healthcare from a hospital visit into a daily, dignified habit.
+        </p>
+
+        <div class="cta-block">
+          <a href="#ask" class="btn">Partner with us <span class="arrow">→</span></a>
+          <a href="#crisis" class="btn ghost">Read the brief</a>
+        </div>
+      </div>
+
+      <aside class="tldr">
+        <h4>The 60-Second Brief</h4>
+        <ul>
+          <li>India's elderly population will reach <strong>347M by 2050</strong> &mdash; a 134% increase in a generation.</li>
+          <li><strong>47% of Indian elders</strong> live with knee osteoarthritis. Most go untreated until disability sets in.</li>
+          <li>Existing services treat physio, nutrition, and motivation as <em>separate</em> problems. They are not.</li>
+          <li>NIVAAR delivers <strong>integrated, in-home, personalised care</strong> &mdash; rooted in community accountability.</li>
+          <li>We are seeking <strong>pilot funding and policy partners</strong> to launch in one Indian city and demonstrate measurable impact within 12 months.</li>
+        </ul>
+      </aside>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ 01 · THE QUIET CRISIS ============ -->
+<section id="crisis">
+  <div class="wrap reveal">
+
+    <div class="section-label"><span class="num">01</span> The Quiet Crisis</div>
+
+    <div class="crisis-grid">
+      <div>
+        <h2>India is ageing <em>faster</em> than its healthcare system can keep up.</h2>
+      </div>
+      <div>
+        <p class="lead">
+          Three demographic and clinical realities are converging silently. They are not yet a headline. They are about to become one.
+        </p>
+        <p class="muted" style="font-size:14px;">
+          The data below is drawn from peer-reviewed Indian medical literature, the UNFPA India Ageing Report, the Longitudinal Ageing Study in India (LASI), and the Ministry of Health & Family Welfare.
+        </p>
+      </div>
+    </div>
+
+    <div class="stat-stack">
+      <div class="stat-row">
+        <div class="stat-big"><em>347M</em></div>
+        <div class="stat-body">
+          <h4>Indians will be aged 60+ by 2050 &mdash; up from 149M in 2022.</h4>
+          <p>That is a <strong>134% increase</strong> in one generation. Those aged 80+ will grow by 279%, a "predominance of widowed and highly dependent very old women."<sup class="fn">1</sup></p>
+          <span class="cite">SOURCE · UNFPA India Ageing Report, 2023</span>
+        </div>
+      </div>
+
+      <div class="stat-row">
+        <div class="stat-big"><em>47%</em></div>
+        <div class="stat-body">
+          <h4>Pooled prevalence of knee osteoarthritis among Indian elders.</h4>
+          <p>A meta-analysis of 14 community studies (5,029 participants) found nearly half of India's elderly live with knee OA &mdash; with a rural Haryana study finding the figure as high as <strong>64%</strong>.<sup class="fn">2</sup></p>
+          <span class="cite">SOURCE · J. Family Medicine & Primary Care, 2025</span>
+        </div>
+      </div>
+
+      <div class="stat-row">
+        <div class="stat-big"><em>53.5%</em></div>
+        <div class="stat-body">
+          <h4>Of older Indian adults live with at least one musculoskeletal disorder.</h4>
+          <p>A nationally representative survey of 28,436 participants found MSD prevalence rises to <strong>60.4% in those over 60</strong>. Joint pain (41.9%) is more common than back pain (32.6%).<sup class="fn">5</sup></p>
+          <span class="cite">SOURCE · LASI / NCBI Population Study</span>
+        </div>
+      </div>
+
+      <div class="stat-row">
+        <div class="stat-big"><em>&lt;5%</em></div>
+        <div class="stat-body">
+          <h4>Of India's Primary Health Centres offer geriatric OPD services.</h4>
+          <p>Only 4–14% of rural elders are even <em>aware</em> of geriatric welfare services available to them, and just 11% have any form of pension to pay for private care.<sup class="fn">4</sup></p>
+          <span class="cite">SOURCE · MoHFW Survey · PRB India</span>
+        </div>
+      </div>
+
+      <div class="stat-row">
+        <div class="stat-big"><em>75.7%</em></div>
+        <div class="stat-body">
+          <h4>Of older Indians have insufficient Vitamin D. 42% are Vitamin B12 deficient.</h4>
+          <p>27% of those aged 60+ are underweight; another 22% are overweight or obese &mdash; a dual nutritional burden that directly worsens bone, joint, and cognitive decline.<sup class="fn">3</sup></p>
+          <span class="cite">SOURCE · Observer Research Foundation · ORF Policy Brief</span>
+        </div>
+      </div>
+    </div>
+
+    <hr class="rule" />
+
+    <div class="section-label"><span class="num">01.b</span> The Three Gaps</div>
+    <h3 style="max-width:22ch;">Each of these alone is solvable. The damage happens because they compound.</h3>
+
+    <div class="gaps">
+      <div class="gap">
+        <div class="gap-num">GAP 01 · Access</div>
+        <h4>Care exists, but not where elders live.</h4>
+        <p>Geriatric clinics cluster in tertiary urban hospitals. Mobility-limited elders cannot reach them. Home-care exists, but is fragmented, expensive, and concentrated among India's top 1%.</p>
+      </div>
+      <div class="gap">
+        <div class="gap-num">GAP 02 · Integration</div>
+        <h4>Physio, nutrition, and mental health are sold separately.</h4>
+        <p>An orthopedic visit treats the knee. A dietitian treats the deficiency. Nobody treats the elder &mdash; the person, with all three needs intertwined and reinforcing one another.</p>
+      </div>
+      <div class="gap">
+        <div class="gap-num">GAP 03 · Motivation</div>
+        <h4>Even when care is prescribed, adherence collapses.</h4>
+        <p>Exercises are taught once and forgotten. Diet plans gather dust. Without a system of community accountability and small daily wins, prescriptions become paperwork.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ 02 · THE HUMAN ============ -->
+<section id="persona" class="persona-section">
+  <div class="wrap reveal">
+
+    <div class="section-label"><span class="num">02</span> The Human at the Centre</div>
+    <h2 style="max-width:18ch;">Meet <em>Anand Rao</em>. He is why this service exists.</h2>
+
+    <p class="lead" style="margin-top:24px; max-width:62ch;">
+      Anand is one of 28 elders we spoke with over six weeks of fieldwork in Visakhapatnam, Hyderabad, and Delhi. His life is a composite portrait drawn from those conversations. He is the kind of person India's healthcare system never quite gets around to designing for &mdash; not poor enough to qualify for state support, not wealthy enough for private home-care, and far too independent to ask for help.
+    </p>
+
+    <div class="persona-grid" style="margin-top:60px;">
+
+      <article class="persona-portrait">
+        <div class="persona-name">Anand Rao</div>
+        <div class="persona-sub">73 · Retired BHEL Engineer · Visakhapatnam</div>
+
+        <dl>
+          <div class="persona-row"><dt>Lives with</dt><dd>His wife. Children visit twice a year. One housemaid.</dd></div>
+          <div class="persona-row"><dt>Income</dt><dd>Yearly pension. Manages his own banking and taxes.</dd></div>
+          <div class="persona-row"><dt>Body</dt><dd>Ectomorph. Knee and shoulder pain from an old accident.</dd></div>
+          <div class="persona-row"><dt>Diet</dt><dd>South Indian. Avoids street food. Smokes daily.</dd></div>
+          <div class="persona-row"><dt>Tech</dt><dd>Owns a phone. Uncomfortable with apps. Trusts a phone call.</dd></div>
+          <div class="persona-row"><dt>Wants</dt><dd>To stay independent. To not become a burden.</dd></div>
+        </dl>
+
+        <div class="persona-quote">
+          "I have a local doctor we've known for years. Why would I trust a stranger with a clipboard?"
+        </div>
+      </article>
+
+      <div class="day-in-life">
+        <h3>A friction map of his day</h3>
+        <p class="muted" style="font-size:15px; margin-bottom:30px; max-width:42ch;">
+          We shadowed Anand-type elders through a typical day. The friction points below are where dignity quietly erodes &mdash; and where NIVAAR intervenes.
+        </p>
+        <div class="day">
+          <div class="day-step">
+            <div class="t">06:00 · Morning</div>
+            <p>Brushes, bathes, fills a bucket. Goes to the terrace for sun. So far, so independent.</p>
+          </div>
+          <div class="day-step friction">
+            <div class="t">09:00 · Friction</div>
+            <p>Walks half a kilometre to the main road. Waits for a shared auto. Standing strains his knees.</p>
+          </div>
+          <div class="day-step friction">
+            <div class="t">10:30 · Friction</div>
+            <p>Markets are muddy and crowded. He carries heavy groceries home in arms that already ache.</p>
+          </div>
+          <div class="day-step">
+            <div class="t">13:00 · Lunch</div>
+            <p>Eats sitting on the floor &mdash; "to keep tradition." Knees protest. Getting up is the hardest part.</p>
+          </div>
+          <div class="day-step friction">
+            <div class="t">19:00 · Friction</div>
+            <p>Refuses to take supplements his son sends. Doesn't trust them. Prefers "natural remedies" he can't quite name.</p>
+          </div>
+          <div class="day-step">
+            <div class="t">22:00 · Night</div>
+            <p>Sleeps with an alarm set for tomorrow. Same routine. Same pain. Same quiet decline.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ 03 · METHODOLOGY ============ -->
+<section>
+  <div class="wrap reveal">
+    <div class="section-label"><span class="num">03</span> How We Got Here</div>
+    <h2 style="max-width:22ch;">A design-led process, grounded in <em>field research</em>.</h2>
+
+    <p class="lead" style="margin-top:24px;">
+      NIVAAR is not the output of a brainstorm. It is the result of six weeks of structured human-centred design &mdash; ethnographic interviews, journey mapping, expert validation, and rapid iteration through twenty distinct ideas before we settled on the one that meets all four of our principles.
+    </p>
+
+    <div class="method-grid">
+      <div class="method-item">
+        <div class="method-num">METHOD 01</div>
+        <h4>Persona &amp; Journey Mapping</h4>
+        <p>28 interviews. Daily routines, friction points, behaviours, and unmet needs charted for a composite persona.</p>
+      </div>
+      <div class="method-item">
+        <div class="method-num">METHOD 02</div>
+        <h4>Insights → Opportunities</h4>
+        <p>Field insights mapped against five design principles, yielding individual, system, and strategic opportunities.</p>
+      </div>
+      <div class="method-item">
+        <div class="method-num">METHOD 03</div>
+        <h4>20-Idea Ideation</h4>
+        <p>Twenty diverse interventions generated, voted on, and reduced to five &mdash; then to one buildable service.</p>
+      </div>
+      <div class="method-item">
+        <div class="method-num">METHOD 04</div>
+        <h4>Theory of Change</h4>
+        <p>Problem, audience, entry point, activities, measurable effect, and long-term goal mapped end-to-end.</p>
+      </div>
+      <div class="method-item">
+        <div class="method-num">METHOD 05</div>
+        <h4>Storyboard &amp; Prototype</h4>
+        <p>Service blueprint, illustrated user story, and physical prototype (calendar + dietary guide) created.</p>
+      </div>
+      <div class="method-item">
+        <div class="method-num">METHOD 06</div>
+        <h4>Expert Validation</h4>
+        <p>Reviewed with <strong>Dr. Rajiv Bajekal</strong>, a senior orthopedic consultant, who shaped the communal pivot.</p>
+      </div>
+      <div class="method-item">
+        <div class="method-num">METHOD 07</div>
+        <h4>Literature Triangulation</h4>
+        <p>Findings cross-checked against LASI, UNFPA, ORF, MoHFW, and peer-reviewed orthopedic and nutrition studies.</p>
+      </div>
+      <div class="method-item">
+        <div class="method-num">METHOD 08</div>
+        <h4>Iterative Tweaks</h4>
+        <p>Post-feedback, communal &amp; gardening layers added &mdash; reflecting India's group-motivation cultural context.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 04 · THE INSIGHT ============ -->
+<section id="insight" class="insight">
+  <div class="wrap reveal">
+    <div class="section-label"><span class="num">04</span> The Insight</div>
+    <h2 style="max-width:22ch;">The real gap isn't <em>care</em>. It's <em>continuity</em>.</h2>
+    <p class="lead" style="margin-top:24px; max-width:62ch;">
+      Existing services in India hand elders a prescription, a diet chart, and a polite goodbye. NIVAAR's research surfaced four behavioural principles &mdash; the missing operating system of preventive eldercare. Every component of our service is engineered against these four.
+    </p>
+
+    <div class="principles">
+      <div class="principle">
+        <div class="principle-num">PRINCIPLE 01</div>
+        <h4>Awareness</h4>
+        <p>Most elders do not know what is wrong, or that it is preventable. Education is the first dose.</p>
+      </div>
+      <div class="principle">
+        <div class="principle-num">PRINCIPLE 02</div>
+        <h4>Motivation</h4>
+        <p>In Indian culture, behaviour change happens in groups, not in clinics. Community is the lever.</p>
+      </div>
+      <div class="principle">
+        <div class="principle-num">PRINCIPLE 03</div>
+        <h4>Consistency</h4>
+        <p>Small daily wins compound. A weekly tick on a wall calendar matters more than a quarterly check-up.</p>
+      </div>
+      <div class="principle">
+        <div class="principle-num">PRINCIPLE 04</div>
+        <h4>Active Involvement</h4>
+        <p>Elders are not patients. They are participants. They choose the pathway. They invite their neighbours.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 05 · THE SOLUTION ============ -->
+<section id="solution">
+  <div class="wrap reveal">
+    <div class="section-label"><span class="num">05</span> The Solution</div>
+
+    <div class="solution-hero">
+      <div>
+        <div class="eyebrow">Introducing</div>
+        <div class="solution-mark">Nivaar<span class="accent-dot"></span></div>
+      </div>
+      <div>
+        <p class="value-prop">
+          A door-to-door, <em>personalised</em> physiotherapy and nutrition service for India's elderly &mdash; bound together by a calendar on the wall, a weekly phone call, and a community that walks together.
+        </p>
+      </div>
+    </div>
+
+    <div class="steps">
+
+      <div class="step">
+        <div class="step-num">STEP / 01</div>
+        <div class="step-title">A trusted way in.</div>
+        <div class="step-body">
+          <p>Most elders won't download an app. So NIVAAR begins with a phone call &mdash; from a family member, an NGO, or a community partner. Registration takes a name, an age, and an address. Nothing more.</p>
+          <span class="step-tag">Low-tech onboarding · trust-first</span>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">STEP / 02</div>
+        <div class="step-title">A home visit, not a hospital visit.</div>
+        <div class="step-body">
+          <p>A NIVAAR field officer visits, verifies basic ID, and a physiotherapist and nutritionist arrive within the week. They listen first, prescribe second. The elder co-designs their pathway from two or three options &mdash; vegetarian, time-constrained, budget-sensitive.</p>
+          <span class="step-tag">In-home · personalised · co-designed</span>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">STEP / 03</div>
+        <div class="step-title">A calendar on the wall.</div>
+        <div class="step-body">
+          <p>The elder receives a physical "Dietary Guide" &mdash; a wall-mounted board with foods coded by frequency (daily, weekly, monthly), a velcro-attached monthly calendar, and stickers to mark off completed sessions. Analog. Visible. Sharable with grandchildren.</p>
+          <span class="step-tag">Physical artefact · zero learning curve</span>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">STEP / 04</div>
+        <div class="step-title">A rhythm of weekly check-ins.</div>
+        <div class="step-body">
+          <p>The nutritionist calls weekly. The physiotherapist visits as prescribed (typically twice a month). Progress is logged. Plans are adjusted. The elder feels seen, not surveilled.</p>
+          <span class="step-tag">Continuous · adaptive · human</span>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">STEP / 05</div>
+        <div class="step-title">A community grows around them.</div>
+        <div class="step-body">
+          <p>Once a neighbourhood reaches a benchmark of subscribers, NIVAAR seeds <strong>community sessions</strong> &mdash; group walks, gardening days, shared exercise circles &mdash; funded in part by referrals. Motivation moves from individual to collective.</p>
+          <span class="step-tag">Network effect · cultural fit · group accountability</span>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">STEP / 06</div>
+        <div class="step-title">A path that rewards growth.</div>
+        <div class="step-body">
+          <p>Communities progress through Bronze, Silver, and Gold tiers &mdash; unlocking shared garden plots, communal meeting spaces, and partnerships with welfare associations and NGOs. The service is designed to become self-sustaining at the neighbourhood level.</p>
+          <span class="step-tag">Gamified at the community level · cooperative · scalable</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ 06 · IMPACT / THEORY OF CHANGE ============ -->
+<section id="impact" class="toc-section">
+  <div class="wrap reveal">
+    <div class="section-label"><span class="num">06</span> The Theory of Change</div>
+    <h2 style="max-width:24ch;">From a single home visit to a healthier <em>silver India</em>.</h2>
+
+    <p class="lead" style="margin-top:24px; max-width:62ch;">
+      NIVAAR is designed for measurable impact at three time horizons &mdash; the elder, the community, and the system. Every activity ladders into a long-term outcome we can defend in front of any auditor, ethics board, or impact evaluator.
+    </p>
+
+    <div class="toc-flow">
+      <div class="toc-col">
+        <h5>Inputs</h5>
+        <ul>
+          <li>Trained physiotherapists &amp; nutritionists</li>
+          <li>Local field officers</li>
+          <li>Printed dietary guides &amp; calendars</li>
+          <li>NGO &amp; clinic partnerships</li>
+          <li>Operating capital</li>
+        </ul>
+      </div>
+      <div class="toc-col">
+        <h5>Activities</h5>
+        <ul>
+          <li>Door-to-door enrolment</li>
+          <li>In-home assessment</li>
+          <li>Personalised pathway design</li>
+          <li>Weekly check-ins &amp; visits</li>
+          <li>Neighbourhood community sessions</li>
+        </ul>
+      </div>
+      <div class="toc-col">
+        <h5>Outputs</h5>
+        <ul>
+          <li># Elders enrolled</li>
+          <li># Home visits delivered</li>
+          <li># Communities seeded</li>
+          <li># Referrals generated</li>
+          <li># Active calendars in homes</li>
+        </ul>
+      </div>
+      <div class="toc-col">
+        <h5>Outcomes</h5>
+        <ul>
+          <li>Reduced joint pain scores</li>
+          <li>Improved nutritional markers</li>
+          <li>Better sleep, energy, mood</li>
+          <li>Sustained 80%+ adherence</li>
+          <li>Reduced loneliness indicators</li>
+        </ul>
+      </div>
+      <div class="toc-col">
+        <h5>Long-Term Impact</h5>
+        <ul>
+          <li>Delayed onset of disability</li>
+          <li>Lower hospitalisation cost</li>
+          <li>Older Indians ageing in place</li>
+          <li>Communities that walk together</li>
+          <li>A replicable model for South Asia</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="expert">
+      <div>
+        <div class="expert-tag">Expert Validation</div>
+        <div class="expert-name">Dr. Rajiv Bajekal</div>
+        <div class="expert-role">Senior Consultant, Orthopedic Health</div>
+      </div>
+      <blockquote class="expert-quote">
+        Changing the environment around the elder is the single most powerful lever to change harmful habits &mdash; diet, especially. The Indian system requires motivation through groups. The communal aspect of NIVAAR is what will make it actually work.
+      </blockquote>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ 07 · MARKET OPPORTUNITY ============ -->
+<section id="opportunity">
+  <div class="wrap reveal">
+    <div class="section-label"><span class="num">07</span> The Market &amp; The Moment</div>
+    <h2 style="max-width:22ch;">A market that is large, growing, and <em>policy-supported</em>.</h2>
+
+    <p class="lead" style="margin-top:24px; max-width:62ch;">
+      The Indian eldercare market is not a future opportunity &mdash; it is a present one, growing at demographic speed. Multiple Government of India schemes have created favourable tailwinds for public-private partnerships in this space.
+    </p>
+
+    <div class="opp-grid">
+      <div class="tam">
+        <div class="tam-row">
+          <span class="tag">TAM</span>
+          <span class="label">Total Indian elderly population (60+), 2025</span>
+          <span class="num">~155 M</span>
+        </div>
+        <div class="tam-row">
+          <span class="tag">SAM</span>
+          <span class="label">Urban &amp; peri-urban elders with family-paid healthcare capacity</span>
+          <span class="num">~30 M</span>
+        </div>
+        <div class="tam-row deep">
+          <span class="tag">SOM (5yr)</span>
+          <span class="label">Reachable target through pilot &rarr; multi-city expansion</span>
+          <span class="num">~250 K</span>
+        </div>
+        <div style="padding:18px 28px; background:var(--cream); font-size:13px; color:var(--ink-faint); line-height:1.6;">
+          Of the 155M Indian elders, ~73M live with knee OA<sup class="fn">2</sup>, and an estimated 50M would benefit immediately from integrated physio-nutrition intervention. We size our 5-year addressable opportunity conservatively against urban-clustered, family-supported segments.
+        </div>
+      </div>
+
+      <div class="tailwinds">
+        <h4>Policy &amp; structural tailwinds</h4>
+        <div class="tailwind">
+          <span class="icon">01</span>
+          <div>
+            <div class="title">AB-PMJAY for 70+ Seniors (Oct 2024)</div>
+            <div class="desc">₹5 lakh annual coverage extended to ~6 crore senior citizens regardless of income — a public payer ready for integrated preventive services.<sup class="fn">6</sup></div>
+          </div>
+        </div>
+        <div class="tailwind">
+          <span class="icon">02</span>
+          <div>
+            <div class="title">SAGE Portal &amp; Silver Economy Initiative</div>
+            <div class="desc">Government equity support of up to ₹1 crore per eldercare startup via IFCI. Explicit signal that the state seeks credible private partners.<sup class="fn">6</sup></div>
+          </div>
+        </div>
+        <div class="tailwind">
+          <span class="icon">03</span>
+          <div>
+            <div class="title">NPHCE (National Programme for Healthcare of Elderly)</div>
+            <div class="desc">Mandate to extend geriatric services to district and community levels — under-resourced and actively seeking delivery partners.</div>
+          </div>
+        </div>
+        <div class="tailwind">
+          <span class="icon">04</span>
+          <div>
+            <div class="title">CSR Eldercare Allocations</div>
+            <div class="desc">Schedule VII of the Companies Act, 2013 explicitly includes "measures for the benefit of senior citizens" — unlocking corporate CSR funding pools.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 08 · BUSINESS MODEL ============ -->
+<section>
+  <div class="wrap reveal">
+    <div class="section-label"><span class="num">08</span> Business Model &amp; Sustainability</div>
+    <h2 style="max-width:22ch;">A <em>hybrid</em> model: subscriber dignity, grant scale.</h2>
+
+    <p class="lead" style="margin-top:24px; max-width:62ch;">
+      NIVAAR is designed to be financially sustainable without sacrificing reach. Paying subscribers cover variable cost-of-delivery; grant and CSR capital subsidises onboarding and community infrastructure; government partnerships fund expansion in lower-income geographies.
+    </p>
+
+    <div class="bm-grid">
+      <div class="bm-card">
+        <h4>Revenue Streams</h4>
+        <ul>
+          <li><span class="lbl">Family-paid subscriptions (urban tier)</span><span class="pct">~45%</span></li>
+          <li><span class="lbl">Government / NPHCE delivery contracts</span><span class="pct">~25%</span></li>
+          <li><span class="lbl">CSR &amp; impact-fund grants</span><span class="pct">~20%</span></li>
+          <li><span class="lbl">NGO partnership co-funding</span><span class="pct">~10%</span></li>
+        </ul>
+      </div>
+      <div class="bm-card">
+        <h4>Cost Structure</h4>
+        <ul>
+          <li><span class="lbl">Physiotherapist &amp; nutritionist payroll</span><span class="pct">~50%</span></li>
+          <li><span class="lbl">Field officers &amp; community coordinators</span><span class="pct">~20%</span></li>
+          <li><span class="lbl">Materials (calendars, guides, transport)</span><span class="pct">~10%</span></li>
+          <li><span class="lbl">Technology &amp; data infrastructure</span><span class="pct">~10%</span></li>
+          <li><span class="lbl">M&amp;E, compliance, overhead</span><span class="pct">~10%</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="unit">
+      <h4>Indicative Unit Economics (Pilot City, Year 1)</h4>
+      <div class="unit-grid">
+        <div class="unit-item">
+          <div class="v"><em>500</em></div>
+          <div class="l">Elders enrolled</div>
+        </div>
+        <div class="unit-item">
+          <div class="v"><em>12+</em></div>
+          <div class="l">Touchpoints / elder / month</div>
+        </div>
+        <div class="unit-item">
+          <div class="v"><em>~75%</em></div>
+          <div class="l">Target adherence rate</div>
+        </div>
+        <div class="unit-item">
+          <div class="v"><em>3-5</em></div>
+          <div class="l">Communities seeded</div>
+        </div>
+      </div>
+      <div class="disclaim">All figures indicative &mdash; to be validated through 12-month pilot.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 09 · KPIs ============ -->
+<section>
+  <div class="wrap reveal">
+    <div class="section-label"><span class="num">09</span> What We Will Measure</div>
+    <h2 style="max-width:24ch;">Impact, on three honest dimensions.</h2>
+
+    <div class="kpi-grid">
+      <div class="kpi">
+        <div class="kpi-tag">CLINICAL</div>
+        <h4>WOMAC pain &amp; function scores</h4>
+        <p>Standardised orthopedic score, measured at enrolment, 3 months, 6 months, 12 months.</p>
+      </div>
+      <div class="kpi">
+        <div class="kpi-tag">CLINICAL</div>
+        <h4>Nutritional markers</h4>
+        <p>BMI, mid-upper-arm circumference, MNA-SF scores; biochemical panels (Vit D, B12, Hb) for a sample.</p>
+      </div>
+      <div class="kpi">
+        <div class="kpi-tag">CLINICAL</div>
+        <h4>Functional independence (ADL)</h4>
+        <p>Katz / Lawton scores. Number of activities of daily living an elder can perform unassisted.</p>
+      </div>
+      <div class="kpi">
+        <div class="kpi-tag">BEHAVIOURAL</div>
+        <h4>Adherence rate</h4>
+        <p>% of prescribed weekly exercises &amp; dietary inputs sustained over 30, 60, 90, 180 days.</p>
+      </div>
+      <div class="kpi">
+        <div class="kpi-tag">BEHAVIOURAL</div>
+        <h4>Loneliness &amp; mood (UCLA-3, GDS-15)</h4>
+        <p>Short-form geriatric depression and loneliness scales, measured pre- and post-community formation.</p>
+      </div>
+      <div class="kpi">
+        <div class="kpi-tag">BEHAVIOURAL</div>
+        <h4>Net Promoter (Family)</h4>
+        <p>Would the elder's children recommend NIVAAR to another family? The market signal that matters most.</p>
+      </div>
+      <div class="kpi">
+        <div class="kpi-tag">SYSTEMIC</div>
+        <h4>Cost-per-elder-month</h4>
+        <p>Total program cost divided by active elder-months. Trended over time as communities self-organise.</p>
+      </div>
+      <div class="kpi">
+        <div class="kpi-tag">SYSTEMIC</div>
+        <h4>Community formation rate</h4>
+        <p>Months to seed a self-sustaining neighbourhood community; % of new enrolment via referral.</p>
+      </div>
+      <div class="kpi">
+        <div class="kpi-tag">SYSTEMIC</div>
+        <h4>Avoided hospitalisations</h4>
+        <p>Cost-of-care averted through preventive intervention &mdash; the metric that justifies public payment.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 10 · ROADMAP ============ -->
+<section>
+  <div class="wrap reveal">
+    <div class="section-label"><span class="num">10</span> Roadmap</div>
+    <h2 style="max-width:22ch;">From one neighbourhood to a national model, in <em>three deliberate phases</em>.</h2>
+
+    <div class="roadmap">
+      <div class="phase">
+        <div>
+          <div class="phase-tag">PHASE 01 · PILOT</div>
+          <div class="phase-name">Prove the model.</div>
+          <div class="phase-when">Months 1–12 &middot; One Indian city</div>
+        </div>
+        <div>
+          <p class="phase-body">
+            Onboard ~500 elders across two neighbourhoods. Recruit and train a core clinical team. Validate clinical outcomes, adherence, and unit economics. Seed our first three community circles. Publish a transparent year-end impact report.
+          </p>
+          <div class="phase-pills">
+            <span class="pill">~500 elders</span>
+            <span class="pill">2 neighbourhoods</span>
+            <span class="pill">Clinical RCT-lite</span>
+            <span class="pill">Open-source impact report</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="phase">
+        <div>
+          <div class="phase-tag">PHASE 02 · EXPAND</div>
+          <div class="phase-name">Scale within the city.</div>
+          <div class="phase-when">Months 13–30 &middot; City-wide expansion</div>
+        </div>
+        <div>
+          <p class="phase-body">
+            Reach 5,000+ elders city-wide. Build referral &amp; community-tier mechanics. Partner with district NPHCE units. Open a second city through a local NGO partner. Begin advocating for AB-PMJAY integration of preventive eldercare packages.
+          </p>
+          <div class="phase-pills">
+            <span class="pill">5,000+ elders</span>
+            <span class="pill">2 cities</span>
+            <span class="pill">NPHCE integration pilot</span>
+            <span class="pill">Bronze/Silver/Gold communities</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="phase">
+        <div>
+          <div class="phase-tag">PHASE 03 · REPLICATE</div>
+          <div class="phase-name">Make it a national platform.</div>
+          <div class="phase-when">Year 4–5 &middot; Multi-city / multi-state</div>
+        </div>
+        <div>
+          <p class="phase-body">
+            Operate in 5+ Indian cities and explore South Asian export (Sri Lanka, Bangladesh). Codify a NIVAAR operating playbook for state governments and NGOs to adopt. Publish peer-reviewed outcome data. Position as a delivery partner of choice for India's silver economy.
+          </p>
+          <div class="phase-pills">
+            <span class="pill">50,000+ elders</span>
+            <span class="pill">5+ cities</span>
+            <span class="pill">Peer-reviewed publication</span>
+            <span class="pill">State govt MoUs</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 11 · STAKEHOLDERS ============ -->
+<section>
+  <div class="wrap reveal">
+    <div class="section-label"><span class="num">11</span> The Stakeholder Map</div>
+    <h2 style="max-width:24ch;">A service of this kind cannot exist <em>alone</em>.</h2>
+    <p class="lead" style="margin-top:24px; max-width:62ch;">NIVAAR is intentionally designed as a multi-stakeholder system. Each actor below has a clearly defined role, value proposition, and incentive to participate.</p>
+
+    <div class="stake-grid">
+      <div class="stake">
+        <div class="stake-tag">PRIMARY USER</div>
+        <h4>The Elder</h4>
+        <p>Receives personalised, dignified care at home. Co-designs their own pathway.</p>
+      </div>
+      <div class="stake">
+        <div class="stake-tag">DECISION-MAKER</div>
+        <h4>The Adult Child</h4>
+        <p>The buyer in most urban households. Pays peace-of-mind, receives transparency.</p>
+      </div>
+      <div class="stake">
+        <div class="stake-tag">PROVIDER</div>
+        <h4>Physiotherapists &amp; Nutritionists</h4>
+        <p>Stable employment, structured caseload, ongoing training. Trained to NIVAAR protocols.</p>
+      </div>
+      <div class="stake">
+        <div class="stake-tag">PROVIDER</div>
+        <h4>Field Officers / Coordinators</h4>
+        <p>Hired locally. Cultural bridge between the elder and the clinical system.</p>
+      </div>
+      <div class="stake">
+        <div class="stake-tag">CHANNEL</div>
+        <h4>NGOs &amp; Welfare Associations</h4>
+        <p>Referral source, community-trust anchor, last-mile distribution at city periphery.</p>
+      </div>
+      <div class="stake">
+        <div class="stake-tag">PAYER</div>
+        <h4>Government (NPHCE / AB-PMJAY)</h4>
+        <p>Pays for outcomes in low-income geographies; receives a credible preventive-care partner.</p>
+      </div>
+      <div class="stake">
+        <div class="stake-tag">PAYER</div>
+        <h4>Corporate CSR</h4>
+        <p>Funds onboarding &amp; community infrastructure; receives measurable, story-rich impact reporting.</p>
+      </div>
+      <div class="stake">
+        <div class="stake-tag">PAYER</div>
+        <h4>Impact Investors</h4>
+        <p>Provides patient growth capital; receives a defensible, replicable model with social and financial returns.</p>
+      </div>
+      <div class="stake">
+        <div class="stake-tag">ADVISORS</div>
+        <h4>Clinicians &amp; Academics</h4>
+        <p>Co-design protocols, validate clinical rigour, co-publish peer-reviewed evaluations.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 12 · THE TEAM ============ -->
+<section id="team" class="team-section">
+  <div class="wrap reveal">
+    <div class="section-label"><span class="num">12</span> The Team</div>
+    <h2 style="max-width:22ch;">Four designers. One <em>obsession</em>: ageing with dignity.</h2>
+    <p class="lead" style="margin-top:24px;">
+      NIVAAR was conceived by Team 1 as part of a service design programme focused on healthcare and social impact. We are a multi-disciplinary group with backgrounds spanning industrial design, communication design, systems thinking, and field research.
+    </p>
+
+    <div class="team-grid">
+      <div class="member">
+        <div class="member-mark">P</div>
+        <h4>Pranjal</h4>
+        <p>Research &amp; Strategy</p>
+      </div>
+      <div class="member">
+        <div class="member-mark">O</div>
+        <h4>Onkar</h4>
+        <p>Service Design &amp; Systems</p>
+      </div>
+      <div class="member">
+        <div class="member-mark">R</div>
+        <h4>Rohith</h4>
+        <p>Field Research &amp; Storytelling</p>
+      </div>
+      <div class="member">
+        <div class="member-mark">N</div>
+        <h4>Nithish</h4>
+        <p>Prototyping &amp; Visual Design</p>
+      </div>
+    </div>
+
+    <div style="margin-top:60px; padding-top:40px; border-top:1px solid var(--rule); font-size:14px; color:var(--ink-soft); max-width:60ch;">
+      <strong style="color:var(--ink);">Advisory.</strong> NIVAAR's clinical approach was reviewed and refined with the input of Dr. Rajiv Bajekal, Senior Consultant in Orthopedic Health, whose feedback shaped the service's communal dimension. We continue to build an advisory bench of practitioners in geriatric medicine, nutrition science, and community health.
+    </div>
+  </div>
+</section>
+
+<!-- ============ 13 · THE ASK ============ -->
+<section id="ask" class="ask">
+  <div class="wrap reveal">
+    <div class="section-label"><span class="num">13</span> The Ask</div>
+    <h2>What we need, and what we will deliver in <em>return</em>.</h2>
+    <p class="lead" style="margin-top:30px;">
+      NIVAAR is at the stage where field research has converged on a sharp, validated service concept. We are seeking partners across three distinct categories to move from prototype to a measurable, year-one pilot &mdash; with full transparency on outcomes, costs, and lessons.
+    </p>
+
+    <div class="ask-grid">
+      <div class="ask-card">
+        <div class="tag">CATEGORY A</div>
+        <h4>Pilot Funding</h4>
+        <p>Seed and Series-A-stage capital from impact investors and family offices. Supports the 12-month pilot &mdash; team hiring, clinical infrastructure, and a rigorous M&amp;E framework. In return: equity / convertible, board observer rights, and a defensible thesis in India's silver economy.</p>
+      </div>
+      <div class="ask-card">
+        <div class="tag">CATEGORY B</div>
+        <h4>CSR &amp; Grant Partners</h4>
+        <p>Multi-year CSR allocations under the Companies Act Schedule VII. Funds community-infrastructure layers &mdash; calendars, gardens, communal spaces &mdash; that subscriber revenue cannot. In return: co-branded reach in priority neighbourhoods, audited impact reporting, and rich narrative for ESG disclosure.</p>
+      </div>
+      <div class="ask-card">
+        <div class="tag">CATEGORY C</div>
+        <h4>Government &amp; NGO Allies</h4>
+        <p>MoUs with NPHCE district units, state health departments, and welfare-association networks. Co-deliver preventive eldercare in priority geographies. In return: a credible private partner with transparent outcome data and zero claim on government IP.</p>
+      </div>
+    </div>
+
+    <div class="ask-cta">
+      <div>
+        <div class="l">Contact</div>
+        <div class="v">team1.nivaar@designforimpact.in</div>
+      </div>
+      <div style="display:flex; gap:12px; flex-wrap:wrap;">
+        <a href="mailto:team1.nivaar@designforimpact.in" class="btn btn-gold">Request a conversation <span class="arrow">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <h5>Brief</h5>
+      <ul>
+        <li><a href="#crisis">01 · The Crisis</a></li>
+        <li><a href="#persona">02 · The Human</a></li>
+        <li><a href="#solution">05 · The Solution</a></li>
+        <li><a href="#impact">06 · Theory of Change</a></li>
+        <li><a href="#ask">13 · The Ask</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Acknowledgements</h5>
+      <p style="font-size:13px; line-height:1.55; margin:0;">
+        With gratitude to Dr. Rajiv Bajekal for expert review, to the 28 elders who shared their days with us, and to the family members, NGO workers, and physiotherapists who made the research possible.
+      </p>
+    </div>
+    <div>
+      <h5>References &amp; Methods</h5>
+      <p style="font-size:13px; line-height:1.55; margin:0;">
+        All quantitative claims in this brief are sourced from peer-reviewed literature, UN agencies, and Government of India publications &mdash; listed below.
+      </p>
+    </div>
+  </div>
+
+  <div class="wrap" style="padding: 0;">
+    <div class="refs">
+      <h5>References</h5>
+      <ol>
+        <li><strong>UNFPA India (2023).</strong> <em>India Ageing Report 2023</em>. Elderly to make up 20% of population by 2050; 80+ population to grow 279% by 2050.</li>
+        <li><strong>Daniel et al. (2025).</strong> Prevalence of knee osteoarthritis among elderly persons in India: A systematic review and meta-analysis. <em>Journal of Family Medicine and Primary Care</em>, pooled prevalence 47% across 14 studies (n=5,029). PMC12178484.</li>
+        <li><strong>Observer Research Foundation (2024).</strong> <em>Improving the well-being of India's elderly: Health, nutrition, and policy insights</em> — Vitamin D, B12, and folic acid deficiency data drawn from rural Indian aging community studies.</li>
+        <li><strong>Ministry of Health &amp; Family Welfare (MoHFW), Government of India.</strong> Survey data on geriatric OPD availability at Primary Health Centres; <em>Geriatric Health Care in India: Unmet Needs</em>, Archives of Medicine and Health Sciences (2017).</li>
+        <li><strong>Sharma et al. (2024).</strong> Prevalence and association of musculoskeletal disorders with various risk factors among older Indian adults: Insights from a nationally representative survey (n=28,436). NCBI PMC11498719.</li>
+        <li><strong>Press Information Bureau, Government of India (2025).</strong> <em>Elderly in India: Policies, Programmes &amp; Legal Provisions</em> — AB-PMJAY extension to seniors 70+, SAGE portal, NPHCE programme details.</li>
+        <li><strong>Longitudinal Ageing Study in India (LASI), International Institute for Population Sciences (IIPS), 2018.</strong> National prevalence data on functional ability, ADL impairment, and chronic disease in elderly Indians.</li>
+        <li><strong>Population Reference Bureau (2012, updated).</strong> <em>India's Aging Population</em> — Disease burden, hypertension, and disability projections among India's elderly.</li>
+        <li><strong>WHO South-East Asia Regional Office.</strong> <em>India: Facts and Figures – Healthy Ageing</em> (2024).</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div>© NIVAAR · Team 1 · A Service Design Proposal</div>
+    <div>Investor Brief · Vol. 01 · May 2026</div>
+  </div>
+</footer>
+
+<script>
+  // Scroll progress bar
+  const progress = document.getElementById('progress');
+  function updateProgress() {
+    const h = document.documentElement;
+    const scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight);
+    progress.style.width = (scrolled * 100) + '%';
+  }
+  window.addEventListener('scroll', updateProgress, { passive: true });
+  updateProgress();
+
+  // Reveal on scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -60px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
