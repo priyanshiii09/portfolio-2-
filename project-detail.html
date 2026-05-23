@@ -184,10 +184,10 @@
         </nav>
 
         <!-- MAIN CONTAINER -->
-        <main class="max-w-[1400px] mx-auto px-6 md:px-12 py-12 md:py-20 flex flex-col gap-12 md:gap-16">
+        <main class="max-w-[1400px] mx-auto px-6 md:px-12 py-6 md:py-10 flex flex-col gap-6 md:gap-8">
 
                 <!-- Dynamic Project Template -->
-                <div id="project-view" class="hidden flex flex-col gap-12 md:gap-16 animate-fade-in-up">
+                <div id="project-view" class="hidden flex flex-col gap-6 md:gap-8 animate-fade-in-up">
                         <!-- Hero Section -->
                         <header class="flex flex-col gap-6">
                                 <div class="flex items-center gap-3">
@@ -207,7 +207,7 @@
                         <div class="editorial-divider w-full"></div>
 
                         <!-- Project Information Inline Bar -->
-                        <div class="flex flex-wrap items-center gap-y-3 gap-x-6 text-xs text-outline font-label-sm pb-6 border-b border-on-surface/10">
+                        <div class="flex flex-wrap items-center gap-y-3 gap-x-6 text-xs text-outline font-label-sm pb-4 border-b border-on-surface/10">
                                 <div><span class="uppercase tracking-widest font-semibold opacity-70">Role:</span> <span id="project-role" class="text-on-surface font-medium normal-case"></span></div>
                                 <span class="hidden md:inline text-on-surface/20">•</span>
                                 <div><span class="uppercase tracking-widest font-semibold opacity-70">Client:</span> <span id="project-client" class="text-on-surface font-medium normal-case"></span></div>
@@ -218,9 +218,9 @@
                         </div>
 
                         <!-- Layout: Main Content Grid -->
-                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8 items-start">
                                 <!-- Left Column: Core Narrative -->
-                                <article id="main-content-col" class="lg:col-span-12 flex flex-col gap-12 md:gap-16">
+                                <article id="main-content-col" class="lg:col-span-12 flex flex-col gap-6 md:gap-8">
                                         <!-- Challenge Block -->
                                         <div id="challenge-container" class="flex flex-col gap-4">
                                                 <h3
@@ -268,7 +268,7 @@
                         </div>
 
                         <!-- bottom navigation wrapper -->
-                        <div class="editorial-divider w-full mt-6"></div>
+                        <div class="editorial-divider w-full"></div>
 
                         <!-- Next Case Study Teaser -->
                         <footer
@@ -1578,6 +1578,41 @@
                                 } else {
                                         linksSection.classList.add("hidden");
                                         linksSection.classList.remove("flex");
+                                }
+                        }
+
+                        // Conditionally adjust borders and padding for visible content sections
+                        const visibleSections = [];
+                        if (project.htmlContent) {
+                                if (customHtmlContainer) visibleSections.push(customHtmlContainer);
+                        } else {
+                                if (project.challenge && challengeContainer) visibleSections.push(challengeContainer);
+                                if (project.strategy && strategyContainer) visibleSections.push(strategyContainer);
+                                if (project.results && resultsContainer) visibleSections.push(resultsContainer);
+                        }
+                        if (project.links && project.links.length > 0 && linksSection) {
+                                visibleSections.push(linksSection);
+                        }
+
+                        if (customHtmlContainer) {
+                                const idx = visibleSections.indexOf(customHtmlContainer);
+                                if (idx === -1) {
+                                        customHtmlContainer.className = "hidden";
+                                } else if (idx === 0) {
+                                        customHtmlContainer.className = "flex flex-col gap-8";
+                                } else {
+                                        customHtmlContainer.className = "flex flex-col gap-8 mt-4 pt-6 border-t border-on-surface/5";
+                                }
+                        }
+
+                        if (linksSection) {
+                                const idx = visibleSections.indexOf(linksSection);
+                                if (idx === -1) {
+                                        linksSection.className = "hidden";
+                                } else if (idx === 0) {
+                                        linksSection.className = "flex flex-col gap-8";
+                                } else {
+                                        linksSection.className = "flex flex-col gap-8 mt-4 pt-6 border-t border-on-surface/5";
                                 }
                         }
 
