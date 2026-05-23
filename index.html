@@ -385,7 +385,7 @@
                                 <!-- Work Dropdown List (the 5 skills and their projects) -->
                                 <div id="mobile-work-dropdown"
                                         class="hidden flex-col gap-4 pl-4 py-3 max-h-[300px] overflow-y-auto">
-                                        <div class="flex flex-col gap-2">
+                                        <div id="mobile-skill-brand" class="flex flex-col gap-2">
                                                 <span
                                                         class="text-[9px] text-[#e06b3a] tracking-wider font-semibold uppercase font-mono">Brand & Marketing</span>
                                                 <a href="project-detail.html?id=true-beacon"
@@ -397,7 +397,7 @@
                                                 <a href="project-detail.html?id=nksquared"
                                                         class="mobile-menu-link text-sm text-[#5f5e5e] hover:text-[#1a1c1c] py-1">NKSquared</a>
                                         </div>
-                                        <div class="flex flex-col gap-2 mt-2">
+                                        <div id="mobile-skill-financial" class="flex flex-col gap-2 mt-2">
                                                 <span
                                                         class="text-[9px] text-[#d4a73a] tracking-wider font-semibold uppercase font-mono">Financial Communication</span>
                                                 <a href="project-detail.html?id=true-beacon"
@@ -405,7 +405,7 @@
                                                 <a href="project-detail.html?id=finforall"
                                                         class="mobile-menu-link text-sm text-[#5f5e5e] hover:text-[#1a1c1c] py-1">Finforall by Jupiter</a>
                                         </div>
-                                        <div class="flex flex-col gap-2 mt-2">
+                                        <div id="mobile-skill-uxui" class="flex flex-col gap-2 mt-2">
                                                 <span
                                                         class="text-[9px] text-[#8a7fd8] tracking-wider font-semibold uppercase font-mono">UI/UX & Product</span>
                                                 <a href="project-detail.html?id=nksquared"
@@ -419,7 +419,7 @@
                                                 <a href="project-detail.html?id=leeway"
                                                         class="mobile-menu-link text-sm text-[#5f5e5e] hover:text-[#1a1c1c] py-1">Leeway</a>
                                         </div>
-                                        <div class="flex flex-col gap-2 mt-2">
+                                        <div id="mobile-skill-service" class="flex flex-col gap-2 mt-2">
                                                 <span
                                                         class="text-[9px] text-[#3aad8e] tracking-wider font-semibold uppercase font-mono">Business & Service Design</span>
                                                 <a href="project-detail.html?id=business-design-labs"
@@ -431,7 +431,7 @@
                                                 <a href="project-detail.html?id=ummcl"
                                                         class="mobile-menu-link text-sm text-[#5f5e5e] hover:text-[#1a1c1c] py-1">UMMCL</a>
                                         </div>
-                                        <div class="flex flex-col gap-2 mt-2">
+                                        <div id="mobile-skill-impact" class="flex flex-col gap-2 mt-2">
                                                 <span
                                                         class="text-[9px] text-[#5dbe6e] tracking-wider font-semibold uppercase font-mono">Social Impact</span>
                                                 <a href="project-detail.html?id=teens-of-god"
@@ -511,7 +511,7 @@
                                                 href="https://www.behance.net/PranjalBhadauria"
                                                 target="_blank">Behance</a>
                                         <a class="text-on-surface hover:text-primary transition-colors border-b border-transparent hover:border-primary pb-1"
-                                                href="#">Download CV</a>
+                                                href="Pranjal_Bhadauria_Resume.pdf" target="_blank">Download CV</a>
                                 </div>
                         </div>
                 </div>
@@ -640,7 +640,47 @@
                   }
                 }
                 function toggleMenu() { isMegaMenuOpen ? closeMenu() : openMenu(); }
-                function openToSkill(i) { activeSkillIndex=i; openMenu(); }
+                function openToSkill(i) {
+                  activeSkillIndex = i;
+                  if (window.innerWidth < 768) {
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    const mobileMenuBackdrop = document.getElementById('mobile-menu-backdrop');
+                    const toggleIcon = document.getElementById('menu-toggle-icon');
+                    
+                    if (mobileMenu) {
+                      mobileMenu.classList.remove('translate-x-full');
+                      mobileMenu.classList.add('translate-x-0');
+                    }
+                    if (mobileMenuBackdrop) {
+                      mobileMenuBackdrop.classList.remove('opacity-0', 'pointer-events-none');
+                      mobileMenuBackdrop.classList.add('opacity-100', 'pointer-events-auto');
+                    }
+                    if (toggleIcon) {
+                      toggleIcon.textContent = 'close';
+                    }
+                    document.body.style.overflow = 'hidden';
+                    
+                    const workDropdown = document.getElementById('mobile-work-dropdown');
+                    const workChevron = document.getElementById('work-chevron');
+                    if (workDropdown) {
+                      workDropdown.classList.remove('hidden');
+                      workDropdown.classList.add('flex');
+                    }
+                    if (workChevron) {
+                      workChevron.classList.add('rotate-180');
+                    }
+                    
+                    const categoryIds = ['mobile-skill-brand', 'mobile-skill-financial', 'mobile-skill-uxui', 'mobile-skill-service', 'mobile-skill-impact'];
+                    const targetEl = document.getElementById(categoryIds[i]);
+                    if (targetEl) {
+                      setTimeout(() => {
+                        targetEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                      }, 300);
+                    }
+                  } else {
+                    openMenu();
+                  }
+                }
 
                 document.addEventListener('DOMContentLoaded', () => {
                         // Initial render of skills, projects, pills
