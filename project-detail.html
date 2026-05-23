@@ -192,9 +192,7 @@
                                 <div class="flex items-center gap-3">
                                         <span id="project-category-badge"
                                                 class="px-3 py-1 bg-surface-container text-primary text-[10px] font-label-sm uppercase tracking-widest rounded-full border border-on-surface/5">Category</span>
-                                        <span id="project-timeline-badge"
-                                                class="text-xs font-label-sm text-outline uppercase tracking-wider">Aug
-                                                2024 - Jan 2026</span>
+                                        <span id="project-timeline-badge" class="hidden"></span>
                                 </div>
                                 <h1 id="project-title"
                                         class="font-playfair font-bold text-4xl md:text-6xl tracking-tight text-on-surface leading-tight">
@@ -207,37 +205,16 @@
                         <!-- Editorial Line Divider -->
                         <div class="editorial-divider w-full"></div>
 
-                        <!-- Project Information Table Cards -->
-                        <section class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                                <div
-                                        class="p-5 bg-surface-container-low rounded-lg border border-on-surface/5 flex flex-col gap-1.5">
-                                        <span class="text-[10px] font-label-sm uppercase tracking-widest text-outline">Role
-                                                / Focus</span>
-                                        <span id="project-role" class="text-sm font-semibold text-on-surface">Creative
-                                                Lead</span>
-                                </div>
-                                <div
-                                        class="p-5 bg-surface-container-low rounded-lg border border-on-surface/5 flex flex-col gap-1.5">
-                                        <span class="text-[10px] font-label-sm uppercase tracking-widest text-outline">Client
-                                                / Partner</span>
-                                        <span id="project-client" class="text-sm font-semibold text-on-surface">True
-                                                Beacon</span>
-                                </div>
-                                <div
-                                        class="p-5 bg-surface-container-low rounded-lg border border-on-surface/5 flex flex-col gap-1.5">
-                                        <span
-                                                class="text-[10px] font-label-sm uppercase tracking-widest text-outline">Duration</span>
-                                        <span id="project-timeline" class="text-sm font-semibold text-on-surface">1.5
-                                                Years</span>
-                                </div>
-                                <div
-                                        class="p-5 bg-surface-container-low rounded-lg border border-on-surface/5 flex flex-col gap-1.5 col-span-2 md:col-span-1">
-                                        <span class="text-[10px] font-label-sm uppercase tracking-widest text-outline">Key
-                                                Tools &amp; Methods</span>
-                                        <span id="project-tools" class="text-sm font-semibold text-on-surface">Figma,
-                                                Brand Systems</span>
-                                </div>
-                        </section>
+                        <!-- Project Information Inline Bar -->
+                        <div class="flex flex-wrap items-center gap-y-3 gap-x-6 text-xs text-outline font-label-sm pb-6 border-b border-on-surface/10">
+                                <div><span class="uppercase tracking-widest font-semibold opacity-70">Role:</span> <span id="project-role" class="text-on-surface font-medium normal-case"></span></div>
+                                <span class="hidden md:inline text-on-surface/20">•</span>
+                                <div><span class="uppercase tracking-widest font-semibold opacity-70">Client:</span> <span id="project-client" class="text-on-surface font-medium normal-case"></span></div>
+                                <span class="hidden md:inline text-on-surface/20">•</span>
+                                <div><span class="uppercase tracking-widest font-semibold opacity-70">Duration:</span> <span id="project-timeline" class="text-on-surface font-medium normal-case"></span></div>
+                                <span class="hidden md:inline text-on-surface/20">•</span>
+                                <div><span class="uppercase tracking-widest font-semibold opacity-70">Tools &amp; Methods:</span> <span id="project-tools" class="text-on-surface font-medium normal-case"></span></div>
+                        </div>
 
                         <!-- Layout: Main Content Grid -->
                         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
