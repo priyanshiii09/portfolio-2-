@@ -9,7 +9,7 @@
         <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
         <link href="https://fonts.googleapis.com" rel="preconnect" />
         <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&amp;display=swap"
+        <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&amp;family=Inter:wght@400;500;600&amp;family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&amp;display=swap"
                 rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
                 rel="stylesheet" />
@@ -324,6 +324,9 @@
                 .pill-btn:active {
                         transform: translateY(0);
                 }
+                .font-caveat {
+                        font-family: 'Caveat', cursive;
+                }
         </style>
 </head>
 
@@ -479,6 +482,215 @@
                                 </div>
                         </div>
                 </section>
+        </main>
+
+        <!-- Full-Bleed Dark Explorer Section -->
+        <section id="explorer-section" class="w-full bg-[#1c1c1a] border-t border-b border-[#2d2d2a] py-20 md:py-28 relative z-10 text-white scroll-mt-20 select-none">
+                <div class="max-w-[1200px] mx-auto px-margin-sm md:px-margin-md lg:px-margin-lg flex flex-col gap-10 md:gap-12">
+                        
+                        <div class="font-label-sm text-[#ffe16d] tracking-[0.2em] uppercase flex items-center gap-3">
+                                <span class="w-8 h-[1px] bg-[#ffd700]"></span>
+                                <span> DYNAMIC PORTFOLIO EXPLORER </span>
+                        </div>
+                        
+                        <!-- Split Panel Layout -->
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+                                
+                                <!-- Left Sidebar Selector (4 cols) -->
+                                <div class="lg:col-span-4 flex flex-col gap-6 bg-[#252523] border border-[#373735] rounded-xl p-6 shadow-md h-fit max-h-[850px] overflow-y-auto sticky top-20">
+                                        <div class="border-b border-[#373735] pb-4">
+                                                <h3 class="font-playfair text-xl font-bold text-white">Project Index</h3>
+                                                <p class="text-xs text-[#a39f94] mt-1">Select a case study to explore live embeds, files, and blueprints.</p>
+                                        </div>
+                                        
+                                        <!-- Discipline Groupings -->
+                                        <div class="flex flex-col gap-6 font-sans">
+                                                <!-- Brand & Marketing -->
+                                                <div class="flex flex-col gap-2">
+                                                        <span class="text-[9px] text-[#e06b3a] font-mono font-bold tracking-widest uppercase">Brand &amp; Marketing</span>
+                                                        <div class="flex flex-col gap-1.5 pl-1.5 border-l border-[#373735]">
+                                                                <button onclick="selectShowcaseProject('true-beacon')" id="btn-sb-true-beacon" class="showcase-proj-btn text-left px-3 py-2 rounded-lg text-xs font-medium text-[#b5b2a9] hover:text-white hover:bg-[#2d2d2b] transition-all flex items-center justify-between group select-none">
+                                                                        <span>True Beacon</span>
+                                                                        <span class="text-[10px] text-[#ffd700] opacity-0 group-hover:opacity-100 transition-opacity">Explore &rsaquo;</span>
+                                                                </button>
+                                                                <button onclick="selectShowcaseProject('royal-enfield')" id="btn-sb-royal-enfield" class="showcase-proj-btn text-left px-3 py-2 rounded-lg text-xs font-medium text-[#b5b2a9] hover:text-white hover:bg-[#2d2d2b] transition-all flex items-center justify-between group select-none">
+                                                                        <span>Royal Enfield</span>
+                                                                        <span class="text-[10px] text-[#ffd700] opacity-0 group-hover:opacity-100 transition-opacity">Explore &rsaquo;</span>
+                                                                </button>
+                                                                <button onclick="selectShowcaseProject('nikhil-kamath')" id="btn-sb-nikhil-kamath" class="showcase-proj-btn text-left px-3 py-2 rounded-lg text-xs font-medium text-[#b5b2a9] hover:text-white hover:bg-[#2d2d2b] transition-all flex items-center justify-between group select-none">
+                                                                        <span>Nikhil Kamath</span>
+                                                                        <span class="text-[10px] text-[#ffd700] opacity-0 group-hover:opacity-100 transition-opacity">Explore &rsaquo;</span>
+                                                                </button>
+                                                                <button onclick="selectShowcaseProject('nksquared')" id="btn-sb-nksquared" class="showcase-proj-btn text-left px-3 py-2 rounded-lg text-xs font-medium text-[#b5b2a9] hover:text-white hover:bg-[#2d2d2b] transition-all flex items-center justify-between group select-none">
+                                                                        <span>NKSquared</span>
+                                                                        <span class="text-[10px] text-[#ffd700] opacity-0 group-hover:opacity-100 transition-opacity">Explore &rsaquo;</span>
+                                                                </button>
+                                                        </div>
+                                                </div>
+
+                                                <!-- Financial Communication -->
+                                                <div class="flex flex-col gap-2">
+                                                        <span class="text-[9px] text-[#d4a73a] font-mono font-bold tracking-widest uppercase">Financial Communication</span>
+                                                        <div class="flex flex-col gap-1.5 pl-1.5 border-l border-[#373735]">
+                                                                <button onclick="selectShowcaseProject('finforall')" id="btn-sb-finforall" class="showcase-proj-btn text-left px-3 py-2 rounded-lg text-xs font-medium text-[#b5b2a9] hover:text-white hover:bg-[#2d2d2b] transition-all flex items-center justify-between group select-none">
+                                                                        <span>Finforall by Jupiter</span>
+                                                                        <span class="text-[10px] text-[#ffd700] opacity-0 group-hover:opacity-100 transition-opacity">Explore &rsaquo;</span>
+                                                                </button>
+                                                        </div>
+                                                </div>
+
+                                                <!-- UI/UX & Product -->
+                                                <div class="flex flex-col gap-2">
+                                                        <span class="text-[9px] text-[#8a7fd8] font-mono font-bold tracking-widest uppercase">UI/UX &amp; Product</span>
+                                                        <div class="flex flex-col gap-1.5 pl-1.5 border-l border-[#373735]">
+                                                                <button onclick="selectShowcaseProject('dyx2-learning')" id="btn-sb-dyx2-learning" class="showcase-proj-btn text-left px-3 py-2 rounded-lg text-xs font-medium text-[#b5b2a9] hover:text-white hover:bg-[#2d2d2b] transition-all flex items-center justify-between group select-none">
+                                                                        <span>DYX2 Learning</span>
+                                                                        <span class="text-[10px] text-[#ffd700] opacity-0 group-hover:opacity-100 transition-opacity">Explore &rsaquo;</span>
+                                                                </button>
+                                                                <button onclick="selectShowcaseProject('nivaar')" id="btn-sb-nivaar" class="showcase-proj-btn text-left px-3 py-2 rounded-lg text-xs font-medium text-[#b5b2a9] hover:text-white hover:bg-[#2d2d2b] transition-all flex items-center justify-between group select-none">
+                                                                        <span>NIVAAR Healthcare</span>
+                                                                        <span class="text-[10px] text-[#ffd700] opacity-0 group-hover:opacity-100 transition-opacity">Explore &rsaquo;</span>
+                                                                </button>
+                                                                <button onclick="selectShowcaseProject('leeway')" id="btn-sb-leeway" class="showcase-proj-btn text-left px-3 py-2 rounded-lg text-xs font-medium text-[#b5b2a9] hover:text-white hover:bg-[#2d2d2b] transition-all flex items-center justify-between group select-none">
+                                                                        <span>Leeway</span>
+                                                                        <span class="text-[10px] text-[#ffd700] opacity-0 group-hover:opacity-100 transition-opacity">Explore &rsaquo;</span>
+                                                                </button>
+                                                        </div>
+                                                </div>
+
+                                                <!-- Business & Service Design -->
+                                                <div class="flex flex-col gap-2">
+                                                        <span class="text-[9px] text-[#3aad8e] font-mono font-bold tracking-widest uppercase">Business &amp; Service Design</span>
+                                                        <div class="flex flex-col gap-1.5 pl-1.5 border-l border-[#373735]">
+                                                                <button onclick="selectShowcaseProject('business-design-labs')" id="btn-sb-business-design-labs" class="showcase-proj-btn text-left px-3 py-2 rounded-lg text-xs font-medium text-[#b5b2a9] hover:text-white hover:bg-[#2d2d2b] transition-all flex items-center justify-between group select-none">
+                                                                        <span>Business Design Labs</span>
+                                                                        <span class="text-[10px] text-[#ffd700] opacity-0 group-hover:opacity-100 transition-opacity">Explore &rsaquo;</span>
+                                                                </button>
+                                                                <button onclick="selectShowcaseProject('deshpande-foundation')" id="btn-sb-deshpande-foundation" class="showcase-proj-btn text-left px-3 py-2 rounded-lg text-xs font-medium text-[#b5b2a9] hover:text-white hover:bg-[#2d2d2b] transition-all flex items-center justify-between group select-none">
+                                                                        <span>Deshpande Foundation</span>
+                                                                        <span class="text-[10px] text-[#ffd700] opacity-0 group-hover:opacity-100 transition-opacity">Explore &rsaquo;</span>
+                                                                </button>
+                                                                <button onclick="selectShowcaseProject('wayste')" id="btn-sb-wayste" class="showcase-proj-btn text-left px-3 py-2 rounded-lg text-xs font-medium text-[#b5b2a9] hover:text-white hover:bg-[#2d2d2b] transition-all flex items-center justify-between group select-none">
+                                                                        <span>Wayste Rewards</span>
+                                                                        <span class="text-[10px] text-[#ffd700] opacity-0 group-hover:opacity-100 transition-opacity">Explore &rsaquo;</span>
+                                                                </button>
+                                                        </div>
+                                                </div>
+
+                                                <!-- Social Impact -->
+                                                <div class="flex flex-col gap-2">
+                                                        <span class="text-[9px] text-[#5dbe6e] font-mono font-bold tracking-widest uppercase">Social Impact</span>
+                                                        <div class="flex flex-col gap-1.5 pl-1.5 border-l border-[#373735]">
+                                                                <button onclick="selectShowcaseProject('teens-of-god')" id="btn-sb-teens-of-god" class="showcase-proj-btn text-left px-3 py-2 rounded-lg text-xs font-medium text-[#b5b2a9] hover:text-white hover:bg-[#2d2d2b] transition-all flex items-center justify-between group select-none">
+                                                                        <span>Teens of God NGO</span>
+                                                                        <span class="text-[10px] text-[#ffd700] opacity-0 group-hover:opacity-100 transition-opacity">Explore &rsaquo;</span>
+                                                                </button>
+                                                                <button onclick="selectShowcaseProject('girl-up-noor')" id="btn-sb-girl-up-noor" class="showcase-proj-btn text-left px-3 py-2 rounded-lg text-xs font-medium text-[#b5b2a9] hover:text-white hover:bg-[#2d2d2b] transition-all flex items-center justify-between group select-none">
+                                                                        <span>Girl Up Noor</span>
+                                                                        <span class="text-[10px] text-[#ffd700] opacity-0 group-hover:opacity-100 transition-opacity">Explore &rsaquo;</span>
+                                                                </button>
+                                                                <button onclick="selectShowcaseProject('project-kisaan')" id="btn-sb-project-kisaan" class="showcase-proj-btn text-left px-3 py-2 rounded-lg text-xs font-medium text-[#b5b2a9] hover:text-white hover:bg-[#2d2d2b] transition-all flex items-center justify-between group select-none">
+                                                                        <span>Project Kisaan</span>
+                                                                        <span class="text-[10px] text-[#ffd700] opacity-0 group-hover:opacity-100 transition-opacity">Explore &rsaquo;</span>
+                                                                </button>
+                                                                <button onclick="selectShowcaseProject('ummcl')" id="btn-sb-ummcl" class="showcase-proj-btn text-left px-3 py-2 rounded-lg text-xs font-medium text-[#b5b2a9] hover:text-white hover:bg-[#2d2d2b] transition-all flex items-center justify-between group select-none">
+                                                                        <span>UMMCL Livelihoods</span>
+                                                                        <span class="text-[10px] text-[#ffd700] opacity-0 group-hover:opacity-100 transition-opacity">Explore &rsaquo;</span>
+                                                                </button>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                </div>
+
+                                <!-- Right Content Viewer Card (8 cols) -->
+                                <div class="lg:col-span-8 flex flex-col gap-6 bg-[#252523] border border-[#373735] text-[#eeeeee] rounded-xl p-6 md:p-10 shadow-md relative overflow-hidden transition-all duration-300 min-h-[680px]" id="showcase-viewer">
+                                        
+                                        <!-- Special True Beacon View overlay -->
+                                        <div id="showcase-special-true-beacon" class="hidden absolute inset-0 z-20 overflow-hidden"></div>
+                                        
+                                        <!-- Header Block -->
+                                        <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b border-[#373735] pb-6" id="showcase-header">
+                                                <div class="flex flex-col gap-1.5">
+                                                        <span id="showcase-category" class="text-[10px] font-mono uppercase bg-[#ffe16d] text-[#221b00] px-2.5 py-0.5 rounded-full font-bold tracking-wider w-fit">Category</span>
+                                                        <h2 id="showcase-title" class="font-playfair text-3xl md:text-4xl font-bold tracking-tight text-white">Title</h2>
+                                                        <p id="showcase-subtitle" class="font-playfair italic text-base text-[#b5b2a9] mt-1">Subtitle</p>
+                                                </div>
+                                                <!-- Action buttons area dynamically rendered -->
+                                                <div class="flex flex-wrap gap-2 mt-2 shrink-0" id="showcase-actions"></div>
+                                        </div>
+
+                                        <!-- Tabs Bar -->
+                                        <div class="flex border-b border-[#373735] pb-px" id="showcase-tabs-bar">
+                                                <button onclick="switchShowcaseTab('narrative')" id="tab-btn-narrative" class="px-5 py-2.5 text-xs uppercase tracking-widest font-semibold border-b-2 border-[#ffd700] text-white transition-all select-none">
+                                                        📄 Story &amp; Strategy
+                                                </button>
+                                                <button onclick="switchShowcaseTab('embeds')" id="tab-btn-embeds" class="px-5 py-2.5 text-xs uppercase tracking-widest font-semibold border-b-2 border-transparent text-[#b5b2a9] hover:text-white transition-all flex items-center gap-1.5 select-none">
+                                                        🎨 Live Interactive Proof
+                                                </button>
+                                        </div>
+
+                                        <!-- Dynamic Content Block -->
+                                        <div class="flex-grow flex flex-col gap-6 mt-4" id="showcase-content-block">
+                                                
+                                                <!-- Tab Content: Narrative -->
+                                                <div id="showcase-content-narrative" class="flex flex-col gap-6">
+                                                        
+                                                        <!-- Table Details -->
+                                                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs font-label-sm border-b border-[#373735] pb-6 text-[#a39f94]" id="showcase-meta-table">
+                                                                <div class="flex flex-col gap-1">
+                                                                        <span class="uppercase tracking-widest font-semibold text-[10px] opacity-75">Role</span>
+                                                                        <span id="showcase-meta-role" class="text-white font-semibold text-xs"></span>
+                                                                </div>
+                                                                <div class="flex flex-col gap-1">
+                                                                        <span class="uppercase tracking-widest font-semibold text-[10px] opacity-75">Duration</span>
+                                                                        <span id="showcase-meta-timeline" class="text-white font-semibold text-xs"></span>
+                                                                </div>
+                                                                <div class="flex flex-col gap-1">
+                                                                        <span class="uppercase tracking-widest font-semibold text-[10px] opacity-75">Tools Used</span>
+                                                                        <span id="showcase-meta-tools" class="text-white font-semibold text-xs"></span>
+                                                                </div>
+                                                        </div>
+
+                                                        <!-- Standard Challenge/Strategy/Results Story (Fills here) -->
+                                                        <div class="flex flex-col gap-6 text-sm text-[#dfdfdf] leading-relaxed" id="showcase-story-body">
+                                                                <div id="showcase-challenge-box">
+                                                                        <h4 class="font-playfair italic text-lg font-bold text-[#ffe16d] mb-2">The Challenge</h4>
+                                                                        <p id="showcase-challenge" class="font-body-md whitespace-pre-line"></p>
+                                                                </div>
+                                                                <div id="showcase-strategy-box">
+                                                                        <h4 class="font-playfair italic text-lg font-bold text-[#ffe16d] mb-2">Strategy &amp; Process</h4>
+                                                                        <p id="showcase-strategy" class="font-body-md whitespace-pre-line"></p>
+                                                                </div>
+                                                                <div id="showcase-results-box">
+                                                                        <h4 class="font-playfair italic text-lg font-bold text-[#ffe16d] mb-2">Results &amp; Impact</h4>
+                                                                        <p id="showcase-results" class="font-body-md whitespace-pre-line"></p>
+                                                                </div>
+                                                        </div>
+                                                        
+                                                        <!-- Custom HTML Content Area (E.g. Notion agricultural loops or grids) -->
+                                                        <div id="showcase-story-custom-html" class="hidden flex-col gap-6"></div>
+                                                </div>
+
+                                                <!-- Tab Content: Live Embeds & Files -->
+                                                <div id="showcase-content-embeds" class="hidden flex-col gap-6">
+                                                        
+                                                        <!-- Embed Selection Panel -->
+                                                        <div class="flex flex-col gap-4">
+                                                                <div class="flex flex-wrap gap-2 text-xs font-semibold" id="showcase-embed-links-selector">
+                                                                        <!-- Populated by dynamic links button loops -->
+                                                                </div>
+                                                                
+                                                                <!-- Large Interactive Render Display Frame -->
+                                                                <div class="bg-[#1c1c1a] border border-[#3c3c3a] rounded-xl p-4 md:p-6 w-full flex flex-col gap-4 items-center justify-center min-h-[580px]" id="showcase-embed-frame-wrapper">
+                                                                        <!-- Dynamically loads PDF guidelines, Instagram feeds, LinkedIn embeds, maps, or local image galleries -->
+                                                                </div>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+        </section>
                 
         </main> <!-- Footer -->
         <footer class="bg-surface-container-lowest full-width py-24 border-t border-on-surface/10 mt-16 relative z-10"
@@ -676,11 +888,1024 @@
                   }
                 }
 
+                // ==========================================
+                // MASTER CASE STUDY DATABASE & DYNAMIC ENGINE
+                // ==========================================
+                const PROJECTS_DATA = {
+                	"true-beacon": {
+                		category: "Professional Experience",
+                		title: "True Beacon",
+                		subtitle: "Pioneering creative systems & growth models in asset management.",
+                		role: "Creative Lead",
+                		client: "True Beacon (Bengaluru)",
+                		timeline: "Aug 2022 - Jan 2026",
+                		tools: "Brand System Design, UI/UX, Growth Analytics, Campaign Management",
+                		challenge: "Asset management is historically dense, institutional, and visually unapproachable for broad retail and high-net-worth client bases. Our core objective was to translate complex public market investment structures, regulatory announcements, and wealth indexes into clean, high-interaction creative systems and brand positioning narratives.",
+                		strategy: "Engineered a complete, high-fidelity brand visual guidelines blueprint specifying structural layouts, responsive typography hierarchies, and premium color grids. Formulated creative frameworks for the highly successful 'TB Observatory' research platform launch. Maintained standard, sleek visual template loops for social communications and high-impact quarterly perspective updates.",
+                		links: [
+                			{
+                				category: "Brand Guidelines",
+                				items: [
+                					{
+                						title: "True Beacon Brand Guidelines",
+                						description: "Official comprehensive brand design guidelines, assets typography, and visual styling blueprint.",
+                						url: "True_Beacon_Brand_Guidelines_compressed.pdf",
+                						highlight: false,
+                						icon: "picture_as_pdf"
+                					}
+                				]
+                			},
+                			{
+                				category: "Live Website",
+                				items: [
+                					{
+                						title: "True Beacon - Client-aligned Asset Management",
+                						description: "An Indian public market investment firm that caters to domestic and offshore investors. Our firm is built on the principles of transparency, trust and client-aligned portfolio solutions.",
+                						url: "https://truebeacon.com/",
+                						highlight: true,
+                						icon: "language"
+                					}
+                				]
+                			},
+                			{
+                				category: "Information Design",
+                				items: [
+                					{
+                						title: "True Beacon on Instagram",
+                						description: "Information design and visual data templates for True Beacon's social media.",
+                						url: "https://www.instagram.com/p/DN5USAiATqB/?utm_source=ig_embed&ig_rid=24c7bfe0-8a72-486c-9160-f2b2b6be7e33",
+                						embedUrl: "https://www.instagram.com/p/DN5USAiATqB/embed",
+                						icon: "photo_camera"
+                					}
+                				]
+                			},
+                			{
+                				category: "True Beacon Perspective",
+                				items: [
+                					{
+                						title: "RBI Rate Cut Perspective",
+                						description: "India moves into a new phase of monetary policy momentum.",
+                						url: "https://www.linkedin.com/posts/true-beacon_rbis-monetary-policy-activity-7404018964856541184-5R56/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAC7L5owBKAGjJYayhaSlFpBiAxT1MGSg638",
+                						embedUrl: "https://www.linkedin.com/embed/feed/update/urn:li:activity:7404018964856541184",
+                						icon: "article"
+                					},
+                					{
+                						title: "International ETFs Perspective",
+                						description: "A closer look at why these funds trade so far above NAV.",
+                						url: "https://www.linkedin.com/posts/true-beacon_international-etfs-activity-7396864421261848576-hXTK/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAC7L5owBKAGjJYayhaSlFpBiAxT1MGSg638",
+                						embedUrl: "https://www.linkedin.com/embed/feed/update/urn:li:activity:7396864421261848576",
+                						icon: "article"
+                					},
+                					{
+                						title: "Quarterly Performance Perspective",
+                						description: "Third edition of our exclusive client insight forum updates.",
+                						url: "https://www.linkedin.com/posts/true-beacon_we-recently-completed-the-third-edition-of-activity-7351928743956795392-76G2/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAC7L5owBKAGjJYayhaSlFpBiAxT1MGSg638",
+                						embedUrl: "https://www.linkedin.com/embed/feed/update/urn:li:activity:7351928743956795392",
+                						icon: "article"
+                					}
+                				]
+                			}
+                		]
+                	},
+                	"royal-enfield": {
+                		category: "Professional Experience",
+                		title: "Royal Enfield",
+                		subtitle: "Researching rejection triggers and designing legacy community storytelling.",
+                		role: "Primary Market Research",
+                		client: "Royal Enfield (Global)",
+                		timeline: "May 2021 - Jan 2022",
+                		tools: "Qualitative Interviews, Customer Personas, UI/UX, Campaigns",
+                		htmlContent: `
+                 			<div class="flex flex-col gap-8 font-sans text-white animate-fade-in-up">
+                 				<div>
+                 					<div class="border-l-4 border-[#ffd700] pl-4 py-1 mb-6">
+                 						<h3 class="font-playfair font-bold text-2xl text-white">Classic 350 - Digital Newsletter</h3>
+                 					</div>
+                 					
+                 					<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                 						<div class="bg-[#1c1c1a] border border-[#373735] rounded-lg p-5 flex flex-col gap-4">
+                 							<div>
+                 								<span class="text-xs font-label-sm text-[#a39f94] uppercase tracking-wider">Project 1</span>
+                 								<h4 class="font-bold text-lg text-white mt-1">Classic 350 Rejector Study</h4>
+                 								<p class="text-sm font-semibold text-[#ffe16d] mt-1">Qualitative Research (100 people)</p>
+                 							</div>
+                 							<ul class="flex flex-col gap-2.5 text-sm text-[#dfdfdf]">
+                 								<li class="flex items-start gap-2.5">
+                 									<span class="material-symbols-outlined text-[#ffe16d] text-lg mt-0.5">check_circle</span>
+                 									<span>Customer Segmentation and Persona Mapping</span>
+                 								</li>
+                 								<li class="flex items-start gap-2.5">
+                 									<span class="material-symbols-outlined text-[#ffe16d] text-lg mt-0.5">check_circle</span>
+                 									<span>Customer Behaviour Analysis</span>
+                 								</li>
+                 								<li class="flex items-start gap-2.5">
+                 									<span class="material-symbols-outlined text-[#ffe16d] text-lg mt-0.5">check_circle</span>
+                 									<span>Design and Market Research</span>
+                 								</li>
+                 							</ul>
+                 						</div>
+                 
+                 						<div class="bg-[#1c1c1a] border border-[#373735] rounded-lg p-5 flex flex-col gap-4">
+                 							<div>
+                 								<span class="text-xs font-label-sm text-[#a39f94] uppercase tracking-wider">Project 2</span>
+                 								<h4 class="font-bold text-lg text-white mt-1">Brand Research & Communication Design Strategy</h4>
+                 								<p class="text-xs text-[#a39f94] font-medium mt-1">Event: New Classic 350 (J-series) Launch</p>
+                 							</div>
+                 							<div class="flex flex-col gap-3 text-sm text-[#dfdfdf]">
+                 								<div class="flex items-start gap-2.5">
+                 									<span class="material-symbols-outlined text-[#ffe16d] text-lg mt-0.5">article</span>
+                 									<div class="flex flex-col">
+                 										<span class="font-semibold text-white">Digital Magazine UI Design</span>
+                 										<span class="text-xs text-[#a39f94]">Layout design and responsive screen iterations</span>
+                 									</div>
+                 								</div>
+                 								<div class="flex items-start gap-2.5">
+                 									<span class="material-symbols-outlined text-[#ffe16d] text-lg mt-0.5">campaign</span>
+                 									<div class="flex flex-col">
+                 										<span class="font-semibold text-white">Content Creation and Delivery</span>
+                 										<span class="text-xs text-[#a39f94]">Delivered 9 volumes of 'The Timeless Classic' and 2 of 'Cruiser Chronicles'</span>
+                 									</div>
+                 								</div>
+                 							</div>
+                 						</div>
+                 					</div>
+                 				</div>
+                 
+                 				<div>
+                 					<div class="border-l-4 border-[#ffd700] pl-4 py-1 mb-6">
+                 						<h3 class="font-playfair font-bold text-2xl text-white">Classic 350 - Digital Newsletter Design</h3>
+                 					</div>
+                 					
+                 					<a href="https://www.royalenfield.com/in/en/newsletter/" target="_blank" 
+                 					   class="group flex flex-col md:flex-row items-stretch bg-[#1c1c1a] border border-[#373735] rounded-lg overflow-hidden hover:bg-[#2d2d2b] transition-all duration-300 hover:border-[#ffd700]/30 w-full">
+                 						<div class="p-6 flex flex-col justify-between flex-grow md:w-2/3 gap-4">
+                 							<div class="flex flex-col gap-2">
+                 								<h5 class="font-semibold text-lg text-white group-hover:text-[#ffe16d] transition-colors">Timeless Classic: A decade and beyond</h5>
+                 								<p class="text-sm text-[#dfdfdf] leading-relaxed">Royal Enfield has always been known as a pioneer of the motorcycling way of life. Explore more about the Timeless Classic.</p>
+                 							</div>
+                 							<span class="text-xs font-label-sm text-[#a39f94] mt-2 flex items-center gap-1.5">
+                 								<span class="material-symbols-outlined text-[16px]">language</span>
+                 								<span class="truncate">https://www.royalenfield.com/in/en/newsletter/</span>
+                 							</span>
+                 						</div>
+                 						<div class="hidden md:block md:w-1/3 min-h-[160px] bg-cover bg-center" style="background-image: url('be-reborn.png');"></div>
+                 					</a>
+                 				</div>
+                 			</div>
+                 		`,
+                		links: [
+                			{
+                				category: "Meteor 350 - Newsletter Design",
+                				items: [
+                					{
+                						title: "Meteor Chronicles Volume 1",
+                						description: "First edition of the custom Meteor newsletter.",
+                						url: "Meteor Chronicles Volume 1_compressed.pdf",
+                						icon: "picture_as_pdf"
+                					},
+                					{
+                						title: "Meteor Chronicle Volume 2",
+                						description: "Second edition of the Custom Meteor newsletter series.",
+                						url: "Meteor Chronicle Volume 2.pdf",
+                						icon: "picture_as_pdf"
+                					}
+                				]
+                			},
+                			{
+                				category: "Digital Campaigns",
+                				items: [
+                					{
+                						title: "Meteor 350 Instagram Feature",
+                						url: "https://www.instagram.com/p/CM9JZH7gdvx/?utm_source=ig_embed&ig_rid=36dd6d20-2f77-486b-9160-f2b2b6be7e33",
+                						embedUrl: "https://www.instagram.com/p/CM9JZH7gdvx/embed",
+                						icon: "photo_camera"
+                					}
+                				]
+                			}
+                		]
+                	},
+                	"nikhil-kamath": {
+                		category: "Professional Experience",
+                		title: "Nikhil Kamath",
+                		subtitle: "Information Visual Design and Podcast Marketing.",
+                		role: "Design Lead",
+                		client: "Nikhil Kamath",
+                		timeline: "2022 - 2023",
+                		tools: "Figma, Illustrator, Content Strategy, Social Media Marketing",
+                		challenge: "Coordinating WTF is? podcast brand launch collateral. Packaging complex financial models, startup valuations, and macroeconomic indexes into high-interaction social posts and visual campaigns that grow active communities.",
+                		strategy: "Designed standard structured grids for data diagrams. Managed vector templates for social illustrations, establishing consistent dark and gold branding palettes. Outlined custom visual templates for high-impact social releases.",
+                		links: [
+                			{
+                				category: "Info Visual Design",
+                				items: [
+                					{
+                						title: "Visualizing Climate Tech",
+                						url: "https://www.instagram.com/p/CeipIV1pv1w/",
+                						embedUrl: "https://www.instagram.com/p/CeipIV1pv1w/embed",
+                						icon: "insert_chart"
+                					},
+                					{
+                						title: "Visualizing Renewable Energy",
+                						url: "https://www.instagram.com/p/Ce3ZWU4Ftxr/",
+                						embedUrl: "https://www.instagram.com/p/Ce3ZWU4Ftxr/embed",
+                						icon: "insert_chart"
+                					},
+                					{
+                						title: "Visualizing Wealth Allocations",
+                						url: "https://www.instagram.com/p/CfqVAyqFkB_/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA%3D%3D",
+                						embedUrl: "https://www.instagram.com/p/CfqVAyqFkB_/embed",
+                						icon: "insert_chart"
+                					}
+                				]
+                			},
+                			{
+                				category: "Podcast Campaigns",
+                				items: [
+                					{
+                						title: "WTF is? Podcast Launch Reel",
+                						url: "https://www.instagram.com/p/Cq5clZyubYB/",
+                						embedUrl: "https://www.instagram.com/p/Cq5clZyubYB/embed",
+                						icon: "campaign"
+                					}
+                				]
+                			}
+                		]
+                	},
+                	"nksquared": {
+                		category: "Professional Experience",
+                		title: "NKSquared",
+                		subtitle: "Designing a high-interaction service environment for digital audio communities.",
+                		role: "Business Service Designer",
+                		client: "NKSquared (Bengaluru)",
+                		timeline: "Sept 2023 - Dec 2023",
+                		tools: "Service Blueprinting, Stakeholder Mapping, MVP UX Design, Figma",
+                		challenge: "Bridging communication and resource leaks between regional digital audio creators and global streaming brand sponsorships, creating intuitive and structured platforms.",
+                		strategy: "Drafted structured ecosystem blueprints mapping front-stage customer touchpoints with back-stage support loops. Designed high-fidelity wireframes for community portals.",
+                		links: [
+                			{
+                				category: "Customer Journey Mapping",
+                				items: [
+                					{
+                						title: "B2B Customer Journey Map",
+                						imageUrl: "Customer Journey Map - B2B.png",
+                						icon: "map"
+                					}
+                				]
+                			},
+                			{
+                				category: "Service Blueprints",
+                				items: [
+                					{
+                						title: "B2B Service Blueprint",
+                						imageUrl: "Service Blueprint - B2B.png",
+                						icon: "account_tree"
+                					},
+                					{
+                						title: "B2C Service Blueprint",
+                						imageUrl: "Service Blueprint - B2C.png",
+                						icon: "account_tree"
+                					}
+                				]
+                			}
+                		]
+                	},
+                	"finforall": {
+                		category: "Professional Experience",
+                		title: "Finforall by Jupiter",
+                		subtitle: "Making retail personal wealth management intuitive and stress-free.",
+                		role: "UI & Graphic Designer",
+                		client: "Jupiter Neobank",
+                		timeline: "June 2020 - Sept 2020",
+                		tools: "Figma, Visual Design, Information Architecture, Vector Illustration",
+                		htmlContent: `
+                 			<div class="flex flex-col gap-8 font-sans text-white animate-fade-in-up">
+                 				<div>
+                 					<div class="border-l-4 border-[#ffd700] pl-4 py-1 mb-6">
+                 						<h3 class="font-playfair font-bold text-2xl text-white">Illustrated Carousels</h3>
+                 					</div>
+                 					<div class="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory hide-scrollbar max-w-full">
+                 						<div class="flex flex-col bg-[#1c1c1a] border border-[#373735] rounded-lg overflow-hidden shrink-0 w-[240px] snap-center">
+                 							<div class="p-3 border-b border-[#373735] flex justify-between items-center bg-[#252523] text-xs">
+                 								<span class="font-semibold truncate">Illustration 1</span>
+                 							</div>
+                 							<div class="w-full relative aspect-square bg-[#1c1c1a]">
+                 								<iframe src="https://www.instagram.com/p/CEg8mgGn9Bw/embed" class="absolute top-0 left-0 w-full h-full border-0" frameborder="0"></iframe>
+                 							</div>
+                 						</div>
+                 						<div class="flex flex-col bg-[#1c1c1a] border border-[#373735] rounded-lg overflow-hidden shrink-0 w-[240px] snap-center">
+                 							<div class="p-3 border-b border-[#373735] flex justify-between items-center bg-[#252523] text-xs">
+                 								<span class="font-semibold truncate">Illustration 2</span>
+                 							</div>
+                 							<div class="w-full relative aspect-square bg-[#1c1c1a]">
+                 								<iframe src="https://www.instagram.com/p/CD9FIWwn_xi/embed" class="absolute top-0 left-0 w-full h-full border-0" frameborder="0"></iframe>
+                 							</div>
+                 						</div>
+                 						<div class="flex flex-col bg-[#1c1c1a] border border-[#373735] rounded-lg overflow-hidden shrink-0 w-[240px] snap-center">
+                 							<div class="p-3 border-b border-[#373735] flex justify-between items-center bg-[#252523] text-xs">
+                 								<span class="font-semibold truncate">Illustration 3</span>
+                 							</div>
+                 							<div class="w-full relative aspect-square bg-[#1c1c1a]">
+                 								<iframe src="https://www.instagram.com/p/CDWine7n_35/embed" class="absolute top-0 left-0 w-full h-full border-0" frameborder="0"></iframe>
+                 							</div>
+                 						</div>
+                 					</div>
+                 				</div>
+                 
+                 				<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                 					<div class="flex flex-col gap-4">
+                 						<div class="border-l-4 border-[#ffd700] pl-4 py-1">
+                 							<span class="font-playfair font-bold text-lg text-white">Website UI Design</span>
+                 						</div>
+                 						<div class="flex flex-col bg-[#1c1c1a] border border-[#373735] rounded-lg overflow-hidden w-full">
+                 							<div class="p-3 border-b border-[#373735] flex justify-between items-center bg-[#252523] text-xs">
+                 								<span class="font-semibold truncate">WordPress Project</span>
+                 								<a href="https://www.behance.net/gallery/119043361/Finforall-Wordpress-Website-Project" target="_blank" class="text-[10px] font-bold text-[#ffe16d] hover:underline">Open</a>
+                 							</div>
+                 							<div class="w-full relative aspect-[1.5/1]">
+                 								<iframe src="https://www.behance.net/embed/project/119043361" class="absolute top-0 left-0 w-full h-full border-0" allowfullscreen></iframe>
+                 							</div>
+                 						</div>
+                 					</div>
+                 
+                 					<div class="flex flex-col gap-4">
+                 						<div class="border-l-4 border-[#ffd700] pl-4 py-1">
+                 							<span class="font-playfair font-bold text-lg text-white">Podcast Editing</span>
+                 						</div>
+                 						<div class="flex flex-col bg-[#1c1c1a] border border-[#373735] rounded-lg overflow-hidden w-full">
+                 							<div class="p-3 border-b border-[#373735] flex justify-between items-center bg-[#252523] text-xs">
+                 								<span class="font-semibold truncate">Audio-Visual Snippet</span>
+                 							</div>
+                 							<div class="w-full relative aspect-[1/1.2]">
+                 								<iframe src="https://www.instagram.com/reel/CD6XteInHLX/embed" class="absolute top-0 left-0 w-full h-full border-0"></iframe>
+                 							</div>
+                 						</div>
+                 					</div>
+                 				</div>
+                 			</div>
+                 		`,
+                		links: []
+                	},
+                	"dyx2-learning": {
+                		category: "Social Development",
+                		title: "DYX2 Learning",
+                		subtitle: "Structuring specialized digital learning pathways for special educators and children.",
+                		role: "Information Architect & UX Designer",
+                		client: "Dyx2 Learning",
+                		timeline: "2020 - 2021",
+                		tools: "Information Architecture, Site Mapping, Mobile UX Design, Illustrator",
+                		challenge: "Designing specialized digital learning pathways and user interactions for educators working with children who have special needs, ensuring zero cognitive friction.",
+                		strategy: "Conducted information architectural mapping. Modeled app hierarchies, layout frameworks, and responsive grid patterns.",
+                		links: [
+                			{
+                				category: "Architectural Mapping",
+                				items: [
+                					{
+                						title: "Website Site Map",
+                						imageUrl: "Website Site Map.png",
+                						icon: "map"
+                					},
+                					{
+                						title: "Mobile App Architecture",
+                						imageUrl: "Mobile App Architecture.png",
+                						icon: "account_tree"
+                					}
+                				]
+                			}
+                		]
+                	},
+                	"nivaar": {
+                		category: "Major Projects (B.Design)",
+                		title: "NIVAAR Healthcare",
+                		subtitle: "Streamlining regional patient access to primary healthcare clinics.",
+                		role: "Healthcare UX Designer",
+                		client: "Academic Initiative",
+                		timeline: "2022",
+                		tools: "Patient Journey Mapping, High-Fidelity UI, Figma, Healthcare IA",
+                		challenge: "Bridging massive navigation and booking leaks in primary public clinics, particularly for elderly regional demographics seeking routine check-ups.",
+                		strategy: "Formulated patient journey briefs, detailing simplified mobile healthcare portals. Specified layouts with big clear touchpoints, local vernacular supports, and automatic clinic queue scheduling.",
+                		links: [
+                			{
+                				category: "Healthcare Strategy Documents",
+                				items: [
+                					{
+                						title: "Nivar Elderly Healthcare System",
+                						url: "Nivar-Elderly_healthcare_system_design_compressed.pdf",
+                						icon: "picture_as_pdf"
+                					},
+                					{
+                						title: "NIVAAR Investor & Partnership Brief",
+                						url: "nivaar-investor-brief.html",
+                						icon: "language"
+                					}
+                				]
+                			}
+                		]
+                	},
+                	"leeway": {
+                		category: "Major Projects (B.Design)",
+                		title: "Leeway Space-Sharing",
+                		subtitle: "Ecosystem design for collaborative urban co-habitation and space-sharing.",
+                		role: "Interaction Designer",
+                		client: "Srishti Manipal Institute",
+                		timeline: "2023",
+                		tools: "Interaction Design, User Journey Mapping, Peer-to-Peer UX, Figma",
+                		challenge: "Addressing soaring living costs and social isolation among young urban professionals, while mature households manage empty, underutilized domestic spaces.",
+                		strategy: "Engineered a secure space-sharing service concept. Researched space-zoning policies, spatial safety, and trust dynamics. Designed a mobile app prototype detailing the secure match workflow, guest/host safety checklists, spatial booking options, and unified billing systems.",
+                		links: [
+                			{
+                				category: "Project Documentation",
+                				items: [
+                					{
+                						title: "Docbook Leeway - System Design",
+                						url: "Docbook_Leeway_Pranjal Bhadauria_BSSD_compressed.pdf",
+                						icon: "picture_as_pdf"
+                					}
+                				]
+                			}
+                		]
+                	},
+                	"business-design-labs": {
+                		category: "Major Projects (B.Design)",
+                		title: "Business Design Labs",
+                		subtitle: "Connecting design excellence with business creation services.",
+                		role: "Ecosystem Architect",
+                		client: "Srishti Manipal Entrepreneurship Lab",
+                		timeline: "2023",
+                		tools: "Ecosystem Architecture, Business Design, Journey Design",
+                		challenge: "Creative students often struggle to translate experimental products into scalable, fundable businesses due to a lack of structured business incubators geared toward design methodologies.",
+                		strategy: "Conducted interviews with student startup founders and incubation managers. Outlined the service framework for Srishti's Entrepreneurship Lab, designing touchpoints for startup matchmaking, seed funding preparations, and design-led pitch structures.",
+                		links: [
+                			{
+                				category: "Project Incubator Documentation",
+                				items: [
+                					{
+                						title: "Business Design Labs Incubator Blueprint",
+                						url: "Business Design labs-Design project incubator at SMI.pdf",
+                						icon: "picture_as_pdf"
+                					}
+                				]
+                			}
+                		]
+                	},
+                	"deshpande-foundation": {
+                		category: "Major Projects (B.Design)",
+                		title: "Deshpande Foundation",
+                		subtitle: "Optimizing logistics for rural women-led producer collectives.",
+                		role: "Operations Service Designer",
+                		client: "Swavalambi Sakhi Producer Co.",
+                		timeline: "2022",
+                		tools: "Process Mapping, Logistics Optimization, Rural Audits",
+                		challenge: "Operational leaks, crop waste, and logistics overheads inside rural women's farming cooperatives, limiting their capacity to scale product margins.",
+                		strategy: "Audited agricultural storage and transport paths in rural Karnataka. Created comprehensive operational diagrams tracking raw supply from farms to regional sorting centers. Designed simplified scheduling models and local drop-off spots.",
+                		links: [
+                			{
+                				category: "Proposed Services Design",
+                				items: [
+                					{
+                						title: "Sakhi Logistics Design Blueprint",
+                						url: "Deshpande foundation Proposed Services Design -compressed.pdf",
+                						icon: "picture_as_pdf"
+                					}
+                				]
+                			}
+                		]
+                	},
+                	"wayste": {
+                		category: "Major Projects (B.Design)",
+                		title: "Wayste Rewards",
+                		subtitle: "Gamifying community recycling behaviors through localized service loops.",
+                		role: "Service Designer",
+                		client: "Srishti Manipal Institute",
+                		timeline: "2022",
+                		tools: "Circular Economy Systems, Incentives Design, Service Blueprinting",
+                		challenge: "Low municipal recycling rates caused by poor customer segregation habits, leading to massive trash dumps and contaminated recyclable materials.",
+                		strategy: "Created an end-to-end service model, 'Wayste', which introduces a gamified reward loop. Designed a service blueprint mapping the homeowner App experience (where sorting actions earn points) with trash weighing systems and recycling partnerships. Created prototypes of localized collection lockers.",
+                		links: [
+                			{
+                				category: "Behance Presentation",
+                				items: [
+                					{
+                						title: "Wayste Rewards Behance Presentation",
+                						url: "https://www.behance.net/gallery/119346173/Wayste",
+                						embedUrl: "https://www.behance.net/embed/project/119346173?shared_on=embed",
+                						icon: "photo_camera"
+                					}
+                				]
+                			},
+                			{
+                				category: "Interactive Case Study",
+                				items: [
+                					{
+                						title: "Wayste Webflow Almanac",
+                						url: "https://rachitmathur.webflow.io/wayste",
+                						icon: "language"
+                					}
+                				]
+                			}
+                		]
+                	},
+                	"project-kisaan": {
+                		category: "Major Projects (B.Design)",
+                		title: "Project Kisaan",
+                		subtitle: "Empowering rural farmers with clean, localized agrarian intelligence.",
+                		role: "Livelihoods UI/UX Designer",
+                		client: "Academic Initiative",
+                		timeline: "2021",
+                		tools: "Vernacular UX, Iconography, Agrarian Livelihoods, Figma",
+                		challenge: "Rural smallholder farmers face severe information gaps regarding soil metrics, local weather changes, and open trading indices, leading to reduced farming profits.",
+                		strategy: "Researched regional visual communication and vernacular layout standards. Designed a highly accessible mobile app layout relying on icon-driven, low-text layouts. Modeled features for local weather alerts, soil analysis guides, and direct market trading prices.",
+                		links: [
+                			{
+                				category: "Farmers Proposal & Briefs",
+                				items: [
+                					{
+                						title: "Agrarian Betterment Proposal PDF",
+                						url: "4.Betterment_of_Indian_agriculture_system_through_empowering_Farmers_compressed.pdf",
+                						icon: "picture_as_pdf"
+                					},
+                					{
+                						title: "Kisaan Investor Partnership Brief",
+                						url: "kisaan-investor-brief.html",
+                						icon: "language"
+                					}
+                				]
+                			}
+                		]
+                	},
+                	"teens-of-god": {
+                		category: "Social Development",
+                		title: "Teens of God NGO",
+                		subtitle: "Structuring social advocacy campaigns for rapid community outreach.",
+                		role: "Design Sub-Head",
+                		client: "Teens of God Welfare Society",
+                		timeline: "June 2020 - Nov 2020",
+                		tools: "Adobe Photoshop, Art Direction, Campaign Visuals, Print Production",
+                		htmlContent: `
+                 			<div class="flex flex-col gap-10 font-sans text-white animate-fade-in-up">
+                 				<div class="flex flex-col gap-6 bg-[#1c1c1a] border border-[#373735] rounded-lg p-6">
+                 					<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                 						<div>
+                 							<h4 class="font-playfair italic font-bold text-lg text-[#ffe16d] border-b border-[#373735] pb-1 mb-2">Challenge</h4>
+                 							<p class="text-xs text-[#dfdfdf] leading-relaxed">Quickly communicating critical local community campaigns and volunteer recruitment messages during urgent regional pandemic relief efforts.</p>
+                 						</div>
+                 						<div>
+                 							<h4 class="font-playfair italic font-bold text-lg text-[#ffe16d] border-b border-[#373735] pb-1 mb-2">Strategy</h4>
+                 							<p class="text-xs text-[#dfdfdf] leading-relaxed">Managed the graphics division to coordinate digital and printed campaign materials. Implemented standardized styling guidelines to make community announcements immediately recognizable across digital networks.</p>
+                 						</div>
+                 						<div>
+                 							<h4 class="font-playfair italic font-bold text-lg text-[#ffe16d] border-b border-[#373735] pb-1 mb-2">Results</h4>
+                 							<p class="text-xs text-[#dfdfdf] leading-relaxed">Increased active volunteer inquiries by 45% and established a cohesive visual communication workflow that streamlined critical community relief updates.</p>
+                 						</div>
+                 					</div>
+                 				</div>
+                 
+                 				<div>
+                 					<div class="border-l-4 border-[#ffd700] pl-4 py-1 mb-6">
+                 						<h3 class="font-playfair font-bold text-xl text-white">Bangalore Chapter Initiation</h3>
+                 					</div>
+                 					<div class="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory hide-scrollbar max-w-full">
+                 						<div class="flex flex-col bg-[#1c1c1a] border border-[#373735] rounded-lg overflow-hidden shrink-0 w-[200px] snap-center">
+                 							<img src="Teens of God Bangalore Chapter 1.png" alt="Initiation 1" class="w-full h-auto" />
+                 						</div>
+                 						<div class="flex flex-col bg-[#1c1c1a] border border-[#373735] rounded-lg overflow-hidden shrink-0 w-[200px] snap-center">
+                 							<img src="Teens of God Bangalore Chapter 2 12.56.14.jpg" alt="Initiation 2" class="w-full h-auto" />
+                 						</div>
+                 						<div class="flex flex-col bg-[#1c1c1a] border border-[#373735] rounded-lg overflow-hidden shrink-0 w-[200px] snap-center">
+                 							<img src="Teens of God Bangalore Chapter 3 12.56.14.jpg" alt="Initiation 3" class="w-full h-auto" />
+                 						</div>
+                 						<div class="flex flex-col bg-[#1c1c1a] border border-[#373735] rounded-lg overflow-hidden shrink-0 w-[200px] snap-center">
+                 							<img src="Teens of God Bangalore Chapter 4.jpg" alt="Initiation 4" class="w-full h-auto" />
+                 						</div>
+                 						<div class="flex flex-col bg-[#1c1c1a] border border-[#373735] rounded-lg overflow-hidden shrink-0 w-[200px] snap-center">
+                 							<img src="Teens of God Bangalore Chapter 5 12.56.17.jpg" alt="Initiation 5" class="w-full h-auto" />
+                 						</div>
+                 					</div>
+                 				</div>
+                 			</div>
+                 		`,
+                		links: [
+                			{
+                				category: "Digital Campaigns",
+                				items: [
+                					{
+                						title: "Graphic Design Campaign",
+                						url: "https://www.instagram.com/p/CAxxFP7lAGC/?igsh=MW96ZHJvdW1pNzVpZA%3D%3D",
+                						embedUrl: "https://www.instagram.com/p/CAxxFP7lAGC/embed",
+                						icon: "photo_camera"
+                					},
+                					{
+                						title: "TOG One Year Milestone Video",
+                						url: "https://www.instagram.com/tv/B836Xf8lBY0/?igsh=MW9uaWV1dnBjeGUweA%3D%3D",
+                						embedUrl: "https://www.instagram.com/tv/B836Xf8lBY0/embed",
+                						icon: "photo_camera"
+                					}
+                				]
+                			}
+                		]
+                	},
+                	"girl-up-noor": {
+                		category: "Social Development",
+                		title: "Girl Up Noor",
+                		subtitle: "Driving digital advocacy and educational campaigns on women's equity.",
+                		role: "Content Management Lead",
+                		client: "Girl Up (UN Foundation)",
+                		timeline: "June 2020 - June 2021",
+                		tools: "Digital Advocacy, Brand Styling, Illustrator, Copywriting",
+                		challenge: "Creating high-engagement, educational content about women's healthcare, menstrual hygiene, and leadership during a period of virtual-only community operations.",
+                		strategy: "Led digital graphics coordination, aligning styling frameworks with UN Foundation guidelines. Authored educational post scripts.",
+                		links: [
+                			{
+                				category: "Girl Up Noor Advocacy Campaigns",
+                				items: [
+                					{
+                						title: "Menstrual Hygiene Campaign",
+                						url: "https://www.instagram.com/p/CCit3IXsNhB/?igsh=MW1taHZiZXhsM2RraA%3D%3D",
+                						embedUrl: "https://www.instagram.com/p/CCit3IXsNhB/embed",
+                						icon: "photo_camera"
+                					},
+                					{
+                						title: "Educational Insights",
+                						url: "https://www.instagram.com/p/CCn7V5AMVbG/?igsh=aTEwdHZnazFweXc4",
+                						embedUrl: "https://www.instagram.com/p/CCn7V5AMVbG/embed",
+                						icon: "photo_camera"
+                					}
+                				]
+                			}
+                		]
+                	},
+                	"ummcl": {
+                		category: "Social Development",
+                		title: "UMMCL Livelihoods",
+                		subtitle: "Designing fair-trade agricultural supply chains for cooperative growth.",
+                		role: "Rural Service Consultant",
+                		client: "Unati Cooperative Society",
+                		timeline: "2021 - 2022",
+                		tools: "Service Blueprinting, Supply Chain Mapping, Rural Livelihoods Audits",
+                		htmlContent: `
+                 			<div class="flex flex-col gap-6 font-sans text-white animate-fade-in-up">
+                 				<div class="flex items-start gap-3 p-4 bg-[#1c1c1a] border border-[#373735] rounded-lg shadow-sm">
+                 					<span class="text-2xl animate-bounce">🙏</span>
+                 					<div class="flex flex-col gap-1 text-xs text-[#a39f94]">
+                 						<p class="font-semibold text-white text-sm">Namaste UMMCL team,</p>
+                 						<p>Welcome to our cooperative HQ dashboard. Explore live Notion boards, blueprints, and proposals.</p>
+                 					</div>
+                 				</div>
+                 
+                 				<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                 					<a href="https://www.notion.so/Getting-Started-444234e84db94f9f8388924ac4039c64" target="_blank" 
+                 					   class="group flex items-center gap-3 p-4 bg-[#1c1c1a] border border-[#373735] rounded-lg hover:bg-[#2d2d2b] hover:border-[#ffe16d] transition-all">
+                 						<span class="text-2xl shrink-0">🚜</span>
+                 						<div class="flex flex-col min-w-0">
+                 							<span class="font-semibold text-sm text-white group-hover:text-[#ffe16d] transition-colors">Getting Started</span>
+                 							<span class="text-[10px] text-[#a39f94] truncate">notion.so/Getting-Started...</span>
+                 						</div>
+                 					</a>
+                 					<a href="https://www.notion.so/About-UAMMCL-f91eae3970b94fc08129f8d36223846f" target="_blank" 
+                 					   class="group flex items-center gap-3 p-4 bg-[#1c1c1a] border border-[#373735] rounded-lg hover:bg-[#2d2d2b] hover:border-[#ffe16d] transition-all">
+                 						<span class="text-2xl shrink-0">🚩</span>
+                 						<div class="flex flex-col min-w-0">
+                 							<span class="font-semibold text-sm text-white group-hover:text-[#ffe16d] transition-colors">About UMMCL HQ</span>
+                 							<span class="text-[10px] text-[#a39f94] truncate">notion.so/About-UMMCL...</span>
+                 						</div>
+                 					</a>
+                 				</div>
+                 			</div>
+                 		`,
+                		links: []
+                	}
+                };
+
+                let currentShowcaseTab = 'narrative';
+                let activeShowcaseProjectId = 'true-beacon';
+                let activeEmbedItem = null;
+
+                 function switchShowcaseTab(tab) {
+                 	currentShowcaseTab = tab;
+                 	const tabNarrative = document.getElementById('tab-btn-narrative');
+                 	const tabEmbeds = document.getElementById('tab-btn-embeds');
+                 	const contentNarrative = document.getElementById('showcase-content-narrative');
+                 	const contentEmbeds = document.getElementById('showcase-content-embeds');
+                 	
+                 	if (tab === 'narrative') {
+                 		tabNarrative.className = "px-5 py-2.5 text-xs uppercase tracking-widest font-semibold border-b-2 border-[#ffd700] text-white transition-all select-none";
+                 		tabEmbeds.className = "px-5 py-2.5 text-xs uppercase tracking-widest font-semibold border-b-2 border-transparent text-[#b5b2a9] hover:text-white transition-all flex items-center gap-1.5 select-none";
+                 		contentNarrative.classList.remove('hidden');
+                 		contentNarrative.classList.add('flex');
+                 		contentEmbeds.classList.add('hidden');
+                 		contentEmbeds.classList.remove('flex');
+                 	} else {
+                 		tabNarrative.className = "px-5 py-2.5 text-xs uppercase tracking-widest font-semibold border-b-2 border-transparent text-[#b5b2a9] hover:text-white transition-all select-none";
+                 		tabEmbeds.className = "px-5 py-2.5 text-xs uppercase tracking-widest font-semibold border-b-2 border-[#ffd700] text-white transition-all flex items-center gap-1.5 select-none";
+                 		contentNarrative.classList.add('hidden');
+                 		contentNarrative.classList.remove('flex');
+                 		contentEmbeds.classList.remove('hidden');
+                 		contentEmbeds.classList.add('flex');
+                 		renderShowcaseEmbedContent();
+                 	}
+                 }
+ 
+                 function selectShowcaseProject(id, scroll = false) {
+                 	if (!PROJECTS_DATA[id]) return;
+                 	activeShowcaseProjectId = id;
+                 	
+                 	// Scroll to section if requested
+                 	if (scroll) {
+                 		const showcaseSec = document.getElementById('projectShowcase');
+                 		if (showcaseSec) {
+                 			showcaseSec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                 		}
+                 	}
+                 	
+                 	// Update active state in sidebar buttons
+                 	document.querySelectorAll('.showcase-proj-btn').forEach(btn => {
+                 		btn.className = "showcase-proj-btn text-left px-3 py-2 rounded-lg text-xs font-medium text-[#b5b2a9] hover:text-white hover:bg-[#2d2d2b] transition-all flex items-center justify-between group select-none";
+                 	});
+                 	const activeBtn = document.getElementById('btn-sb-' + id);
+                 	if (activeBtn) {
+                 		activeBtn.className = "showcase-proj-btn text-left px-3 py-2 rounded-lg text-xs font-semibold bg-[#ffe16d]/15 border-l-2 border-[#ffd700] text-white transition-all flex items-center justify-between group select-none";
+                 	}
+                 	
+                 	// Fade transition out
+                 	const viewer = document.getElementById('showcase-viewer');
+                 	if (viewer) {
+                 		viewer.style.opacity = '0';
+                 		viewer.style.transform = 'translateY(12px)';
+                 	}
+                 	
+                 	setTimeout(() => {
+                 		const p = PROJECTS_DATA[id];
+                 		
+                 		// Special overlay handler for True Beacon
+                 		const specialTrueBeacon = document.getElementById('showcase-special-true-beacon');
+                 		const headerBlock = document.getElementById('showcase-header');
+                 		const tabsBar = document.getElementById('showcase-tabs-bar');
+                 		const contentBlock = document.getElementById('showcase-content-block');
+                 		
+                 		if (id === 'true-beacon') {
+                 			if (specialTrueBeacon) {
+                 				specialTrueBeacon.classList.remove('hidden');
+                 				specialTrueBeacon.innerHTML = `
+                 					<a href="https://truebeacon.com/" target="_blank" class="relative flex flex-col items-center justify-center w-full h-full overflow-hidden bg-[#1c1c1a] group cursor-pointer text-center select-none">
+                 						<!-- Background subtle yellow ambient radial glow -->
+                 						<div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,217,0,0.06)_0%,transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
+                 						
+                 						<!-- Centered poster container with rich shadow and scale effect -->
+                 						<div class="relative w-auto h-[82%] aspect-[1/1.41] shadow-[0_15px_40px_rgba(0,0,0,0.6)] rounded-xl overflow-hidden border border-[#373735] transition-all duration-700 transform group-hover:scale-[1.03] group-hover:shadow-[0_25px_60px_rgba(255,215,0,0.18)] bg-white flex justify-center items-center">
+                 							<img src="logos/true-beacon-house.png" alt="True Beacon House" class="h-full w-full object-contain pointer-events-none">
+                 							
+                 							<!-- Glossy shine sweep effect -->
+                 							<div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/15 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out"></div>
+                 						</div>
+
+                 						<!-- Premium floating interaction pill -->
+                 						<div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 bg-black/75 backdrop-blur-md border border-white/10 px-6 py-3 rounded-full text-white text-xs font-semibold uppercase tracking-widest flex items-center gap-2 shadow-lg group-hover:bg-[#ffe16d] group-hover:text-[#221b00] group-hover:border-[#ffe16d] transition-all duration-300">
+                 							<span>Explore True Beacon</span>
+                 							<span class="material-symbols-outlined text-[16px] animate-pulse">open_in_new</span>
+                 						</div>
+                 					</a>
+                 				`;
+                 			}
+                 			if (headerBlock) headerBlock.classList.add('hidden');
+                 			if (tabsBar) tabsBar.classList.add('hidden');
+                 			if (contentBlock) contentBlock.classList.add('hidden');
+                 		} else {
+                 			if (specialTrueBeacon) {
+                 				specialTrueBeacon.classList.add('hidden');
+                 				specialTrueBeacon.innerHTML = '';
+                 			}
+                 			if (headerBlock) headerBlock.classList.remove('hidden');
+                 			if (tabsBar) tabsBar.classList.remove('hidden');
+                 			if (contentBlock) contentBlock.classList.remove('hidden');
+                 			
+                 			// Set headers
+                 			document.getElementById('showcase-category').innerText = p.category;
+                 			document.getElementById('showcase-title').innerText = p.title;
+                 			document.getElementById('showcase-subtitle').innerText = p.subtitle;
+                 			
+                 			// Meta properties
+                 			document.getElementById('showcase-meta-role').innerText = p.role;
+                 			document.getElementById('showcase-meta-timeline').innerText = p.timeline;
+                 			document.getElementById('showcase-meta-tools').innerText = p.tools || 'Design Strategy';
+                 		}
+                 		
+                 		// Actions shortcut
+                 		const actionsContainer = document.getElementById('showcase-actions');
+                 		actionsContainer.innerHTML = '';
+                 		if (p.links && p.links.length > 0) {
+                 			p.links.forEach(group => {
+                 				group.items.forEach(item => {
+                 					if (item.highlight || item.url) {
+                 						const a = document.createElement('a');
+                 						a.href = item.url;
+                 						a.target = '_blank';
+                 						const isPDF = item.url.includes('.pdf');
+                 						a.className = isPDF 
+                 							? "pill-btn text-xs px-4 py-1.5 border border-[#484844] text-[#eeeeee] hover:bg-[#2d2d2b] hover:border-[#ffd700] transition-all flex items-center gap-1.5 select-none"
+                 							: "pill-btn text-xs px-4 py-1.5 bg-[#ffe16d] text-[#1c1c1a] hover:bg-[#ffd700] hover:shadow-[0_0_12px_rgba(255,215,0,0.2)] transition-all flex items-center gap-1.5 select-none";
+                 						a.style.fontSize = '11px';
+                 						a.style.fontWeight = '600';
+                 						a.style.borderRadius = '9999px';
+                 						a.innerHTML = `<span class="material-symbols-outlined text-[15px]">${isPDF ? 'picture_as_pdf' : 'language'}</span> ${item.title}`;
+                 						actionsContainer.appendChild(a);
+                 					}
+                 				});
+ 			                });
+ 		                }
+                 		
+                 		// Story Narrative vs Custom HTML
+                 		const storyBody = document.getElementById('showcase-story-body');
+                 		const storyCustom = document.getElementById('showcase-story-custom-html');
+                 		
+                 		if (p.htmlContent) {
+                 			storyBody.classList.add('hidden');
+                 			storyCustom.classList.remove('hidden');
+                 			storyCustom.classList.add('flex');
+                 			storyCustom.innerHTML = p.htmlContent;
+                 		} else {
+                 			storyCustom.classList.add('hidden');
+                 			storyCustom.innerHTML = '';
+                 			storyBody.classList.remove('hidden');
+                 			
+                 			// Fill Standard Challenge
+                 			if (p.challenge) {
+                 				document.getElementById('showcase-challenge-box').classList.remove('hidden');
+                 				document.getElementById('showcase-challenge').innerText = p.challenge;
+                 			} else {
+                 				document.getElementById('showcase-challenge-box').classList.add('hidden');
+                 			}
+                 			
+                 			// Fill Strategy
+                 			if (p.strategy) {
+                 				document.getElementById('showcase-strategy-box').classList.remove('hidden');
+                 				document.getElementById('showcase-strategy').innerText = p.strategy;
+                 			} else {
+                 				document.getElementById('showcase-strategy-box').classList.add('hidden');
+                 			}
+                 			
+                 			// Fill Results
+                 			if (p.results) {
+                 				document.getElementById('showcase-results-box').classList.remove('hidden');
+                 				document.getElementById('showcase-results').innerText = p.results;
+                 			} else {
+                 				document.getElementById('showcase-results-box').classList.add('hidden');
+                 			}
+                 		}
+                 		
+                 		// Compile Tab 2 Embed links selector
+                 		const linksSelector = document.getElementById('showcase-embed-links-selector');
+                 		linksSelector.innerHTML = '';
+                 		activeEmbedItem = null;
+                 		
+                 		if (p.links && p.links.length > 0) {
+                 			let totalItems = 0;
+                 			p.links.forEach(categoryGroup => {
+                 				categoryGroup.items.forEach(item => {
+                 					totalItems++;
+                 					const btn = document.createElement('button');
+                 					btn.className = "px-3 py-1.5 bg-[#252523] border border-[#373735] rounded text-[#b5b2a9] hover:border-[#ffe16d] hover:text-white transition-all select-none flex items-center gap-1 shrink-0";
+                 					btn.innerHTML = `<span class="material-symbols-outlined text-[14px]">${item.icon || 'link'}</span> ${item.title}`;
+                 					btn.onclick = () => selectEmbedItem(item, btn);
+                 					linksSelector.appendChild(btn);
+                 					
+                 					// Default to first embed
+                 					if (!activeEmbedItem) {
+                 						activeEmbedItem = item;
+                 						// Style active
+                 						btn.className = "px-3 py-1.5 bg-[#ffe16d]/10 border border-[#ffd700] text-[#ffe16d] rounded transition-all font-semibold select-none flex items-center gap-1 shrink-0";
+                 					}
+                 				});
+                 			});
+                 		}
+                 		
+                 		// Reset to narrative tab when loading new project
+                 		switchShowcaseTab('narrative');
+                 		
+                 		// Fade transition in
+                 		if (viewer) {
+                 			viewer.style.opacity = '1';
+                 			viewer.style.transform = 'translateY(0)';
+                 		}
+                 	}, 150);
+                 }
+ 
+                 function selectEmbedItem(item, buttonEl) {
+                 	activeEmbedItem = item;
+                 	
+                 	// Style active button
+                 	document.querySelectorAll('#showcase-embed-links-selector button').forEach(btn => {
+                 		btn.className = "px-3 py-1.5 bg-[#252523] border border-[#373735] rounded text-[#b5b2a9] hover:border-[#ffe16d] hover:text-white transition-all select-none flex items-center gap-1 shrink-0";
+                 	});
+                 	if (buttonEl) {
+                 		buttonEl.className = "px-3 py-1.5 bg-[#ffe16d]/10 border border-[#ffd700] text-[#ffe16d] rounded transition-all font-semibold select-none flex items-center gap-1 shrink-0";
+                 	}
+                 	
+                 	renderShowcaseEmbedContent();
+                 }
+ 
+                 function renderShowcaseEmbedContent() {
+                 	const wrapper = document.getElementById('showcase-embed-frame-wrapper');
+                 	if (!wrapper) return;
+                 	wrapper.innerHTML = '';
+                 	
+                 	if (!activeEmbedItem) {
+                 		wrapper.innerHTML = `
+                 			<div class="flex flex-col items-center justify-center gap-2 text-[#b5b2a9] py-12">
+                 				<span class="material-symbols-outlined text-4xl opacity-40 text-[#ffe16d]">layers_clear</span>
+                 				<p class="text-sm">No live visual proof available for this case study. View Story & Strategy.</p>
+                 			</div>
+                 		`;
+                 		return;
+                 	}
+                 	
+                 	const item = activeEmbedItem;
+                 	
+                 	if (item.embedUrl) {
+                 		let aspectClass = "aspect-[1/1.2]";
+                 		let maxWidthClass = "max-w-[420px]";
+ 
+                 		if (item.embedUrl.includes("instagram.com")) {
+                 			aspectClass = "aspect-square";
+                 			maxWidthClass = "max-w-[380px]";
+                 		} else if (item.embedUrl.includes("linkedin.com")) {
+                 			aspectClass = "aspect-[1/1.25]";
+                 			maxWidthClass = "max-w-[440px]";
+                 		} else if (item.embedUrl.includes("behance.net")) {
+                 			aspectClass = "aspect-[1.5/1]";
+                 			maxWidthClass = "max-w-[500px]";
+                 		}
+                 		
+                 		wrapper.innerHTML = `
+                 			<div class="w-full ${maxWidthClass} flex flex-col gap-3 mx-auto">
+                 				<div class="p-3 border border-[#373735] bg-[#252523] rounded-lg flex justify-between items-center text-xs shadow-sm">
+                 					<div class="flex items-center gap-2">
+                 						<span class="material-symbols-outlined text-[#ffe16d] text-base">${item.icon || 'language'}</span>
+                 						<span class="font-semibold text-white line-clamp-1">${item.title}</span>
+                 					</div>
+                 					<a href="${item.url}" target="_blank" class="text-[10px] font-label-sm uppercase tracking-widest text-[#a39f94] hover:text-[#ffe16d] transition-colors flex items-center gap-1 select-none">Open External <span class="material-symbols-outlined text-[13px]">open_in_new</span></a>
+                 				</div>
+                 				<div class="w-full relative ${aspectClass} border border-[#373735] rounded-xl overflow-hidden bg-[#1c1c1a]">
+                 					<iframe src="${item.embedUrl}" class="absolute top-0 left-0 w-full h-full border-0" frameborder="0" allowfullscreen></iframe>
+                 				</div>
+                 			</div>
+                 		`;
+                 	} else if (item.imageUrl) {
+                 		const isDiagram = item.imageUrl.includes("Blueprint") || item.imageUrl.includes("Map") || item.imageUrl.includes("Architecture") || item.imageUrl.includes("Sitemap");
+                 		let maxWidthClass = isDiagram ? "max-w-[650px] md:max-w-[850px]" : "max-w-[480px]";
+                 		
+                 		wrapper.innerHTML = `
+                 			<div class="w-full ${maxWidthClass} flex flex-col gap-3 mx-auto">
+                 				<div class="p-3 border border-[#373735] bg-[#252523] rounded-lg flex justify-between items-center text-xs shadow-sm">
+                 					<div class="flex items-center gap-2">
+                 						<span class="material-symbols-outlined text-[#ffe16d] text-base">photo_library</span>
+                 						<span class="font-semibold text-white line-clamp-1">${item.title}</span>
+                 					</div>
+                 					<a href="${item.imageUrl}" target="_blank" class="text-[10px] font-label-sm uppercase tracking-widest text-[#a39f94] hover:text-[#ffe16d] transition-colors flex items-center gap-1 select-none">Open Full Image <span class="material-symbols-outlined text-[13px]">open_in_new</span></a>
+                 				</div>
+                 				<div class="w-full border border-[#373735] rounded-xl overflow-hidden bg-[#1c1c1a] flex items-center justify-center p-2">
+                 					<img src="${item.imageUrl}" alt="${item.title}" class="w-full h-auto object-contain max-h-[600px] rounded-lg" />
+                 				</div>
+                 			</div>
+                 		`;
+                 	} else if (item.url) {
+                 		const isPDF = item.url.includes(".pdf");
+                 		wrapper.innerHTML = `
+                 			<div class="w-full flex flex-col gap-3">
+                 				<div class="p-3 border border-[#373735] bg-[#252523] rounded-lg flex justify-between items-center text-xs shadow-sm">
+                 					<div class="flex items-center gap-2">
+                 						<span class="material-symbols-outlined text-[#ffe16d] text-lg">${isPDF ? 'picture_as_pdf' : 'link'}</span>
+                 						<span class="font-semibold text-white line-clamp-1">${item.title || item.url}</span>
+                 					</div>
+                 					<a href="${item.url}" target="_blank" class="text-[10px] font-label-sm uppercase tracking-widest text-[#a39f94] hover:text-[#ffe16d] transition-colors flex items-center gap-1 select-none">Open External <span class="material-symbols-outlined text-[13px]">open_in_new</span></a>
+                 				</div>
+                 				<div class="w-full relative aspect-[4/3] min-h-[500px] border border-[#373735] rounded-xl overflow-hidden bg-[#1c1c1a]">
+                 					<iframe src="${item.url}${isPDF?'#toolbar=0':''}" class="absolute top-0 left-0 w-full h-full border-0" allowfullscreen></iframe>
+                 				</div>
+                 			</div>
+                 		`;
+                 	}
+                 }
+
                 document.addEventListener('DOMContentLoaded', () => {
                         // Initial render of skills, projects, pills
                         renderSkillList();
                         renderProjects();
                         renderPills();
+
+                        // Initialize the Project Explorer on homepage with True Beacon
+                        selectShowcaseProject('true-beacon');
+
+                        // Intercept all project links to load in explorer on homepage
+                        document.querySelectorAll('a[href*="project-detail.html?id="]').forEach(link => {
+                        	link.addEventListener('click', (e) => {
+                        		const url = link.getAttribute('href');
+                        		const projId = url.split('id=')[1];
+                        		if (projId && PROJECTS_DATA[projId]) {
+                        			e.preventDefault();
+                        			if (typeof closeMenu === 'function') closeMenu();
+                        			selectShowcaseProject(projId, true);
+                        		}
+                        	});
+                        });
 
                         const overlayEl = document.getElementById('overlay');
                         if (overlayEl) {
